@@ -2,431 +2,440 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 기억하기쉬운블로그</title>
-    <link>/tags/</link>
+    <link>https://blog-rhyeu.netlify.app/tags/</link>
     <description>Recent content in Tags on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-rhyeu.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git</title>
+      <link>https://blog-rhyeu.netlify.app/tags/git/</link>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-rhyeu.netlify.app/tags/git/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>package</title>
-      <link>/tags/package/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/package/</link>
       <pubDate>Sun, 14 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/package/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/package/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>/tags/r/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/r/</link>
       <pubDate>Sun, 14 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RTOOLS</title>
-      <link>/tags/rtools/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/rtools/</link>
       <pubDate>Sun, 14 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/rtools/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/rtools/</guid>
       <description></description>
     </item>
     
     <item>
       <title>os</title>
-      <link>/tags/os/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/os/</link>
       <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/os/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/os/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>/tags/python/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/python/</link>
       <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/python/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>estimate error</title>
-      <link>/tags/estimate-error/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/estimate-error/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/estimate-error/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/estimate-error/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Phase 1</title>
-      <link>/tags/phase-1/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/phase-1/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/phase-1/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/phase-1/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Qaulity control</title>
-      <link>/tags/qaulity-control/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/qaulity-control/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/qaulity-control/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/qaulity-control/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python 2 dimensional array</title>
-      <link>/tags/python-2-dimensional-array/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/python-2-dimensional-array/</link>
       <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/python-2-dimensional-array/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/python-2-dimensional-array/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python list</title>
-      <link>/tags/python-list/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/python-list/</link>
       <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/python-list/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/python-list/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jupyter notebook</title>
-      <link>/tags/jupyter-notebook/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/jupyter-notebook/</link>
       <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/jupyter-notebook/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/jupyter-notebook/</guid>
       <description></description>
     </item>
     
     <item>
       <title>covariance</title>
-      <link>/tags/covariance/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/covariance/</link>
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/covariance/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/covariance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>multivariate</title>
-      <link>/tags/multivariate/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/multivariate/</link>
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/multivariate/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/multivariate/</guid>
       <description></description>
     </item>
     
     <item>
       <title>positive definite</title>
-      <link>/tags/positive-definite/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/positive-definite/</link>
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/positive-definite/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/positive-definite/</guid>
       <description></description>
     </item>
     
     <item>
       <title>simulation study</title>
-      <link>/tags/simulation-study/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/simulation-study/</link>
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/simulation-study/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/simulation-study/</guid>
       <description></description>
     </item>
     
     <item>
       <title>statistics</title>
-      <link>/tags/statistics/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/statistics/</link>
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/statistics/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/statistics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>BHC</title>
-      <link>/tags/bhc/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/bhc/</link>
       <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/bhc/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/bhc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>clustering</title>
-      <link>/tags/clustering/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/clustering/</link>
       <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/clustering/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/clustering/</guid>
       <description></description>
     </item>
     
     <item>
       <title>for</title>
-      <link>/tags/for/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/for/</link>
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/for/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/for/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Visualization</title>
-      <link>/tags/visualization/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/visualization/</link>
       <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/visualization/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/visualization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Broom</title>
-      <link>/tags/broom/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/broom/</link>
       <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/broom/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/broom/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Stacking</title>
-      <link>/tags/stacking/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/stacking/</link>
       <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/stacking/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/stacking/</guid>
       <description></description>
     </item>
     
     <item>
       <title>plot</title>
-      <link>/tags/plot/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/plot/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>/tags/plot/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/plot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R Markdown</title>
-      <link>/tags/r-markdown/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/r-markdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>/tags/r-markdown/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/r-markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>regression</title>
-      <link>/tags/regression/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/regression/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>/tags/regression/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/regression/</guid>
       <description></description>
     </item>
     
     <item>
       <title>disqus</title>
-      <link>/tags/disqus/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/disqus/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/disqus/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/disqus/</guid>
       <description></description>
     </item>
     
     <item>
       <title>google analytics</title>
-      <link>/tags/google-analytics/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/google-analytics/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/google-analytics/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/google-analytics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gravatar</title>
-      <link>/tags/gravatar/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/gravatar/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/gravatar/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/gravatar/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hexo theme</title>
-      <link>/tags/hexo-theme/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/hexo-theme/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/hexo-theme/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/hexo-theme/</guid>
       <description></description>
     </item>
     
     <item>
       <title>responsive</title>
-      <link>/tags/responsive/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/responsive/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/responsive/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/responsive/</guid>
       <description></description>
     </item>
     
     <item>
       <title>html elements</title>
-      <link>/tags/html-elements/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/html-elements/</link>
       <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/html-elements/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/html-elements/</guid>
       <description></description>
     </item>
     
     <item>
       <title>markdown</title>
-      <link>/tags/markdown/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/markdown/</link>
       <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/markdown/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cover image</title>
-      <link>/tags/cover-image/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/cover-image/</link>
       <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/cover-image/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/cover-image/</guid>
       <description></description>
     </item>
     
     <item>
       <title>github theme</title>
-      <link>/tags/github-theme/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/github-theme/</link>
       <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/github-theme/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/github-theme/</guid>
       <description></description>
     </item>
     
     <item>
       <title>highlight code</title>
-      <link>/tags/highlight-code/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/highlight-code/</link>
       <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/highlight-code/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/highlight-code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>test</title>
-      <link>/tags/test/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/test/</link>
       <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/test/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/test/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tag plugins</title>
-      <link>/tags/tag-plugins/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/tag-plugins/</link>
       <pubDate>Wed, 29 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/tag-plugins/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/tag-plugins/</guid>
       <description></description>
     </item>
     
     <item>
       <title>social</title>
-      <link>/tags/social/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/social/</link>
       <pubDate>Sun, 17 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/social/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/social/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tags</title>
-      <link>/tags/tags/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/tags/</link>
       <pubDate>Sat, 16 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/tags/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/tags/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pagination</title>
-      <link>/tags/pagination/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/pagination/</link>
       <pubDate>Fri, 15 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/pagination/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/pagination/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dailymotion</title>
-      <link>/tags/dailymotion/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/dailymotion/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/dailymotion/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/dailymotion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>videos integration</title>
-      <link>/tags/videos-integration/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/videos-integration/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/videos-integration/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/videos-integration/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vimeo</title>
-      <link>/tags/vimeo/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/vimeo/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/vimeo/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/vimeo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>youtube</title>
-      <link>/tags/youtube/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/youtube/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/tags/youtube/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/youtube/</guid>
       <description></description>
     </item>
     
     <item>
       <title>chinese</title>
-      <link>/tags/chinese/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/chinese/</link>
       <pubDate>Wed, 02 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>/tags/chinese/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/chinese/</guid>
       <description></description>
     </item>
     
     <item>
       <title>image gallery</title>
-      <link>/tags/image-gallery/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/image-gallery/</link>
       <pubDate>Mon, 18 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>/tags/image-gallery/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/image-gallery/</guid>
       <description></description>
     </item>
     
     <item>
       <title>japanese</title>
-      <link>/tags/japanese/</link>
+      <link>https://blog-rhyeu.netlify.app/tags/japanese/</link>
       <pubDate>Wed, 02 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>/tags/japanese/</guid>
+      <guid>https://blog-rhyeu.netlify.app/tags/japanese/</guid>
       <description></description>
     </item>
     

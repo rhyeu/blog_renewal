@@ -3,442 +3,457 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://blog-rhyeu.netlify.app/categories/</loc>
+    <lastmod>2020-10-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog-rhyeu.netlify.app/tags/git/</loc>
+    <lastmod>2020-10-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog-rhyeu.netlify.app/categories/git/</loc>
+    <lastmod>2020-10-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog-rhyeu.netlify.app/post/</loc>
+    <lastmod>2020-10-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog-rhyeu.netlify.app/tags/</loc>
+    <lastmod>2020-10-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog-rhyeu.netlify.app/2020/10/today-i-learn.en-us/</loc>
+    <lastmod>2020-10-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog-rhyeu.netlify.app/categories/today-i-learn/</loc>
+    <lastmod>2020-10-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog-rhyeu.netlify.app/</loc>
+    <lastmod>2020-10-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog-rhyeu.netlify.app/tags/package/</loc>
     <lastmod>2020-06-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/package/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/r/</loc>
     <lastmod>2020-06-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2020/06/r-%EB%B2%84%EC%A0%84-%EB%B0%94%EB%80%94-%EB%95%8C%EB%A7%88%EB%8B%A4-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</loc>
     <lastmod>2020-06-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/rtools/</loc>
     <lastmod>2020-06-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2020/06/r-%EB%B2%84%EC%A0%84-%EB%B0%94%EB%80%94-%EB%95%8C%EB%A7%88%EB%8B%A4-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2020/06/rtools-path-%EC%B6%94%EA%B0%80/</loc>
     <lastmod>2020-06-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/rtools/</loc>
-    <lastmod>2020-06-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2020/06/rtools-path-%EC%B6%94%EA%B0%80/</loc>
-    <lastmod>2020-06-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-06-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/today-i-learn/</loc>
-    <lastmod>2020-06-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-06-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/os/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/os/</loc>
     <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2020/06/os-path-join-in-python/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2020/06/os-path-join-in-python/</loc>
     <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/python/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/python/</loc>
     <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/10/article-summary-saleh-et-al-2015/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2019/10/article-summary-saleh-et-al-2015/</loc>
     <lastmod>2019-10-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/aticle-summary/</loc>
+    <loc>https://blog-rhyeu.netlify.app/categories/aticle-summary/</loc>
     <lastmod>2019-10-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/estimate-error/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/estimate-error/</loc>
     <lastmod>2019-10-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/phase-1/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/phase-1/</loc>
     <lastmod>2019-10-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/qaulity-control/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/qaulity-control/</loc>
     <lastmod>2019-10-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/python-2-dimensional-array/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/python-2-dimensional-array/</loc>
     <lastmod>2019-10-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/python-list/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/python-list/</loc>
     <lastmod>2019-10-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/10/today-i-learn/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2019/10/today-i-learn/</loc>
     <lastmod>2019-10-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/09/today-i-learn/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2019/09/today-i-learn/</loc>
     <lastmod>2019-09-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/jupyter-notebook/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/jupyter-notebook/</loc>
     <lastmod>2019-09-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/09/today-i-learn/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2019/09/today-i-learn/</loc>
     <lastmod>2019-09-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/09/today-i-learn/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2019/09/today-i-learn/</loc>
     <lastmod>2019-09-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/covariance/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/covariance/</loc>
     <lastmod>2019-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/multivariate/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/multivariate/</loc>
     <lastmod>2019-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/positive-definite/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/positive-definite/</loc>
     <lastmod>2019-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/simulation-study/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/simulation-study/</loc>
     <lastmod>2019-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/statistics/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/statistics/</loc>
     <lastmod>2019-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/09/today-i-learn/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2019/09/today-i-learn/</loc>
     <lastmod>2019-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/bhc/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/bhc/</loc>
     <lastmod>2019-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/clustering/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/clustering/</loc>
     <lastmod>2019-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/08/today-i-learn/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2019/08/today-i-learn/</loc>
     <lastmod>2019-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/for/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/for/</loc>
     <lastmod>2019-07-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/07/today-i-learn/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2019/07/today-i-learn/</loc>
     <lastmod>2019-07-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/07/today-i-learn/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2019/07/today-i-learn/</loc>
     <lastmod>2019-07-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/06/today-i-learn/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2019/06/today-i-learn/</loc>
     <lastmod>2019-06-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/visualization/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/visualization/</loc>
     <lastmod>2019-06-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/broom/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/broom/</loc>
     <lastmod>2019-06-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/stacking/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/stacking/</loc>
     <lastmod>2019-06-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/06/today-i-learn/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2019/06/today-i-learn/</loc>
     <lastmod>2019-06-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2015/07/hello-r-markdown/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2015/07/hello-r-markdown/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/plot/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/plot/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
+    <loc>https://blog-rhyeu.netlify.app/categories/r/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/r-markdown/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/r-markdown/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/regression/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/regression/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/disqus/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/disqus/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/google-analytics/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/google-analytics/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/gravatar/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/gravatar/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/hexo-theme/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/hexo-theme/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/releases/</loc>
+    <loc>https://blog-rhyeu.netlify.app/categories/releases/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/responsive/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/responsive/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/tranquilpeak/</loc>
+    <loc>https://blog-rhyeu.netlify.app/categories/tranquilpeak/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2015/06/welcome-to-tranquilpeak-0.4.8-beta/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2015/06/welcome-to-tranquilpeak-0.4.8-beta/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/showcase/</loc>
+    <loc>https://blog-rhyeu.netlify.app/categories/showcase/</loc>
     <lastmod>2015-06-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2015/06/who-is-using-tranquilpeak-hugo-theme/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2015/06/who-is-using-tranquilpeak-hugo-theme/</loc>
     <lastmod>2015-06-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2015/05/elements-showcase/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2015/05/elements-showcase/</loc>
     <lastmod>2015-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/features/</loc>
+    <loc>https://blog-rhyeu.netlify.app/categories/features/</loc>
     <lastmod>2015-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/html-elements/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/html-elements/</loc>
     <lastmod>2015-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/markdown/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/markdown/</loc>
     <lastmod>2015-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/cover-image/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/cover-image/</loc>
     <lastmod>2015-05-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2015/05/cover-image-showcase/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2015/05/cover-image-showcase/</loc>
     <lastmod>2015-05-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/github-theme/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/github-theme/</loc>
     <lastmod>2015-03-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/highlight-code/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/highlight-code/</loc>
     <lastmod>2015-03-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2015/03/highlighted-code-showcase/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2015/03/highlighted-code-showcase/</loc>
     <lastmod>2015-03-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/test/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/test/</loc>
     <lastmod>2015-03-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/tag-plugins/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/tag-plugins/</loc>
     <lastmod>2014-10-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2014/10/tags-plugins-showcase/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2014/10/tags-plugins-showcase/</loc>
     <lastmod>2014-10-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2014/08/hidden-social-section-showcase/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2014/08/hidden-social-section-showcase/</loc>
     <lastmod>2014-08-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/social/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/social/</loc>
     <lastmod>2014-08-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2014/08/hidden-tag-section-showcase/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2014/08/hidden-tag-section-showcase/</loc>
     <lastmod>2014-08-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/tags/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/tags/</loc>
     <lastmod>2014-08-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2014/08/hidden-pagination-showcase/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2014/08/hidden-pagination-showcase/</loc>
     <lastmod>2014-08-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/pagination/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/pagination/</loc>
     <lastmod>2014-08-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/dailymotion/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/dailymotion/</loc>
     <lastmod>2014-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2014/08/video-integrations-showcase/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2014/08/video-integrations-showcase/</loc>
     <lastmod>2014-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/videos-integration/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/videos-integration/</loc>
     <lastmod>2014-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/vimeo/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/vimeo/</loc>
     <lastmod>2014-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/youtube/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/youtube/</loc>
     <lastmod>2014-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chinese/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/chinese/</loc>
     <lastmod>2013-10-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2013/10/chinese-test/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2013/10/chinese-test/</loc>
     <lastmod>2013-10-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/image-gallery/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/image-gallery/</loc>
     <lastmod>2013-02-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2013/02/image-gallery-showcase/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2013/02/image-gallery-showcase/</loc>
     <lastmod>2013-02-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/japanese/</loc>
+    <loc>https://blog-rhyeu.netlify.app/tags/japanese/</loc>
     <lastmod>2013-01-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2013/01/japanese-test/</loc>
+    <loc>https://blog-rhyeu.netlify.app/2013/01/japanese-test/</loc>
     <lastmod>2013-01-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/archives/</loc>
+    <loc>https://blog-rhyeu.netlify.app/archives/</loc>
   </url>
   
 </urlset>
