@@ -1,0 +1,20 @@
+---
+title: Rtools path 추가
+author: 류성균
+date: '2020-06-14'
+slug: rtools-path-추가
+categories:
+  - Today I learn
+tags:
+  - RTOOLS
+---
+
+### RTOOLS PATH 추가
+```
+# writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con = "~/.Renviron")
+# Sys.which("make")
+# install.packages("jsonlite", type = "source")
+
+```
+
+

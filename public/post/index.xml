@@ -6,7 +6,25 @@
     <description>Recent content in Posts on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R 버전 바뀔 때마다 패키지 업데이트</title>
+      <link>/2020/06/r-%EB%B2%84%EC%A0%84-%EB%B0%94%EB%80%94-%EB%95%8C%EB%A7%88%EB%8B%A4-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</link>
+      <pubDate>Sun, 14 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/06/r-%EB%B2%84%EC%A0%84-%EB%B0%94%EB%80%94-%EB%95%8C%EB%A7%88%EB%8B%A4-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</guid>
+      <description>reference : 출처: https://3months.tistory.com/383 [Deep Play] R 버전 업데이트 ## install.packages(&amp;quot;installr&amp;quot;) library(installr) check.for.updates.R() # R 버전 업데이트 할 필요 있는 지 확인 updateR() # R 버전 업데이트 패키지 업데이트 update.packages(checkBuilt = T) # 모든 패키지 업데이트 packageStatus() # package 업데이</description>
+    </item>
+    
+    <item>
+      <title>Rtools path 추가</title>
+      <link>/2020/06/rtools-path-%EC%B6%94%EA%B0%80/</link>
+      <pubDate>Sun, 14 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/06/rtools-path-%EC%B6%94%EA%B0%80/</guid>
+      <description>RTOOLS PATH 추가 # writeLines(&amp;#39;PATH=&amp;quot;${RTOOLS40_HOME}\\usr\\bin;${PATH}&amp;quot;&amp;#39;, con = &amp;quot;~/.Renviron&amp;quot;) # Sys.which(&amp;quot;make&amp;quot;) # install.packages(&amp;quot;jsonlite&amp;quot;, type = &amp;quot;source&amp;quot;)</description>
+    </item>
+    
     <item>
       <title>os.path.join in Python</title>
       <link>/2020/06/os-path-join-in-python/</link>

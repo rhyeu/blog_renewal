@@ -1,0 +1,29 @@
+---
+title: R 버전 바뀔 때마다 패키지 업데이트
+author: 류성균
+date: '2020-06-14'
+slug: r-버전-바뀔-때마다-패키지-업데이트
+categories:
+  - Today I learn
+tags:
+  - R
+  - package
+---
+
+
+
+<ul>
+<li>reference : 출처: <a href="https://3months.tistory.com/383" class="uri">https://3months.tistory.com/383</a> [Deep Play]</li>
+</ul>
+<div id="r-버전-업데이트" class="section level3">
+<h3>R 버전 업데이트</h3>
+<pre class="r"><code>## install.packages(&quot;installr&quot;)
+library(installr)
+check.for.updates.R() # R 버전 업데이트 할 필요 있는 지 확인
+updateR() # R 버전 업데이트</code></pre>
+</div>
+<div id="패키지-업데이트" class="section level3">
+<h3>패키지 업데이트</h3>
+<pre class="r"><code>update.packages(checkBuilt = T) # 모든 패키지 업데이트
+packageStatus() # package 업데이트 확인</code></pre>
+</div>
