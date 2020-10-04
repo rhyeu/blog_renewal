@@ -6,7 +6,16 @@
     <description>Recent content in R on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Today I Learn / R aggreagate 함수</title>
+      <link>/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</guid>
+      <description>출처 : http://blog.naver.com/PostView.nhn?blogId=coder1252&amp;amp;logNo=221294821930&amp;amp;parentCategoryNo=&amp;amp;categoryNo=6&amp;amp;viewDate=&amp;amp;isShowPopularPosts=true&amp;amp;from=search 엔간한 데이터 요약과 정리는 dplyr 동사들로 할 수 있지만, ’aggregate’를 사용하면 더 깔끔한 듯. 매번 찾아보다가 정말 잘 정리된 블로그가 있어 참고</description>
+    </item>
+    
     <item>
       <title>Today I learn - eval(parse)</title>
       <link>/2019/07/today-i-learn/</link>

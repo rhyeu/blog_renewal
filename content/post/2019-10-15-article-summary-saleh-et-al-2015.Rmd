@@ -1,0 +1,242 @@
+---
+title: Article summary - Saleh et al., 2015
+author: 류성균
+date: '2019-10-15'
+slug: article-summary-saleh-et-al-2015
+categories:
+  - Aticle Summary
+tags:
+  - Qaulity control
+  - Phase 1
+  - estimate error
+---
+
+## "The Difficulty in Designing Shewhart $\bar{X}$ and X Control Charts with Estimated Parameters(Saleh et al., 2015)"
+
+---
+
+### 1. Introduction
+
+- $\bar{X}$ Shewhart 관리도는 공정 평균을 관리하는 데에 가장 많이 사용되는 방법이다. 실무에서 공정 데이터의 모수는 알 수 없기 때문에 추정의 단계가 필요 
+  - Phase 1 - 모수 추정 단계
+    - 크기 $n$의 $m$ 개의 샘플 데이터를 통해 관리 상태에서의 모수를 추정
+  - Phase 2 - 이상 탐지
+    - 추정된 모수를 가지고 공정의 모수가 바뀌는 것을 빠르게 탐지하고자 함.  
+  - 추정 오류로 인해 Phase 2 관리도의 performance에 대해 많은 우려가 존재.(Ghosh et al., 1981 등)   
+
+&nbsp;  
+
+- **Phase 1에서 사용되는 데이터의 크기는 '공정 단계 모수를 얼마나 잘 추정할 수 있는지'에 영향을 미치고, 이는 'Phase 2 관리도의 performance와도 직결된다.'**
+    - Phase 1에서 추정된 모수가 실제 모집단의 모수라고 간주하기 때문에
+      - 전통적으로는 $m$ : 2~30 / $n$ : 4~6 정도를 사용
+    - 이정도 크기를 가지고는 $\bar{X}$ 관리도를 사용할 때  관리 상태 모수에 대한 적절한 추정을 하기 어렵다.(Quensenberry, 1993)
+      - $m = 100$ / $n = 5$
+      - $m = 400/(n-1)$ / $n > 1$  
+
+&nbsp;      
+    
+- 관리도의 performance는 run-length distribution을 통해 평가. 
+  - $ARL = E(Run-Length)$
+  - $SDRL = SD(Run-Length$
+  - 모수를 알고 있다면 ARL, SDRL은 상수
+  - But 모수를 추정하고 이에 따라 관리한계를 정했다면 ARL, SDLR은 확률변수가 된다.
+    - 관리상태의 ARL: $ARL_0$에 대해 
+      - $AARL$ = $E(ARL_0)$
+      - $SDARL$ = $SD(ARL_0)$
+        - SDRL은 개별 관측값에 대한 관리도에 쓰이는 반면, SDARL은 여러 관리도에 활용된다.    
+ 
+&nbsp;    
+  
+- practitioner-to-practitioner : 
+  - Phase 1 에서 모수를 추정할 때마다 다른 data를 사용하게 되기 때문에 추정값 또한 달라진다.
+  - 다른 모수를 가지고 관리한계를 설정하기 때문에 $ARL_0$ 값도 달라진다.
+  - Shewart $S$ and $S^2$ 관리도에 대한 연구(Mongomery, 2013 등)에서 전통적으로 사용되던 샘플 사이즈로 도출된 조건부 오경보확률은 이론적으로 구해진 값과 다르고, 이론적으로 구해진 값에 도달하기 위해서는 더 많은 데이터를 사용해야 된다고 지적.
+  - $SDARL$
+    - 오른쪽으로 치우친 분포
+    - Phase 1에서의 샘플 사이즈가 적절했는 지 평가하는 용도로 사용 가능(Jones and Steiner, 2012)
+    - $SDARL = 0$ : 모수를 알고 있다고 봐도 됨.
+    - $SDARL$가 매우 큼    
+
+&nbsp;  
+  
+- 논문의 목표 
+  
+   **To evaluate the $\bar{X}$ and X-charts while considering the practitioner-to-practitioner variability and to assess the effect of the amount of phase I data using the SDARL metric.**
+
+---
+
+### 2. Brief Background Information on Shewhart $\bar{X}$-Charts
+
+$$(X_{i1},X_{i2},\cdots,X_{in} )$$
+where $i$ : sample / $j$ : observation
+
+- 각각의 샘플은 독립적으로 추출
+
+- 샘플 내 관측치는 평균이 $\mu$이고 표준편차가 $\sigma$인 iid에서 추출
+
+- 관리상태에서의 모수를 $\mu_0$, $\sigma_0$라고 할 때, (알고있다고 가정)
+  
+  $$\bar{X}_i = \left( \sum_{j=1}^n X_{ij}  \middle / n \right) \qquad (1)$$
+  
+
+$$LCL = \mu_0 - L\frac{ \sigma_0}{\sqrt{n}} \qquad UCL = \mu_0 + L\frac{\sigma_0}{\sqrt{n}} \qquad (2)$$
+
+- The probability of a false alarm : when L = 3,
+  - $Pr(\bar{X}_i > UCL \mbox{ or } \bar{X}_i < LCL |\mu_0, \sigma_0) = 0.0027 = \alpha$
+  - $ARL_0 : 370$
+
+---
+
+### 3. Estimating the Process Parameters
+
+- A estimate for $\mu$
+$$\hat{\mu} = \bar{\bar{X}} = \frac{\sum_{i=1}^m \bar{X}_i}{m} \quad (3)$$
+where $i = 1, 2, \cdots , m$
+
+- Estimates for $\sigma_0$
+  - unbiased
+$$\hat{\sigma_1} = \frac{\bar{R}}{d_2(n)}, \quad \hat{\sigma_2} = \frac{\bar{S}}{C_4(n)}, \quad \hat{\sigma_3} = \frac{S_{pooled}}{C_4(\nu+1)}, \qquad (4) $$
+where $\bar{R} = (\sum_{i=1}^m R_i) / m, \, \bar{S} = (\sum_{i=1}^m S_i) / m, \,$
+$S_{pooled} = ((\sum_{i=1}^m S_i^2) / m)^{1/2}, \, v = m(n-1)$
+
+  - biased
+$$\hat{\sigma_4} = c_4(\nu + 1) S_{pooled} \quad \&  \quad \hat{ \sigma_5} =  S_{pooled} \qquad (5)$$
+
+ - 논의 - 다섯 개 모두 큰 차이는 없음.
+  - $\hat{\sigma_1}$는 relative efficiency 관점에서 좋지 않음 + 이상치에 영향
+  - $S_{pooled}$ 기반 추정치는 효율이 좋지만, 복잡해서 편의성은 좋지 않음.
+  - $\hat{\sigma}_4$는 MSE가 가장 작음.
+  
+---
+
+### 4. $\bar{X}$ Control Chart Performance Assessment
+
+- 관리도의 성능을 평가하기 위해 $AARL$를 사용하지만, Phase 1에 사용하는 데이터에 따라 $AARL_0$은 달라질 수 있음.  
+  
+- 따라서, 적절한 크기의 샘플이 사용되었는지 알기 위해 $SDARL$을 활용할 수 있음.  
+  - $SDARL$이 작으면 작을 수록, 적절한 크기의 샘플이 Phase 1에 사용,
+  - Phase 1의 결과를 신뢰할 만함.  
+ 
+&nbsp; 
+
+- **논문 목표 : Phase 1에 어느 정도의 크기의 샘플이 활용되어야 AARL은 이상적인 수치와 가까워지고, SDARL도 작아질까?**  
+  - Zhang et al.(2016)은 $SDARL$이 목표로 하는 관리상태 $ARL$의 10% 이내가 되어야 한다고 봄.
+  - **논문의 결과 : 위의 목표는 달성하기 어렵다.**  
+
+&nbsp;   
+  
+- 실험 설계
+  - 추정 평균 : $\bar{\bar{X}}$
+  - 추정 표본분산 : (4) & (5)
+  - $m$ : 20~5000
+  - $n$ : 5
+  - $L = 3$ / $ARL_0 = 370$  
+  
+  
+  
+  ![](https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_table1.PNG){ width=80% }
+
+
+- 적어도 $m = 100$은 되어야.  
+- 다른 $\hat{\sigma}$들에 비해, $\hat{\sigma_4}$가 돋보임.
+- m이 커지면 커질 수록 이상값에 수렴하고 추정치간의 차이도 줄어듦.  
+
+ ![](https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_table2.PNG){ width=80% }
+ 
+- $m = 100$일 때도, $SDARL$는 아직 큼.  
+- Zhang et al.(2016)의 기준을 따르려면 $m$이 1200은 되어야.  
+- 현실적으로 이상적인 값에 도달할 수 없음
+  1. Phase 1에서 m = 100 ~ 1200을 사용하기엔 현실적으로 어렵
+  1. Phase 1에서 현실적인 크기의 표본크기를 사용할 경우 정확하지 않음.
+
+ ![](https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_figure1.PNG){ width=60% } 
+
+- $ARL_0$의 변동이 매우 큼  
+
+  ![](https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_figure2.PNG){ width=60% } 
+
+![](https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_figure3.PNG){ width=60% } 
+
+- $\hat{\sigma}$가 $\hat{\mu}$보다 $ARL$을 추정하는 데 더 영향을 많이 미침.(Figure 2,3)  
+
+
+![](https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_figure4.PNG){ width=60% } 
+
+
+![](https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_figure5.PNG){ width=60% } 
+
+- $m=50$, $m=100$이 되어도 $ARL_0$ 변동이 매우 큰 것을 확인  
+
+
+![](https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_table3_1.PNG){ width=80% }
+
+ 
+![](https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_table3_2.PNG){ width=80% } 
+
+ - 목표로 하는 $ARL_0$이 커질수록 $SDARL$가 $ARL_0$의 10%가 되게 하는 $m$의 값도 커짐.  
+ - 다시말해, $ARL_0$의 값이 커질수록 안정적인 추정값을 확보하기 위한 샘플 사이즈도 커짐.  
+
+![](https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_figure6.PNG){ width=80% }
+
+- Quesenberry(1993) & Jones et al.(2001)
+  - **??** ARL의 경험적 비조건부 분포에 대해 추정된 모수와 알고 있는 모수 간 분포의 차이가 있는 지 연구(일반적인 샘플 사이즈 사용)
+    (Quesenberry (1993) and Jones et al. (2001) also based their sample-size recommendations on how closely the in-control empirical unconditional distribution function of the run length of the chart with estimated parameters matched that of the chart with known parameters.)
+    
+  - **??** 처음 20번째 이내의 샘플에서 나올 확률의 평균 - '추정해야할 경우'가 '이미 모수를 알고있을 때'의 10% 이내가 되도록
+    (They required that the average probability of a false alarm within the first 20 samples
+be within 10% of the false-alarm rate assuming known parameters.)
+  
+  
+  - Practitioner마다 사용하는 분포가 다르기 때문에 경험적 cdf가 달라짐 -> 20번째 샘플 이내에서 오경보가 나올 확률도 달라짐.
+
+---
+
+### 5. Design of the X-Chart
+
+- 샘플 수가 1일 때의 관리도
+  - $\hat{\mu}$
+$$\bar{X} = \frac{ \sum_{i=1}^m  X_i}{m}$$
+where $ i = 1,2, \cdots , m$
+
+  - $\hat{\sigma}$
+  
+  $$\hat{\sigma}_0 = \frac{\bar{MR}}{1.128}$$
+  where $\bar{MR} = (\sum_{i=2}^m MR_i) / (m-1)$ & $MR_i = |X_i - X_{i-1}|$
+
+
+![](https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_table4.PNG){ width=60% }
+
+- Quensenberry(1993)은 모수를 알고 있다고 가정했을 떄, 3$\sigma$ 한계의 $X$-chart는 $m=300$을 추천.
+  - $m$이 수천 단위는 되어야 결과를 신뢰할 수 있음.
+  
+---
+
+### 6. Concluding Remarks
+
+- 본 논문에서는 $SDARL$을 평가지표로 사용하여 추정된 모수를 활용한 $\bar{X}$ 관리도와 $X$ 관리도를 평가했다.
+  - 다양한 $\hat{\sigma}$들 중 $\hat{\sigma}_4$가 가장 좋은 결과를 보임.  
+
+- $\bar{X}$ 관리도 
+  - 추정된 모수를 활용한 관리도의 성능이 이상적인 관리도 차트와 비슷하기 위해서는 비현실적으로 많은 샘플이 모수 추정에 활용되어야 한다.
+  - 이런 경향은 EWMA 관리도와 CUSUM 관리도에서 더 강하게 나타남.
+  - 이러한 경향의 원인은 실제로는 알고 있다고 가정한 모수들이 실제로는 오류를 가지고 있는 추정값이기 때문  
+
+- 다양한 다른 방법들
+  - Jones and Steiner(2012), Gandy and Kvaloy(2013)
+    - **??** $ARL_0$이 특정값의 특정 확률보다 크도록 하는 관리한계를 설정할 것을 제안?
+  (They recommended a method for determining control limits such that the ARL0 is greater than a specified value with a specified probability.)
+    - 이렇게 하면 추정된 모수를 사용하기 때문에 발생할 수 있는 낮은 $ARL_0$을 방지할 수 있게 함.  
+  
+  - The Bootstrap method
+    - **??** 모수를 알고 있다고 가정했을 때와 추정된 모수를 사용하여 ARL 차트를 비교하는 것보다 설계 기준에 따라 설계된 차트 끼리 비교하는게 더 유용함.  
+      
+  - Outliers의 영향
+    - Outliers의 영향을 줄이기 위해 단순 평균을 하기보단 pooled variance를 활용하는 것이 좋음.
+    - Range based 방법보다 pooled based 방법을 이용한 추정이 efficient, 특히 $\hat{\sigma}_4$  
+  
+  - Self-starting control chart (Pignatiello, 2001 등)
+    - 처음에는 작은 크기의 샘플로 관리한계를 설정하고 이상을 탐색
+    - 반복을 통해 관리상태인 샘플은 관리한계를 설정하는 데에 활용 (효율적!)
+    - 단점 : 점진적인 공정 모수 변화를 탐지하지 못할 수 도..
+  
+---

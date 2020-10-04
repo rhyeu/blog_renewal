@@ -4,12 +4,77 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/os/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/06/os-path-join-in-python/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/python/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/today-i-learn/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</loc>
+    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/10/article-summary-saleh-et-al-2015/</loc>
+    <lastmod>2019-10-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/aticle-summary/</loc>
+    <lastmod>2019-10-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/estimate-error/</loc>
+    <lastmod>2019-10-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/phase-1/</loc>
+    <lastmod>2019-10-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/qaulity-control/</loc>
+    <lastmod>2019-10-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -23,28 +88,8 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/today-i-learn/</loc>
-    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/2019/10/today-i-learn/</loc>
     <lastmod>2019-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/python/</loc>
-    <lastmod>2019-09-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -114,11 +159,6 @@
   
   <url>
     <loc>/tags/for/</loc>
-    <lastmod>2019-07-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r/</loc>
     <lastmod>2019-07-30T00:00:00+00:00</lastmod>
   </url>
   

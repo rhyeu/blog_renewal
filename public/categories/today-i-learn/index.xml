@@ -6,7 +6,25 @@
     <description>Recent content in Today I learn on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="/categories/today-i-learn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/today-i-learn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>os.path.join in Python</title>
+      <link>/2020/06/os-path-join-in-python/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/06/os-path-join-in-python/</guid>
+      <description>os.path.join : 파일 경로의 폴더명, 파일명을 인자로 받아 정상적인 파일 경로를 출력해줌 ## install.packages(&amp;quot;reticulate&amp;quot;) library(reticulate) # import os # for dirname, _, filenames in os.walk(&amp;#39;/kaggle/input&amp;#39;): # for filename in filenames: # print(os.path.join(dirname, filename)) ## Any results you write to the current directory are saved as output. 예시</description>
+    </item>
+    
+    <item>
+      <title>Today I Learn / R aggreagate 함수</title>
+      <link>/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</guid>
+      <description>출처 : http://blog.naver.com/PostView.nhn?blogId=coder1252&amp;amp;logNo=221294821930&amp;amp;parentCategoryNo=&amp;amp;categoryNo=6&amp;amp;viewDate=&amp;amp;isShowPopularPosts=true&amp;amp;from=search 엔간한 데이터 요약과 정리는 dplyr 동사들로 할 수 있지만, ’aggregate’를 사용하면 더 깔끔한 듯. 매번 찾아보다가 정말 잘 정리된 블로그가 있어 참고</description>
+    </item>
+    
     <item>
       <title>Today I Learn / list 중복 없애기, 2차원 행렬</title>
       <link>/2019/10/today-i-learn/</link>

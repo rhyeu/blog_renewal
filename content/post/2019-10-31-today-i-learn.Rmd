@@ -1,0 +1,124 @@
+---
+title: 'Today I Learn / R aggreagate 함수'
+author: 류성균
+date: '2019-10-31'
+slug: today-i-learn / R aggreagate 함수
+categories:
+  - Today I learn
+tags:
+  - R
+---
+
+- 출처 : http://blog.naver.com/PostView.nhn?blogId=coder1252&logNo=221294821930&parentCategoryNo=&categoryNo=6&viewDate=&isShowPopularPosts=true&from=search
+
+---
+
+엔간한 데이터 요약과 정리는 dplyr 동사들로 할 수 있지만, 'aggregate'를 사용하면 더 깔끔한 듯. 매번 찾아보다가 정말 잘 정리된 블로그가 있어 참고해서 정리해본다. 패키지나 함수 정리는 이런 식으로 하면 될듯!
+
+### 1. 기본 형태
+aggregate는 데이터의 특정 컬럼을 기준으로 통계량을 구해주는 함수
+
+```
+### dataframe
+aggregate(x, by, FUN)
+### formula
+aggregate(formula, data, FUN)
+```
+
+### 2. 사용방법
+
+#### 2.1. 한 컬럼을 기준으로 통계량 구하기
+```{r}
+library(tidyverse, quietly = T)
+```
+
+
+```{r}
+### cyl 칼럼을 기준으로 나머지 칼럼의 평균 구하기
+mtcars %>% aggregate(by = list(cylStandard = mtcars$cyl), mean)
+```
+
+
+#### 2.2. 2개 이상의 조건을 기준으로 나머지 컬럼의 평균 구하기
+```{r}
+mtcars %>% aggregate(by = list(cylStandard = mtcars$cyl,
+                               dispHigh = mtcars[,'disp']>120), mean)
+```
+
+### 2. formula 사용
+```
+aggregate('함수를 적용하고자 하는 컬럼'~'기준이 되는 컬럼', data, FUN)
+```
+
+#### 2.1. one to one 대응
+- formula 꼴에서는 '%>%'을 사용하지 못하는 듯
+```{r}
+aggregate(wt~cyl, data = mtcars, mean)
+```
+
+- formala의 경우 dplyr 동사들로도 만들 수 있긴하다.
+```{r}
+mtcars %>% group_by(cyl) %>% summarize(wt = mean(wt))
+```
+
+
+#### 2.2. one to many 대응
+- 'lm'함수와 비슷하게 사용하면 된다.
+```{r}
+### 'carb', 'gear' 컬럼 두 가지를 기준으로 wt의 평균 구하기
+aggregate(wt~carb+gear, mtcars, mean)
+```
+
+- dplyr 버전
+```{r}
+mtcars %>% group_by(carb, gear) %>% summarize(wt = mean(wt))
+```
+
+
+#### 2.3. many to one 대응
+```{r}
+### gear를 기준으로 disp, wt 평균 구하기
+aggregate(cbind(disp, wt)~gear, mtcars, mean)
+```
+
+- dplyr 버전
+```{r}
+mtcars %>% group_by(gear) %>% 
+  summarize(disp = mean(disp),
+            wt = mean(wt))
+```
+
+
+#### 2.4. many to many 대응
+```{r}
+### carb, gear를 기준으로 disp, wt의 평균값 구하기
+aggregate(cbind(disp, wt)~carb+gear, mtcars, mean)
+```
+
+- dplyr 버전
+```{r}
+mtcars %>% group_by(carb, gear) %>% 
+  summarize(disp = mean(disp),
+            wt = mean(wt))
+```
+
+
+### 3. '.' 사용
+- 모든 컬럼 선택 - 이것도 'lm'에서 쓰는 formula 형태
+```{r}
+data(sleep)
+```
+
+
+#### 3.1. 함수를 적용할 컬럼에 사용
+```{r}
+### group을 기준으로 다른 모든 컬럼의 평균값 구하기
+
+aggregate(.~group, sleep, FUN =  mean)
+```
+
+#### 3.2. 기준이 되는 컬럼에 사용
+```{r}
+aggregate(extra ~. , sleep, mean)
+```
+

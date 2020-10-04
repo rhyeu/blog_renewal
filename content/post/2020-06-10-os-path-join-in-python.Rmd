@@ -1,0 +1,33 @@
+---
+title: os.path.join in Python
+author: 류성균
+date: '2020-06-10'
+slug: os-path-join-in-python
+categories:
+  - Today I learn
+tags:
+  - python
+  - os
+---
+
+### os.path.join : 
+- 파일 경로의 폴더명, 파일명을 인자로 받아 정상적인 파일 경로를 출력해줌
+
+```{r}
+## install.packages("reticulate")
+library(reticulate)
+```
+
+```{python}
+# import os
+#     for dirname, _, filenames in os.walk('/kaggle/input'): 
+#         for filename in filenames: 
+#             print(os.path.join(dirname, filename))
+## Any results you write to the current directory are saved as output.
+```
+
+### 예시
+```
+
+```
+

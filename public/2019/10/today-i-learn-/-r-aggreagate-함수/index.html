@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="류성균">
+<meta name="keywords" content="">
+<meta name="description" content="출처 : http://blog.naver.com/PostView.nhn?blogId=coder1252&amp;logNo=221294821930&amp;parentCategoryNo=&amp;categoryNo=6&amp;viewDate=&amp;isShowPopularPosts=true&amp;from=search 엔간한 데이터 요약과 정리는 dplyr 동사들로 할 수 있지만, ’aggregate’를 사용하면 더 깔끔한 듯. 매번 찾아보다가 정말 잘 정리된 블로그가 있어 참고">
+
+
+<meta property="og:description" content="출처 : http://blog.naver.com/PostView.nhn?blogId=coder1252&amp;logNo=221294821930&amp;parentCategoryNo=&amp;categoryNo=6&amp;viewDate=&amp;isShowPopularPosts=true&amp;from=search 엔간한 데이터 요약과 정리는 dplyr 동사들로 할 수 있지만, ’aggregate’를 사용하면 더 깔끔한 듯. 매번 찾아보다가 정말 잘 정리된 블로그가 있어 참고">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Today I Learn / R aggreagate 함수">
+<meta name="twitter:title" content="Today I Learn / R aggreagate 함수">
+<meta property="og:url" content="/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/">
+<meta property="twitter:url" content="/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/">
+<meta property="og:site_name" content="기억하기쉬운블로그">
+<meta property="og:description" content="출처 : http://blog.naver.com/PostView.nhn?blogId=coder1252&amp;logNo=221294821930&amp;parentCategoryNo=&amp;categoryNo=6&amp;viewDate=&amp;isShowPopularPosts=true&amp;from=search 엔간한 데이터 요약과 정리는 dplyr 동사들로 할 수 있지만, ’aggregate’를 사용하면 더 깔끔한 듯. 매번 찾아보다가 정말 잘 정리된 블로그가 있어 참고">
+<meta name="twitter:description" content="출처 : http://blog.naver.com/PostView.nhn?blogId=coder1252&amp;logNo=221294821930&amp;parentCategoryNo=&amp;categoryNo=6&amp;viewDate=&amp;isShowPopularPosts=true&amp;from=search 엔간한 데이터 요약과 정리는 dplyr 동사들로 할 수 있지만, ’aggregate’를 사용하면 더 깔끔한 듯. 매번 찾아보다가 정말 잘 정리된 블로그가 있어 참고">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2019-10-31T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2019-10-31T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="Today I learn">
+    
+  
+  
+    
+      <meta property="article:tag" content="R">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
+
+
+    <title>Today I Learn / R aggreagate 함수</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">기억하기쉬운블로그</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">류성균</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/kakawait">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Today I Learn / R aggreagate 함수
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2019-10-31T00:00:00Z">
+        
+  October 31, 2019
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/today-i-learn">Today I learn</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+
+<ul>
+<li>출처 : <a href="http://blog.naver.com/PostView.nhn?blogId=coder1252&amp;logNo=221294821930&amp;parentCategoryNo=&amp;categoryNo=6&amp;viewDate=&amp;isShowPopularPosts=true&amp;from=search" class="uri">http://blog.naver.com/PostView.nhn?blogId=coder1252&amp;logNo=221294821930&amp;parentCategoryNo=&amp;categoryNo=6&amp;viewDate=&amp;isShowPopularPosts=true&amp;from=search</a></li>
+</ul>
+<hr />
+<p>엔간한 데이터 요약과 정리는 dplyr 동사들로 할 수 있지만, ’aggregate’를 사용하면 더 깔끔한 듯. 매번 찾아보다가 정말 잘 정리된 블로그가 있어 참고해서 정리해본다. 패키지나 함수 정리는 이런 식으로 하면 될듯!</p>
+<div id="기본-형태" class="section level3">
+<h3>1. 기본 형태</h3>
+<p>aggregate는 데이터의 특정 컬럼을 기준으로 통계량을 구해주는 함수</p>
+<pre><code>### dataframe
+aggregate(x, by, FUN)
+### formula
+aggregate(formula, data, FUN)</code></pre>
+</div>
+<div id="사용방법" class="section level3">
+<h3>2. 사용방법</h3>
+<div id="한-컬럼을-기준으로-통계량-구하기" class="section level4">
+<h4>2.1. 한 컬럼을 기준으로 통계량 구하기</h4>
+<pre class="r"><code>library(tidyverse, quietly = T)</code></pre>
+<pre><code>## -- Attaching packages ------------------------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## √ ggplot2 3.3.2     √ purrr   0.3.4
+## √ tibble  3.0.3     √ dplyr   1.0.2
+## √ tidyr   1.1.2     √ stringr 1.4.0
+## √ readr   1.3.1     √ forcats 0.5.0</code></pre>
+<pre><code>## -- Conflicts ---------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>### cyl 칼럼을 기준으로 나머지 칼럼의 평균 구하기
+mtcars %&gt;% aggregate(by = list(cylStandard = mtcars$cyl), mean)</code></pre>
+<pre><code>##   cylStandard      mpg cyl     disp        hp     drat       wt     qsec
+## 1           4 26.66364   4 105.1364  82.63636 4.070909 2.285727 19.13727
+## 2           6 19.74286   6 183.3143 122.28571 3.585714 3.117143 17.97714
+## 3           8 15.10000   8 353.1000 209.21429 3.229286 3.999214 16.77214
+##          vs        am     gear     carb
+## 1 0.9090909 0.7272727 4.090909 1.545455
+## 2 0.5714286 0.4285714 3.857143 3.428571
+## 3 0.0000000 0.1428571 3.285714 3.500000</code></pre>
+</div>
+<div id="개-이상의-조건을-기준으로-나머지-컬럼의-평균-구하기" class="section level4">
+<h4>2.2. 2개 이상의 조건을 기준으로 나머지 컬럼의 평균 구하기</h4>
+<pre class="r"><code>mtcars %&gt;% aggregate(by = list(cylStandard = mtcars$cyl,
+                               dispHigh = mtcars[,&#39;disp&#39;]&gt;120), mean)</code></pre>
+<pre><code>##   cylStandard dispHigh      mpg cyl     disp        hp     drat       wt
+## 1           4    FALSE 29.53333   4  84.6000  75.83333 4.155000 1.903000
+## 2           4     TRUE 23.22000   4 129.7800  90.80000 3.970000 2.745000
+## 3           6     TRUE 19.74286   6 183.3143 122.28571 3.585714 3.117143
+## 4           8     TRUE 15.10000   8 353.1000 209.21429 3.229286 3.999214
+##       qsec        vs        am     gear     carb
+## 1 18.71667 1.0000000 1.0000000 4.166667 1.333333
+## 2 19.64200 0.8000000 0.4000000 4.000000 1.800000
+## 3 17.97714 0.5714286 0.4285714 3.857143 3.428571
+## 4 16.77214 0.0000000 0.1428571 3.285714 3.500000</code></pre>
+</div>
+</div>
+<div id="formula-사용" class="section level3">
+<h3>2. formula 사용</h3>
+<pre><code>aggregate(&#39;함수를 적용하고자 하는 컬럼&#39;~&#39;기준이 되는 컬럼&#39;, data, FUN)</code></pre>
+<div id="one-to-one-대응" class="section level4">
+<h4>2.1. one to one 대응</h4>
+<ul>
+<li>formula 꼴에서는 ’%&gt;%’을 사용하지 못하는 듯</li>
+</ul>
+<pre class="r"><code>aggregate(wt~cyl, data = mtcars, mean)</code></pre>
+<pre><code>##   cyl       wt
+## 1   4 2.285727
+## 2   6 3.117143
+## 3   8 3.999214</code></pre>
+<ul>
+<li>formala의 경우 dplyr 동사들로도 만들 수 있긴하다.</li>
+</ul>
+<pre class="r"><code>mtcars %&gt;% group_by(cyl) %&gt;% summarize(wt = mean(wt))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 3 x 2
+##     cyl    wt
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1     4  2.29
+## 2     6  3.12
+## 3     8  4.00</code></pre>
+</div>
+<div id="one-to-many-대응" class="section level4">
+<h4>2.2. one to many 대응</h4>
+<ul>
+<li>’lm’함수와 비슷하게 사용하면 된다.</li>
+</ul>
+<pre class="r"><code>### &#39;carb&#39;, &#39;gear&#39; 컬럼 두 가지를 기준으로 wt의 평균 구하기
+aggregate(wt~carb+gear, mtcars, mean)</code></pre>
+<pre><code>##    carb gear       wt
+## 1     1    3 3.046667
+## 2     2    3 3.560000
+## 3     3    3 3.860000
+## 4     4    3 4.685800
+## 5     1    4 2.072500
+## 6     2    4 2.683750
+## 7     4    4 3.093750
+## 8     2    5 1.826500
+## 9     4    5 3.170000
+## 10    6    5 2.770000
+## 11    8    5 3.570000</code></pre>
+<ul>
+<li>dplyr 버전</li>
+</ul>
+<pre class="r"><code>mtcars %&gt;% group_by(carb, gear) %&gt;% summarize(wt = mean(wt))</code></pre>
+<pre><code>## `summarise()` regrouping output by &#39;carb&#39; (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 11 x 3
+## # Groups:   carb [6]
+##     carb  gear    wt
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1     3  3.05
+##  2     1     4  2.07
+##  3     2     3  3.56
+##  4     2     4  2.68
+##  5     2     5  1.83
+##  6     3     3  3.86
+##  7     4     3  4.69
+##  8     4     4  3.09
+##  9     4     5  3.17
+## 10     6     5  2.77
+## 11     8     5  3.57</code></pre>
+</div>
+<div id="many-to-one-대응" class="section level4">
+<h4>2.3. many to one 대응</h4>
+<pre class="r"><code>### gear를 기준으로 disp, wt 평균 구하기
+aggregate(cbind(disp, wt)~gear, mtcars, mean)</code></pre>
+<pre><code>##   gear     disp       wt
+## 1    3 326.3000 3.892600
+## 2    4 123.0167 2.616667
+## 3    5 202.4800 2.632600</code></pre>
+<ul>
+<li>dplyr 버전</li>
+</ul>
+<pre class="r"><code>mtcars %&gt;% group_by(gear) %&gt;% 
+  summarize(disp = mean(disp),
+            wt = mean(wt))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##    gear  disp    wt
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     3  326.  3.89
+## 2     4  123.  2.62
+## 3     5  202.  2.63</code></pre>
+</div>
+<div id="many-to-many-대응" class="section level4">
+<h4>2.4. many to many 대응</h4>
+<pre class="r"><code>### carb, gear를 기준으로 disp, wt의 평균값 구하기
+aggregate(cbind(disp, wt)~carb+gear, mtcars, mean)</code></pre>
+<pre><code>##    carb gear     disp       wt
+## 1     1    3 201.0333 3.046667
+## 2     2    3 345.5000 3.560000
+## 3     3    3 275.8000 3.860000
+## 4     4    3 416.4000 4.685800
+## 5     1    4  84.2000 2.072500
+## 6     2    4 121.0500 2.683750
+## 7     4    4 163.8000 3.093750
+## 8     2    5 107.7000 1.826500
+## 9     4    5 351.0000 3.170000
+## 10    6    5 145.0000 2.770000
+## 11    8    5 301.0000 3.570000</code></pre>
+<ul>
+<li>dplyr 버전</li>
+</ul>
+<pre class="r"><code>mtcars %&gt;% group_by(carb, gear) %&gt;% 
+  summarize(disp = mean(disp),
+            wt = mean(wt))</code></pre>
+<pre><code>## `summarise()` regrouping output by &#39;carb&#39; (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 11 x 4
+## # Groups:   carb [6]
+##     carb  gear  disp    wt
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1     3 201.   3.05
+##  2     1     4  84.2  2.07
+##  3     2     3 346.   3.56
+##  4     2     4 121.   2.68
+##  5     2     5 108.   1.83
+##  6     3     3 276.   3.86
+##  7     4     3 416.   4.69
+##  8     4     4 164.   3.09
+##  9     4     5 351    3.17
+## 10     6     5 145    2.77
+## 11     8     5 301    3.57</code></pre>
+</div>
+</div>
+<div id="사용" class="section level3">
+<h3>3. ‘.’ 사용</h3>
+<ul>
+<li>모든 컬럼 선택 - 이것도 ’lm’에서 쓰는 formula 형태</li>
+</ul>
+<pre class="r"><code>data(sleep)</code></pre>
+<div id="함수를-적용할-컬럼에-사용" class="section level4">
+<h4>3.1. 함수를 적용할 컬럼에 사용</h4>
+<pre class="r"><code>### group을 기준으로 다른 모든 컬럼의 평균값 구하기
+
+aggregate(.~group, sleep, FUN =  mean)</code></pre>
+<pre><code>##   group extra  ID
+## 1     1  0.75 5.5
+## 2     2  2.33 5.5</code></pre>
+</div>
+<div id="기준이-되는-컬럼에-사용" class="section level4">
+<h4>3.2. 기준이 되는 컬럼에 사용</h4>
+<pre class="r"><code>aggregate(extra ~. , sleep, mean)</code></pre>
+<pre><code>##    group ID extra
+## 1      1  1   0.7
+## 2      2  1   1.9
+## 3      1  2  -1.6
+## 4      2  2   0.8
+## 5      1  3  -0.2
+## 6      2  3   1.1
+## 7      1  4  -1.2
+## 8      2  4   0.1
+## 9      1  5  -0.1
+## 10     2  5  -0.1
+## 11     1  6   3.4
+## 12     2  6   4.4
+## 13     1  7   3.7
+## 14     2  7   5.5
+## 15     1  8   0.8
+## 16     2  8   1.6
+## 17     1  9   0.0
+## 18     2  9   4.6
+## 19     1 10   2.0
+## 20     2 10   3.4</code></pre>
+</div>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/r/">R</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/06/os-path-join-in-python/" data-tooltip="os.path.join in Python">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/10/article-summary-saleh-et-al-2015/" data-tooltip="Article summary - Saleh et al., 2015">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 류성균. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/06/os-path-join-in-python/" data-tooltip="os.path.join in Python">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/10/article-summary-saleh-et-al-2015/" data-tooltip="Article summary - Saleh et al., 2015">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2019%2F10%2Ftoday-i-learn-%2F-r-aggreagate-%25ED%2595%25A8%25EC%2588%2598%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">류성균</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        데이터 분석가
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Seoul
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/2019\/10\/today-i-learn-\/-r-aggreagate-%ED%95%A8%EC%88%98\/';
+          
+            this.page.identifier = '\/2019\/10\/today-i-learn-\/-r-aggreagate-%ED%95%A8%EC%88%98\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'rhyeu';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

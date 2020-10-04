@@ -1,0 +1,279 @@
+---
+title: Article summary - Saleh et al., 2015
+author: 류성균
+date: '2019-10-15'
+slug: article-summary-saleh-et-al-2015
+categories:
+  - Aticle Summary
+tags:
+  - Qaulity control
+  - Phase 1
+  - estimate error
+---
+
+
+
+<div id="the-difficulty-in-designing-shewhart-barx-and-x-control-charts-with-estimated-parameterssaleh-et-al.-2015" class="section level2">
+<h2>“The Difficulty in Designing Shewhart <span class="math inline">\(\bar{X}\)</span> and X Control Charts with Estimated Parameters(Saleh et al., 2015)”</h2>
+<hr />
+<div id="introduction" class="section level3">
+<h3>1. Introduction</h3>
+<ul>
+<li><span class="math inline">\(\bar{X}\)</span> Shewhart 관리도는 공정 평균을 관리하는 데에 가장 많이 사용되는 방법이다. 실무에서 공정 데이터의 모수는 알 수 없기 때문에 추정의 단계가 필요
+<ul>
+<li>Phase 1 - 모수 추정 단계
+<ul>
+<li>크기 <span class="math inline">\(n\)</span>의 <span class="math inline">\(m\)</span> 개의 샘플 데이터를 통해 관리 상태에서의 모수를 추정</li>
+</ul></li>
+<li>Phase 2 - 이상 탐지
+<ul>
+<li>추정된 모수를 가지고 공정의 모수가 바뀌는 것을 빠르게 탐지하고자 함.<br />
+</li>
+</ul></li>
+<li>추정 오류로 인해 Phase 2 관리도의 performance에 대해 많은 우려가 존재.(Ghosh et al., 1981 등)</li>
+</ul></li>
+</ul>
+<p> </p>
+<ul>
+<li><strong>Phase 1에서 사용되는 데이터의 크기는 ‘공정 단계 모수를 얼마나 잘 추정할 수 있는지’에 영향을 미치고, 이는 ’Phase 2 관리도의 performance와도 직결된다.’</strong>
+<ul>
+<li>Phase 1에서 추정된 모수가 실제 모집단의 모수라고 간주하기 때문에
+<ul>
+<li>전통적으로는 <span class="math inline">\(m\)</span> : 2~30 / <span class="math inline">\(n\)</span> : 4~6 정도를 사용</li>
+</ul></li>
+<li>이정도 크기를 가지고는 <span class="math inline">\(\bar{X}\)</span> 관리도를 사용할 때 관리 상태 모수에 대한 적절한 추정을 하기 어렵다.(Quensenberry, 1993)
+<ul>
+<li><span class="math inline">\(m = 100\)</span> / <span class="math inline">\(n = 5\)</span></li>
+<li><span class="math inline">\(m = 400/(n-1)\)</span> / <span class="math inline">\(n &gt; 1\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<p> </p>
+<ul>
+<li>관리도의 performance는 run-length distribution을 통해 평가.
+<ul>
+<li><span class="math inline">\(ARL = E(Run-Length)\)</span></li>
+<li><span class="math inline">\(SDRL = SD(Run-Length\)</span></li>
+<li>모수를 알고 있다면 ARL, SDRL은 상수</li>
+<li>But 모수를 추정하고 이에 따라 관리한계를 정했다면 ARL, SDLR은 확률변수가 된다.
+<ul>
+<li>관리상태의 ARL: <span class="math inline">\(ARL_0\)</span>에 대해
+<ul>
+<li><span class="math inline">\(AARL\)</span> = <span class="math inline">\(E(ARL_0)\)</span></li>
+<li><span class="math inline">\(SDARL\)</span> = <span class="math inline">\(SD(ARL_0)\)</span>
+<ul>
+<li>SDRL은 개별 관측값에 대한 관리도에 쓰이는 반면, SDARL은 여러 관리도에 활용된다.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p> </p>
+<ul>
+<li>practitioner-to-practitioner :
+<ul>
+<li>Phase 1 에서 모수를 추정할 때마다 다른 data를 사용하게 되기 때문에 추정값 또한 달라진다.</li>
+<li>다른 모수를 가지고 관리한계를 설정하기 때문에 <span class="math inline">\(ARL_0\)</span> 값도 달라진다.</li>
+<li>Shewart <span class="math inline">\(S\)</span> and <span class="math inline">\(S^2\)</span> 관리도에 대한 연구(Mongomery, 2013 등)에서 전통적으로 사용되던 샘플 사이즈로 도출된 조건부 오경보확률은 이론적으로 구해진 값과 다르고, 이론적으로 구해진 값에 도달하기 위해서는 더 많은 데이터를 사용해야 된다고 지적.</li>
+<li><span class="math inline">\(SDARL\)</span>
+<ul>
+<li>오른쪽으로 치우친 분포</li>
+<li>Phase 1에서의 샘플 사이즈가 적절했는 지 평가하는 용도로 사용 가능(Jones and Steiner, 2012)</li>
+<li><span class="math inline">\(SDARL = 0\)</span> : 모수를 알고 있다고 봐도 됨.</li>
+<li><span class="math inline">\(SDARL\)</span>가 매우 큼</li>
+</ul></li>
+</ul></li>
+</ul>
+<p> </p>
+<ul>
+<li><p>논문의 목표</p>
+<p><strong>To evaluate the <span class="math inline">\(\bar{X}\)</span> and X-charts while considering the practitioner-to-practitioner variability and to assess the effect of the amount of phase I data using the SDARL metric.</strong></p></li>
+</ul>
+<hr />
+</div>
+<div id="brief-background-information-on-shewhart-barx-charts" class="section level3">
+<h3>2. Brief Background Information on Shewhart <span class="math inline">\(\bar{X}\)</span>-Charts</h3>
+<p><span class="math display">\[(X_{i1},X_{i2},\cdots,X_{in} )\]</span>
+where <span class="math inline">\(i\)</span> : sample / <span class="math inline">\(j\)</span> : observation</p>
+<ul>
+<li><p>각각의 샘플은 독립적으로 추출</p></li>
+<li><p>샘플 내 관측치는 평균이 <span class="math inline">\(\mu\)</span>이고 표준편차가 <span class="math inline">\(\sigma\)</span>인 iid에서 추출</p></li>
+<li><p>관리상태에서의 모수를 <span class="math inline">\(\mu_0\)</span>, <span class="math inline">\(\sigma_0\)</span>라고 할 때, (알고있다고 가정)</p>
+<p><span class="math display">\[\bar{X}_i = \left( \sum_{j=1}^n X_{ij}  \middle / n \right) \qquad (1)\]</span></p></li>
+</ul>
+<p><span class="math display">\[LCL = \mu_0 - L\frac{ \sigma_0}{\sqrt{n}} \qquad UCL = \mu_0 + L\frac{\sigma_0}{\sqrt{n}} \qquad (2)\]</span></p>
+<ul>
+<li>The probability of a false alarm : when L = 3,
+<ul>
+<li><span class="math inline">\(Pr(\bar{X}_i &gt; UCL \mbox{ or } \bar{X}_i &lt; LCL |\mu_0, \sigma_0) = 0.0027 = \alpha\)</span></li>
+<li><span class="math inline">\(ARL_0 : 370\)</span></li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="estimating-the-process-parameters" class="section level3">
+<h3>3. Estimating the Process Parameters</h3>
+<ul>
+<li><p>A estimate for <span class="math inline">\(\mu\)</span>
+<span class="math display">\[\hat{\mu} = \bar{\bar{X}} = \frac{\sum_{i=1}^m \bar{X}_i}{m} \quad (3)\]</span>
+where <span class="math inline">\(i = 1, 2, \cdots , m\)</span></p></li>
+<li><p>Estimates for <span class="math inline">\(\sigma_0\)</span></p>
+<ul>
+<li><p>unbiased
+<span class="math display">\[\hat{\sigma_1} = \frac{\bar{R}}{d_2(n)}, \quad \hat{\sigma_2} = \frac{\bar{S}}{C_4(n)}, \quad \hat{\sigma_3} = \frac{S_{pooled}}{C_4(\nu+1)}, \qquad (4) \]</span>
+where <span class="math inline">\(\bar{R} = (\sum_{i=1}^m R_i) / m, \, \bar{S} = (\sum_{i=1}^m S_i) / m, \,\)</span>
+<span class="math inline">\(S_{pooled} = ((\sum_{i=1}^m S_i^2) / m)^{1/2}, \, v = m(n-1)\)</span></p></li>
+<li><p>biased
+<span class="math display">\[\hat{\sigma_4} = c_4(\nu + 1) S_{pooled} \quad \&amp;  \quad \hat{ \sigma_5} =  S_{pooled} \qquad (5)\]</span></p></li>
+</ul></li>
+<li><p>논의 - 다섯 개 모두 큰 차이는 없음.</p></li>
+<li><p><span class="math inline">\(\hat{\sigma_1}\)</span>는 relative efficiency 관점에서 좋지 않음 + 이상치에 영향</p></li>
+<li><p><span class="math inline">\(S_{pooled}\)</span> 기반 추정치는 효율이 좋지만, 복잡해서 편의성은 좋지 않음.</p></li>
+<li><p><span class="math inline">\(\hat{\sigma}_4\)</span>는 MSE가 가장 작음.</p></li>
+</ul>
+<hr />
+</div>
+<div id="barx-control-chart-performance-assessment" class="section level3">
+<h3>4. <span class="math inline">\(\bar{X}\)</span> Control Chart Performance Assessment</h3>
+<ul>
+<li><p>관리도의 성능을 평가하기 위해 <span class="math inline">\(AARL\)</span>를 사용하지만, Phase 1에 사용하는 데이터에 따라 <span class="math inline">\(AARL_0\)</span>은 달라질 수 있음.</p></li>
+<li><p>따라서, 적절한 크기의 샘플이 사용되었는지 알기 위해 <span class="math inline">\(SDARL\)</span>을 활용할 수 있음.</p>
+<ul>
+<li><span class="math inline">\(SDARL\)</span>이 작으면 작을 수록, 적절한 크기의 샘플이 Phase 1에 사용,</li>
+<li>Phase 1의 결과를 신뢰할 만함.</li>
+</ul></li>
+</ul>
+<p> </p>
+<ul>
+<li><strong>논문 목표 : Phase 1에 어느 정도의 크기의 샘플이 활용되어야 AARL은 이상적인 수치와 가까워지고, SDARL도 작아질까?</strong>
+<ul>
+<li>Zhang et al.(2016)은 <span class="math inline">\(SDARL\)</span>이 목표로 하는 관리상태 <span class="math inline">\(ARL\)</span>의 10% 이내가 되어야 한다고 봄.</li>
+<li><strong>논문의 결과 : 위의 목표는 달성하기 어렵다.</strong></li>
+</ul></li>
+</ul>
+<p> </p>
+<ul>
+<li><p>실험 설계</p>
+<ul>
+<li>추정 평균 : <span class="math inline">\(\bar{\bar{X}}\)</span></li>
+<li>추정 표본분산 : (4) &amp; (5)</li>
+<li><span class="math inline">\(m\)</span> : 20~5000</li>
+<li><span class="math inline">\(n\)</span> : 5</li>
+<li><span class="math inline">\(L = 3\)</span> / <span class="math inline">\(ARL_0 = 370\)</span></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_table1.PNG" style="width:80.0%" /></p></li>
+<li><p>적어도 <span class="math inline">\(m = 100\)</span>은 되어야.<br />
+</p></li>
+<li><p>다른 <span class="math inline">\(\hat{\sigma}\)</span>들에 비해, <span class="math inline">\(\hat{\sigma_4}\)</span>가 돋보임.</p></li>
+<li><p>m이 커지면 커질 수록 이상값에 수렴하고 추정치간의 차이도 줄어듦.</p></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_table2.PNG" style="width:80.0%" /></p>
+<ul>
+<li><span class="math inline">\(m = 100\)</span>일 때도, <span class="math inline">\(SDARL\)</span>는 아직 큼.<br />
+</li>
+<li>Zhang et al.(2016)의 기준을 따르려면 <span class="math inline">\(m\)</span>이 1200은 되어야.<br />
+</li>
+<li>현실적으로 이상적인 값에 도달할 수 없음
+<ol style="list-style-type: decimal">
+<li>Phase 1에서 m = 100 ~ 1200을 사용하기엔 현실적으로 어렵</li>
+<li>Phase 1에서 현실적인 크기의 표본크기를 사용할 경우 정확하지 않음.</li>
+</ol></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_figure1.PNG" style="width:60.0%" /></p>
+<ul>
+<li><p><span class="math inline">\(ARL_0\)</span>의 변동이 매우 큼</p>
+<p><img src="https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_figure2.PNG" style="width:60.0%" /></p></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_figure3.PNG" style="width:60.0%" /></p>
+<ul>
+<li><span class="math inline">\(\hat{\sigma}\)</span>가 <span class="math inline">\(\hat{\mu}\)</span>보다 <span class="math inline">\(ARL\)</span>을 추정하는 데 더 영향을 많이 미침.(Figure 2,3)</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_figure4.PNG" style="width:60.0%" /></p>
+<p><img src="https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_figure5.PNG" style="width:60.0%" /></p>
+<ul>
+<li><span class="math inline">\(m=50\)</span>, <span class="math inline">\(m=100\)</span>이 되어도 <span class="math inline">\(ARL_0\)</span> 변동이 매우 큰 것을 확인</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_table3_1.PNG" style="width:80.0%" /></p>
+<p><img src="https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_table3_2.PNG" style="width:80.0%" /></p>
+<ul>
+<li>목표로 하는 <span class="math inline">\(ARL_0\)</span>이 커질수록 <span class="math inline">\(SDARL\)</span>가 <span class="math inline">\(ARL_0\)</span>의 10%가 되게 하는 <span class="math inline">\(m\)</span>의 값도 커짐.<br />
+</li>
+<li>다시말해, <span class="math inline">\(ARL_0\)</span>의 값이 커질수록 안정적인 추정값을 확보하기 위한 샘플 사이즈도 커짐.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_figure6.PNG" style="width:80.0%" /></p>
+<ul>
+<li>Quesenberry(1993) &amp; Jones et al.(2001)
+<ul>
+<li><p><strong>??</strong> ARL의 경험적 비조건부 분포에 대해 추정된 모수와 알고 있는 모수 간 분포의 차이가 있는 지 연구(일반적인 샘플 사이즈 사용)
+(Quesenberry (1993) and Jones et al. (2001) also based their sample-size recommendations on how closely the in-control empirical unconditional distribution function of the run length of the chart with estimated parameters matched that of the chart with known parameters.)</p></li>
+<li><p><strong>??</strong> 처음 20번째 이내의 샘플에서 나올 확률의 평균 - ’추정해야할 경우’가 ’이미 모수를 알고있을 때’의 10% 이내가 되도록
+(They required that the average probability of a false alarm within the first 20 samples
+be within 10% of the false-alarm rate assuming known parameters.)</p></li>
+<li><p>Practitioner마다 사용하는 분포가 다르기 때문에 경험적 cdf가 달라짐 -&gt; 20번째 샘플 이내에서 오경보가 나올 확률도 달라짐.</p></li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="design-of-the-x-chart" class="section level3">
+<h3>5. Design of the X-Chart</h3>
+<ul>
+<li>샘플 수가 1일 때의 관리도
+<ul>
+<li><p><span class="math inline">\(\hat{\mu}\)</span>
+<span class="math display">\[\bar{X} = \frac{ \sum_{i=1}^m  X_i}{m}\]</span>
+where $ i = 1,2, , m$</p></li>
+<li><p><span class="math inline">\(\hat{\sigma}\)</span></p></li>
+</ul>
+<span class="math display">\[\hat{\sigma}_0 = \frac{\bar{MR}}{1.128}\]</span>
+where <span class="math inline">\(\bar{MR} = (\sum_{i=2}^m MR_i) / (m-1)\)</span> &amp; <span class="math inline">\(MR_i = |X_i - X_{i-1}|\)</span></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/rhyeu/blog/master/content/img/Saleh_2015_table4.PNG" style="width:60.0%" /></p>
+<ul>
+<li>Quensenberry(1993)은 모수를 알고 있다고 가정했을 떄, 3<span class="math inline">\(\sigma\)</span> 한계의 <span class="math inline">\(X\)</span>-chart는 <span class="math inline">\(m=300\)</span>을 추천.
+<ul>
+<li><span class="math inline">\(m\)</span>이 수천 단위는 되어야 결과를 신뢰할 수 있음.</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="concluding-remarks" class="section level3">
+<h3>6. Concluding Remarks</h3>
+<ul>
+<li>본 논문에서는 <span class="math inline">\(SDARL\)</span>을 평가지표로 사용하여 추정된 모수를 활용한 <span class="math inline">\(\bar{X}\)</span> 관리도와 <span class="math inline">\(X\)</span> 관리도를 평가했다.
+<ul>
+<li>다양한 <span class="math inline">\(\hat{\sigma}\)</span>들 중 <span class="math inline">\(\hat{\sigma}_4\)</span>가 가장 좋은 결과를 보임.</li>
+</ul></li>
+<li><span class="math inline">\(\bar{X}\)</span> 관리도
+<ul>
+<li>추정된 모수를 활용한 관리도의 성능이 이상적인 관리도 차트와 비슷하기 위해서는 비현실적으로 많은 샘플이 모수 추정에 활용되어야 한다.</li>
+<li>이런 경향은 EWMA 관리도와 CUSUM 관리도에서 더 강하게 나타남.</li>
+<li>이러한 경향의 원인은 실제로는 알고 있다고 가정한 모수들이 실제로는 오류를 가지고 있는 추정값이기 때문</li>
+</ul></li>
+<li>다양한 다른 방법들
+<ul>
+<li>Jones and Steiner(2012), Gandy and Kvaloy(2013)
+<ul>
+<li><strong>??</strong> <span class="math inline">\(ARL_0\)</span>이 특정값의 특정 확률보다 크도록 하는 관리한계를 설정할 것을 제안?
+(They recommended a method for determining control limits such that the ARL0 is greater than a specified value with a specified probability.)</li>
+<li>이렇게 하면 추정된 모수를 사용하기 때문에 발생할 수 있는 낮은 <span class="math inline">\(ARL_0\)</span>을 방지할 수 있게 함.</li>
+</ul></li>
+<li>The Bootstrap method
+<ul>
+<li><strong>??</strong> 모수를 알고 있다고 가정했을 때와 추정된 모수를 사용하여 ARL 차트를 비교하는 것보다 설계 기준에 따라 설계된 차트 끼리 비교하는게 더 유용함.</li>
+</ul></li>
+<li>Outliers의 영향
+<ul>
+<li>Outliers의 영향을 줄이기 위해 단순 평균을 하기보단 pooled variance를 활용하는 것이 좋음.</li>
+<li>Range based 방법보다 pooled based 방법을 이용한 추정이 efficient, 특히 <span class="math inline">\(\hat{\sigma}_4\)</span></li>
+</ul></li>
+<li>Self-starting control chart (Pignatiello, 2001 등)
+<ul>
+<li>처음에는 작은 크기의 샘플로 관리한계를 설정하고 이상을 탐색</li>
+<li>반복을 통해 관리상태인 샘플은 관리한계를 설정하는 데에 활용 (효율적!)</li>
+<li>단점 : 점진적인 공정 모수 변화를 탐지하지 못할 수 도..</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+</div>
+</div>
