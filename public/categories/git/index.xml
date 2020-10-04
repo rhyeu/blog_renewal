@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>git on 기억하기쉬운블로그</title>
-    <link>https://rhyeu.netlify.app/categories/git/</link>
+    <link>/categories/git/</link>
     <description>Recent content in git on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Today I Learn / GitHub 저장소 이름 및 url 변경하기</title>
-      <link>https://rhyeu.netlify.app/2020/10/today-i-learn.en-us/</link>
+      <link>/2020/10/today-i-learn.en-us/</link>
       <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rhyeu.netlify.app/2020/10/today-i-learn.en-us/</guid>
+      <guid>/2020/10/today-i-learn.en-us/</guid>
       <description>reference : https://12bme.tistory.com/43 GitHub 저장소 이름 및 url 변경하기 github repository name 변경 git bash 해당 로컬 경로에서 프로젝트 저장소 및 url 출력 git remote -v git remote set-url 명령어로 저장소 url 변경 git remote set-url origin &amp;quot;git url 작성&amp;quot</description>
     </item>
     
