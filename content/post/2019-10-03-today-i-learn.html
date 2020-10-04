@@ -1,0 +1,47 @@
+---
+title: Today I Learn / list 중복 없애기, 2차원 행렬
+author: 류성균
+date: '2019-10-03'
+slug: today-i-learn
+categories:
+  - Today I learn
+tags:
+  - python list
+  - python 2 dimensional array
+---
+
+
+
+<div id="list-중복-없애기" class="section level3">
+<h3>list 중복 없애기</h3>
+<ul>
+<li>참조 : <a href="https://bluese05.tistory.com/13" class="uri">https://bluese05.tistory.com/13</a></li>
+</ul>
+<p>파이썬 리스트에서 중복을 없애기 위해서 이것저것 방법이 있겠지만 ‘set’ 자료형을 사용하면 쉽게 바꿀 수 있다.</p>
+<ul>
+<li>‘set’ 자료형의 특징은 아래와 같다.
+<ul>
+<li>중복을 허용하지 않는다</li>
+<li>원소간 순서가 없다.</li>
+</ul></li>
+</ul>
+<div id="예제" class="section level4">
+<h4>예제</h4>
+<pre class="python"><code>a = [1,2,1,1,1,1,2,2,2,2,2,2,3,3,3,3]
+print(a)</code></pre>
+<pre><code>## [1, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3]</code></pre>
+<pre class="python"><code>a = list(set(a))
+print(a)</code></pre>
+<pre><code>## [1, 2, 3]</code></pre>
+</div>
+</div>
+<div id="파이썬-2차원-배열-간단하게-생성하기" class="section level3">
+<h3>파이썬 2차원 배열 간단하게 생성하기</h3>
+<ul>
+<li>참고 : <a href="https://andrew0409.tistory.com/53" class="uri">https://andrew0409.tistory.com/53</a></li>
+</ul>
+<pre class="python"><code>space = [[0 for col in range(10)] for row in range(10)]
+
+print(space)</code></pre>
+<pre><code>## [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]</code></pre>
+</div>

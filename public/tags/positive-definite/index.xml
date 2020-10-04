@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>positive definite on 기억하기쉬운블로그</title>
+    <link>/tags/positive-definite/</link>
+    <description>Recent content in positive definite on 기억하기쉬운블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/positive-definite/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Today I Learn / cor2cov</title>
+      <link>/2019/09/today-i-learn/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/09/today-i-learn/</guid>
+      <description>cor2cov 함수 Gaussian mixture 시뮬레이션을 하는데 적절한 공분산을 컨트롤 하기 힘들었는데 적당한 함수를 발견! ‘MBESS’, ‘stremo’ 등 여러 패키지에서 제공하는데 일</description>
+    </item>
+    
+  </channel>
+</rss>

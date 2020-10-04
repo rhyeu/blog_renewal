@@ -1,0 +1,23 @@
+---
+title: Today I Learn - BHC 장/단점
+author: 류성균
+date: '2019-07-29'
+slug: today-i-learn
+categories:
+  - Today I learn
+tags:
+  - BHC
+---
+
+### BHC의 장점
+	
+	1. predictive distribution을 활용하기 좋다.
+	
+	1. 따로 cluster의 수나 distance measure를 고려하지 않아도 좋다.
+	
+	1. outlier에 robust하다. 
+	
+	1. DPMixture marginal likelihood의 lower bound 역할을 한다.          
+
+### BHC의 단점
+  1. Discretizing을 하는 과정에서 연산량이 많다.  

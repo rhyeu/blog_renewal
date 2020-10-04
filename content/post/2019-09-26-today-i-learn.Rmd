@@ -1,0 +1,51 @@
+---
+title: Today I Learn / 파이썬 팁 - 리스트 출력, 연산자, range 함수
+author: 류성균
+date: '2019-09-26'
+slug: today-i-learn
+categories:
+  - Today I learn
+tags:
+  - python
+---
+
+```{r, include = FALSE}
+library(reticulate)
+```
+
+
+### 괄호 없이 리스트 출력하기
+
+리스트
+
+```{python}
+a = [1,2,'X',4,5]
+
+print(*a, sep = " ")
+```
+
+### 파이썬 비트 연산자
+
+- AND : &
+- OR : |
+- XOR : ^
+- NOT : ~
+
+### 삼항 연산자
+- 익숙해지면 코드가 더 간단해 질듯
+
+```{python}
+a = 10
+b = 16
+
+print(a if a>b else b)
+```
+
+### 파이썬 range 함수
+
+range 함수는 파이썬 슬라이싱 처럼 range의 두번째 파라미터 앞에서 끊긶다.
+```{python}
+for i in range(1,9):
+  print(i)
+```
+

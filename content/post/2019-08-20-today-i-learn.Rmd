@@ -1,0 +1,27 @@
+---
+title: Today I Learn - GBHC 등
+author: 류성균
+date: '2019-08-20'
+slug: today-i-learn
+categories: 
+  - Today I learn
+tags:
+  - BHC
+  - clustering
+---
+
+
+1. Gaussian assumption을 사용한 BHC도 존재 (Bayesian Hierarchical Clustering with a Gaussian Conjugate Prior, Sirinukunwattana, Savage and Pajpoot, 2012)
+
+    - noise에 좀 더 Robust
+    - discretizing을 하는 시간을 줄일 수 있음
+    - overepresentation 문제를 피할 수 있음.
+    - mathlab 코드밖에 없음
+
+\n
+
+2. MNIST data
+
+	  1. percentile 420*708하는데 1.560831hour 걸림...
+	  2. BHC 논문들의 경우, Synthetic Data의 경우 'adjusted Rand Index(ARI)'을 활용하고, 실제 genetic data의 경우에는 BHI('clValid'에서 사용)라는 measure를 사용한다. (Bayesian Hierarchical Clustering for Studying Cancer Gene Expression Data with Unknown Statistics, Sirinukunwattana at al., 2013)
+

@@ -1,0 +1,45 @@
+---
+title: Today I Learn / list 중복 없애기, 2차원 행렬
+author: 류성균
+date: '2019-10-03'
+slug: today-i-learn
+categories:
+  - Today I learn
+tags:
+  - python list
+  - python 2 dimensional array
+---
+
+### list 중복 없애기
+- 참조 : https://bluese05.tistory.com/13
+
+파이썬 리스트에서 중복을 없애기 위해서 이것저것 방법이 있겠지만 'set' 자료형을 사용하면 쉽게 바꿀 수 있다.
+
+- 'set' 자료형의 특징은 아래와 같다.
+  - 중복을 허용하지 않는다
+  - 원소간 순서가 없다.
+  
+#### 예제
+
+```{r, include = F}
+library(reticulate)
+```
+```{python}
+a = [1,2,1,1,1,1,2,2,2,2,2,2,3,3,3,3]
+print(a)
+```
+```{python}
+a = list(set(a))
+print(a)
+```
+
+
+### 파이썬 2차원 배열 간단하게 생성하기
+- 참고 : https://andrew0409.tistory.com/53
+
+```{python}
+space = [[0 for col in range(10)] for row in range(10)]
+
+print(space)
+```
+

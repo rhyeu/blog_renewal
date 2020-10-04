@@ -1,0 +1,28 @@
+---
+title: Today I Learn / cor2cov
+author: 류성균
+date: '2019-09-10'
+slug: today-i-learn
+categories:
+  - Today I learn
+tags:
+  - covariance
+  - positive definite
+  - statistics
+  - multivariate
+  - simulation study
+---
+
+#### cor2cov 함수
+Gaussian mixture 시뮬레이션을 하는데 적절한 공분산을 컨트롤 하기 힘들었는데 적당한 함수를 발견! 'MBESS',  'stremo' 등 여러 패키지에서 제공하는데 일단 버전이 높은 'MBESS'를 사용해 보기로 함.
+
+- 사용법은 굉장히 간단. 그냥 만들고 싶은 공분산의 상관계수 행렬과 각 변수의 $\sigma$만 입력해서 함수로 돌리면 됨.
+- 'discrepancy' 옵션은 있긴 한데 잘 모르겠음
+```{r}
+library()
+cor = matrix(c(1, 0.1, 0,
+               0.1, 1, 0.8,
+               0, 0.8, 1), ncol=3)
+sd = c(sqrt(3),sqrt(5),sqrt(10))
+MBESS::cor2cov(cor, sd)
+```

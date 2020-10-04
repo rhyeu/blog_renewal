@@ -6,7 +6,151 @@
     <description>Recent content in Tags on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python 2 dimensional array</title>
+      <link>/tags/python-2-dimensional-array/</link>
+      <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/python-2-dimensional-array/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python list</title>
+      <link>/tags/python-list/</link>
+      <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/python-list/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>/tags/python/</link>
+      <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jupyter notebook</title>
+      <link>/tags/jupyter-notebook/</link>
+      <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/jupyter-notebook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>covariance</title>
+      <link>/tags/covariance/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/covariance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>multivariate</title>
+      <link>/tags/multivariate/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/multivariate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>positive definite</title>
+      <link>/tags/positive-definite/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/positive-definite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>simulation study</title>
+      <link>/tags/simulation-study/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/simulation-study/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>statistics</title>
+      <link>/tags/statistics/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/statistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BHC</title>
+      <link>/tags/bhc/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bhc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>clustering</title>
+      <link>/tags/clustering/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/clustering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>for</title>
+      <link>/tags/for/</link>
+      <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/for/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/tags/r/</link>
+      <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visualization</title>
+      <link>/tags/visualization/</link>
+      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Broom</title>
+      <link>/tags/broom/</link>
+      <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/broom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stacking</title>
+      <link>/tags/stacking/</link>
+      <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/stacking/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>plot</title>
       <link>/tags/plot/</link>

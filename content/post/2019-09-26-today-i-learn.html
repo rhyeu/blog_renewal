@@ -1,0 +1,55 @@
+---
+title: Today I Learn / 파이썬 팁 - 리스트 출력, 연산자, range 함수
+author: 류성균
+date: '2019-09-26'
+slug: today-i-learn
+categories:
+  - Today I learn
+tags:
+  - python
+---
+
+
+
+<div id="괄호-없이-리스트-출력하기" class="section level3">
+<h3>괄호 없이 리스트 출력하기</h3>
+<p>리스트</p>
+<pre class="python"><code>a = [1,2,&#39;X&#39;,4,5]
+
+print(*a, sep = &quot; &quot;)</code></pre>
+<pre><code>## 1 2 X 4 5</code></pre>
+</div>
+<div id="파이썬-비트-연산자" class="section level3">
+<h3>파이썬 비트 연산자</h3>
+<ul>
+<li>AND : &amp;</li>
+<li>OR : |</li>
+<li>XOR : ^</li>
+<li>NOT : ~</li>
+</ul>
+</div>
+<div id="삼항-연산자" class="section level3">
+<h3>삼항 연산자</h3>
+<ul>
+<li>익숙해지면 코드가 더 간단해 질듯</li>
+</ul>
+<pre class="python"><code>a = 10
+b = 16
+
+print(a if a&gt;b else b)</code></pre>
+<pre><code>## 16</code></pre>
+</div>
+<div id="파이썬-range-함수" class="section level3">
+<h3>파이썬 range 함수</h3>
+<p>range 함수는 파이썬 슬라이싱 처럼 range의 두번째 파라미터 앞에서 끊긶다.</p>
+<pre class="python"><code>for i in range(1,9):
+  print(i)</code></pre>
+<pre><code>## 1
+## 2
+## 3
+## 4
+## 5
+## 6
+## 7
+## 8</code></pre>
+</div>

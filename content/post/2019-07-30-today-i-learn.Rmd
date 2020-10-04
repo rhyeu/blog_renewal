@@ -1,0 +1,42 @@
+---
+title: Today I learn - eval(parse)
+author: ''
+date: '2019-07-30'
+slug: today-i-learn
+categories:
+  - Today I learn
+tags:
+  - R
+  - for
+---
+
+### eval(parse(text = )) 사용 법
+
+반복문 사용할 때 항상 eval + parse를 어떻게 하는 지 애먹었는데 나를 위해 예문과 함께 정리해봄.
+
+중요한 건 eval(parse(text = *" "* )) 괄호 안에 text의 형태로 들어가야하고 반복문 등을 응용해 일부가 바뀐다면 *paste0* 등의 함수를 활용해야한다.
+
+```
+list_y_hat = c("y_hat", "y_hat_all", "y_hat_noPC6911", "y_hat_noPC911")
+
+par(mfrow=c(2,2))
+for (i in 1:length(list_y_hat)){
+  eval(parse(
+    text = paste0(
+      "plot(test_dust_PM10, t(", list_y_hat[i], "), xlim = c(0, 100), ylim = c(0, 100))"
+      )
+    ))
+  abline(1,1)
+  eval(parse(
+    text = paste0(
+      "lines(test_dust_PM10, lm(",list_y_hat[i], "~test_dust_PM10)$fitted.values, col = 2)"
+    )
+    ))
+  eval(parse(
+    text = paste0(
+      "text(60, 90, paste('R2 =', summary(lm(", list_y_hat[i], "~test_dust_PM10))$r.square))"
+    )
+  ))
+}
+
+```
