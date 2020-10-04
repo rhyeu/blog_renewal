@@ -1,0 +1,64 @@
+---
+title: Today I Learn / blog 세팅하기
+author: 기억하기쉬운
+date: '2020-10-04'
+slug: today-i-learn
+categories:
+  - Today I learn
+  - R
+tags:
+  - R
+  - blogdown
+keywords:
+  - tech
+output:
+  blogdown::html_page:
+    toc: true
+    fig_width: 6
+    dev: "svg"
+---
+
+<!--more-->
+
+### blogdown 사이트 만들기
+
+- blog 생성
+```
+install.packages("blogdown")
+library(blogdown)
+install_hugo()
+new_site(theme = "kakawait/hugo-tranquilpeak-theme")   # tranquilpeak theme 적용
+build_site()
+serve_site() # 확인
+```
+
+- netlify 설정 
+  - github 연결만 하면됨
+  - 중요 : HUGO_VERSION = '0.00.0'
+    - 여기 나오는 건 Rstudio에서 `hugo_version()` 함수를 사용하면 나오는 버전을 입력하면 됨 ex) HUGO_VERSION = 0.75.1
+    
+### config 설정
+
+- R 프로젝트 메인에 생성된 config.toml을 수정
+```
+
+baseURL = "https://example.netlify.app" # 가장 중요 - 이거 처리 안 하면 index 화면이 깨짐
+languageCode = "en-us" # 다른 theme에서는 ko-kr이 되는데 여긴 아직 안 됨
+defaultContentLanguage = "en-us"
+title = "기억하기쉬운블로그" # 간단한 제목
+theme = "hugo-tranquilpeak-theme"
+disqusShortname = "example" # 
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"] # blogdown에서 추천
+hasCJKLanguage = true  # Set `true` for Chinese/Japanese/Korean languages. # 한글 먹도록 세팅
+enableEmoji = true 
+```
+
+### Latex 먹도록 설정
+- [주소 link](https://github.com/wowchemy/starter-academic/blob/master/config/_default/config.toml)에 있는 파일 내용을 그대로 복사함
+- 해당 파일이 있던 위치 그대로 'config/_default'에 'config.toml'을 생성함 
+
+
+
+- reference :
+  - https://statkim.github.io/2020/06/blogdown%EC%9C%BC%EB%A1%9C-github-blog-%EB%A7%8C%EB%93%A4%EA%B8%B0-1/2/
+  - https://github.com/kakawait/hugo-tranquilpeak-theme/issues/170#issuecomment-347031606

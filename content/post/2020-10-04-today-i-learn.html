@@ -1,0 +1,80 @@
+---
+title: Today I Learn / blog 세팅하기
+author: 기억하기쉬운
+date: '2020-10-04'
+slug: today-i-learn
+categories:
+  - Today I learn
+  - R
+tags:
+  - R
+  - blogdown
+keywords:
+  - tech
+output:
+  blogdown::html_page:
+    toc: true
+    fig_width: 6
+    dev: "svg"
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#blogdown-사이트-만들기">blogdown 사이트 만들기</a></li>
+<li><a href="#config-설정">config 설정</a></li>
+<li><a href="#latex-먹도록-설정">Latex 먹도록 설정</a></li>
+</ul>
+</div>
+
+<!--more-->
+<div id="blogdown-사이트-만들기" class="section level3">
+<h3>blogdown 사이트 만들기</h3>
+<ul>
+<li>blog 생성</li>
+</ul>
+<pre><code>install.packages(&quot;blogdown&quot;)
+library(blogdown)
+install_hugo()
+new_site(theme = &quot;kakawait/hugo-tranquilpeak-theme&quot;)   # tranquilpeak theme 적용
+build_site()
+serve_site() # 확인</code></pre>
+<ul>
+<li>netlify 설정
+<ul>
+<li>github 연결만 하면됨</li>
+<li>중요 : HUGO_VERSION = ‘0.00.0’
+<ul>
+<li>여기 나오는 건 Rstudio에서 <code>hugo_version()</code> 함수를 사용하면 나오는 버전을 입력하면 됨 ex) HUGO_VERSION = 0.75.1</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="config-설정" class="section level3">
+<h3>config 설정</h3>
+<ul>
+<li>R 프로젝트 메인에 생성된 config.toml을 수정</li>
+</ul>
+<pre><code>
+baseURL = &quot;https://example.netlify.app&quot; # 가장 중요 - 이거 처리 안 하면 index 화면이 깨짐
+languageCode = &quot;en-us&quot; # 다른 theme에서는 ko-kr이 되는데 여긴 아직 안 됨
+defaultContentLanguage = &quot;en-us&quot;
+title = &quot;기억하기쉬운블로그&quot; # 간단한 제목
+theme = &quot;hugo-tranquilpeak-theme&quot;
+disqusShortname = &quot;example&quot; # 
+ignoreFiles = [&quot;\\.Rmd$&quot;, &quot;\\.Rmarkdown$&quot;, &quot;_files$&quot;, &quot;_cache$&quot;] # blogdown에서 추천
+hasCJKLanguage = true  # Set `true` for Chinese/Japanese/Korean languages. # 한글 먹도록 세팅
+enableEmoji = true </code></pre>
+</div>
+<div id="latex-먹도록-설정" class="section level3">
+<h3>Latex 먹도록 설정</h3>
+<ul>
+<li><p><a href="https://github.com/wowchemy/starter-academic/blob/master/config/_default/config.toml">주소 link</a>에 있는 파일 내용을 그대로 복사함</p></li>
+<li><p>해당 파일이 있던 위치 그대로 ’config/_default’에 ’config.toml’을 생성함</p></li>
+<li><p>reference :</p>
+<ul>
+<li><a href="https://statkim.github.io/2020/06/blogdown%EC%9C%BC%EB%A1%9C-github-blog-%EB%A7%8C%EB%93%A4%EA%B8%B0-1/2/" class="uri">https://statkim.github.io/2020/06/blogdown%EC%9C%BC%EB%A1%9C-github-blog-%EB%A7%8C%EB%93%A4%EA%B8%B0-1/2/</a></li>
+<li><a href="https://github.com/kakawait/hugo-tranquilpeak-theme/issues/170#issuecomment-347031606" class="uri">https://github.com/kakawait/hugo-tranquilpeak-theme/issues/170#issuecomment-347031606</a></li>
+</ul></li>
+</ul>
+</div>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Stacking on 기억하기쉬운블로그</title>
-    <link>/tags/stacking/</link>
+    <link>https://rhyeu.netlify.app/tags/stacking/</link>
     <description>Recent content in Stacking on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/stacking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/stacking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Today I learn - Broom / Stacking</title>
-      <link>/2019/06/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/06/today-i-learn/</link>
       <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/06/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/06/today-i-learn/</guid>
       <description>Broom glm, Regression tree, GAM 등에서 사용가능 - 심지어 데이터 프레임으로 output이 나옴 glance : 전체 퍼포먼스 tidy : 계수 augment : predicted value Stacking fitted value가 나오는 결로 디자인 matri</description>
     </item>
     

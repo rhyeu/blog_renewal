@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blogdown on 기억하기쉬운블로그</title>
+    <link>https://rhyeu.netlify.app/tags/blogdown/</link>
+    <description>Recent content in blogdown on 기억하기쉬운블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Today I Learn / blog 세팅하기</title>
+      <link>https://rhyeu.netlify.app/2020/10/today-i-learn/</link>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/2020/10/today-i-learn/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#blogdown-사이트-만들기&#34;&gt;blogdown 사이트 만들기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#config-설정&#34;&gt;config 설정&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#latex-먹도록-설정&#34;&gt;Latex 먹도록 설정&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

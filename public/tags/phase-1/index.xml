@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Phase 1 on 기억하기쉬운블로그</title>
-    <link>/tags/phase-1/</link>
+    <link>https://rhyeu.netlify.app/tags/phase-1/</link>
     <description>Recent content in Phase 1 on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/phase-1/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/phase-1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Article summary - Saleh et al., 2015</title>
-      <link>/2019/10/article-summary-saleh-et-al-2015/</link>
+      <link>https://rhyeu.netlify.app/2019/10/article-summary-saleh-et-al-2015/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/10/article-summary-saleh-et-al-2015/</guid>
+      <guid>https://rhyeu.netlify.app/2019/10/article-summary-saleh-et-al-2015/</guid>
       <description>“The Difficulty in Designing Shewhart \(\bar{X}\) and X Control Charts with Estimated Parameters(Saleh et al., 2015)” 1. Introduction \(\bar{X}\) Shewhart 관리도는 공정 평균을 관리하는 데에 가장 많이 사용되는 방법이다. 실무에서 공정 데이터의 모수는 알</description>
     </item>
     
