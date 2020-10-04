@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>BHC on 기억하기쉬운블로그</title>
-    <link>https://blog-rhyeu.netlify.app/tags/bhc/</link>
+    <link>https://rhyeu.netlify.app/tags/bhc/</link>
     <description>Recent content in BHC on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-rhyeu.netlify.app/tags/bhc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/bhc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Today I Learn - GBHC 등</title>
-      <link>https://blog-rhyeu.netlify.app/2019/08/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/08/today-i-learn/</link>
       <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/08/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/08/today-i-learn/</guid>
       <description>Gaussian assumption을 사용한 BHC도 존재 (Bayesian Hierarchical Clustering with a Gaussian Conjugate Prior, Sirinukunwattana, Savage and Pajpoot, 2012) noise에 좀 더 Robust discretizing을 하는 시간을 줄일 수 있음 overepresentation 문제를</description>
     </item>
     
     <item>
       <title>Today I Learn - BHC 장/단점</title>
-      <link>https://blog-rhyeu.netlify.app/2019/07/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/07/today-i-learn/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/07/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/07/today-i-learn/</guid>
       <description>BHC의 장점 1. predictive distribution을 활용하기 좋다. 1. 따로 cluster의 수나 distance measure를 고려하지 않아도 좋다. 1. outlier에 r</description>
     </item>
     

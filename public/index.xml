@@ -2,161 +2,161 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>기억하기쉬운블로그</title>
-    <link>https://blog-rhyeu.netlify.app/</link>
+    <link>https://rhyeu.netlify.app/</link>
     <description>Recent content on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-rhyeu.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Today I Learn</title>
-      <link>https://blog-rhyeu.netlify.app/2020/10/today-i-learn.en-us/</link>
+      <title>Today I Learn / GitHub 저장소 이름 및 url 변경하기</title>
+      <link>https://rhyeu.netlify.app/2020/10/today-i-learn.en-us/</link>
       <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2020/10/today-i-learn.en-us/</guid>
+      <guid>https://rhyeu.netlify.app/2020/10/today-i-learn.en-us/</guid>
       <description>reference : https://12bme.tistory.com/43 GitHub 저장소 이름 및 url 변경하기 github repository name 변경 git bash 해당 로컬 경로에서 프로젝트 저장소 및 url 출력 git remote -v git remote set-url 명령어로 저장소 url 변경 git remote set-url origin &amp;quot;git url 작성&amp;quot</description>
     </item>
     
     <item>
       <title>R 버전 바뀔 때마다 패키지 업데이트</title>
-      <link>https://blog-rhyeu.netlify.app/2020/06/r-%EB%B2%84%EC%A0%84-%EB%B0%94%EB%80%94-%EB%95%8C%EB%A7%88%EB%8B%A4-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</link>
+      <link>https://rhyeu.netlify.app/2020/06/r-%EB%B2%84%EC%A0%84-%EB%B0%94%EB%80%94-%EB%95%8C%EB%A7%88%EB%8B%A4-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</link>
       <pubDate>Sun, 14 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2020/06/r-%EB%B2%84%EC%A0%84-%EB%B0%94%EB%80%94-%EB%95%8C%EB%A7%88%EB%8B%A4-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</guid>
+      <guid>https://rhyeu.netlify.app/2020/06/r-%EB%B2%84%EC%A0%84-%EB%B0%94%EB%80%94-%EB%95%8C%EB%A7%88%EB%8B%A4-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</guid>
       <description>reference : 출처: https://3months.tistory.com/383 [Deep Play] R 버전 업데이트 ## install.packages(&amp;quot;installr&amp;quot;) library(installr) check.for.updates.R() # R 버전 업데이트 할 필요 있는 지 확인 updateR() # R 버전 업데이트 패키지 업데이트 update.packages(checkBuilt = T) # 모든 패키지 업데이트 packageStatus() # package 업데이</description>
     </item>
     
     <item>
       <title>Rtools path 추가</title>
-      <link>https://blog-rhyeu.netlify.app/2020/06/rtools-path-%EC%B6%94%EA%B0%80/</link>
+      <link>https://rhyeu.netlify.app/2020/06/rtools-path-%EC%B6%94%EA%B0%80/</link>
       <pubDate>Sun, 14 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2020/06/rtools-path-%EC%B6%94%EA%B0%80/</guid>
+      <guid>https://rhyeu.netlify.app/2020/06/rtools-path-%EC%B6%94%EA%B0%80/</guid>
       <description>RTOOLS PATH 추가 # writeLines(&amp;#39;PATH=&amp;quot;${RTOOLS40_HOME}\\usr\\bin;${PATH}&amp;quot;&amp;#39;, con = &amp;quot;~/.Renviron&amp;quot;) # Sys.which(&amp;quot;make&amp;quot;) # install.packages(&amp;quot;jsonlite&amp;quot;, type = &amp;quot;source&amp;quot;)</description>
     </item>
     
     <item>
       <title>os.path.join in Python</title>
-      <link>https://blog-rhyeu.netlify.app/2020/06/os-path-join-in-python/</link>
+      <link>https://rhyeu.netlify.app/2020/06/os-path-join-in-python/</link>
       <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2020/06/os-path-join-in-python/</guid>
+      <guid>https://rhyeu.netlify.app/2020/06/os-path-join-in-python/</guid>
       <description>os.path.join : 파일 경로의 폴더명, 파일명을 인자로 받아 정상적인 파일 경로를 출력해줌 ## install.packages(&amp;quot;reticulate&amp;quot;) library(reticulate) # import os # for dirname, _, filenames in os.walk(&amp;#39;/kaggle/input&amp;#39;): # for filename in filenames: # print(os.path.join(dirname, filename)) ## Any results you write to the current directory are saved as output. 예시</description>
     </item>
     
     <item>
       <title>Today I Learn / R aggreagate 함수</title>
-      <link>https://blog-rhyeu.netlify.app/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</link>
+      <link>https://rhyeu.netlify.app/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</guid>
+      <guid>https://rhyeu.netlify.app/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</guid>
       <description>출처 : http://blog.naver.com/PostView.nhn?blogId=coder1252&amp;amp;logNo=221294821930&amp;amp;parentCategoryNo=&amp;amp;categoryNo=6&amp;amp;viewDate=&amp;amp;isShowPopularPosts=true&amp;amp;from=search 엔간한 데이터 요약과 정리는 dplyr 동사들로 할 수 있지만, ’aggregate’를 사용하면 더 깔끔한 듯. 매번 찾아보다가 정말 잘 정리된 블로그가 있어 참고</description>
     </item>
     
     <item>
       <title>Article summary - Saleh et al., 2015</title>
-      <link>https://blog-rhyeu.netlify.app/2019/10/article-summary-saleh-et-al-2015/</link>
+      <link>https://rhyeu.netlify.app/2019/10/article-summary-saleh-et-al-2015/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/10/article-summary-saleh-et-al-2015/</guid>
+      <guid>https://rhyeu.netlify.app/2019/10/article-summary-saleh-et-al-2015/</guid>
       <description>“The Difficulty in Designing Shewhart \(\bar{X}\) and X Control Charts with Estimated Parameters(Saleh et al., 2015)” 1. Introduction \(\bar{X}\) Shewhart 관리도는 공정 평균을 관리하는 데에 가장 많이 사용되는 방법이다. 실무에서 공정 데이터의 모수는 알</description>
     </item>
     
     <item>
       <title>Today I Learn / list 중복 없애기, 2차원 행렬</title>
-      <link>https://blog-rhyeu.netlify.app/2019/10/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/10/today-i-learn/</link>
       <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/10/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/10/today-i-learn/</guid>
       <description>list 중복 없애기 참조 : https://bluese05.tistory.com/13 파이썬 리스트에서 중복을 없애기 위해서 이것저것 방법이 있겠지만 ‘set’ 자료형을 사용하면 쉽게 바꿀 수 있다. ‘set’ 자료형의 특징</description>
     </item>
     
     <item>
       <title>Today I Learn / 파이썬 팁 - 리스트 출력, 연산자, range 함수</title>
-      <link>https://blog-rhyeu.netlify.app/2019/09/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/09/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
       <description>괄호 없이 리스트 출력하기 리스트 a = [1,2,&amp;#39;X&amp;#39;,4,5] print(*a, sep = &amp;quot; &amp;quot;) ## 1 2 X 4 5 파이썬 비트 연산자 AND : &amp;amp; OR : | XOR : ^ NOT : ~ 삼항 연산자 익숙해지면 코드가 더 간단해 질듯 a = 10</description>
     </item>
     
     <item>
       <title>Today I Learn / 주피터 노트북 포스팅</title>
-      <link>https://blog-rhyeu.netlify.app/2019/09/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
       <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/09/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
       <description>출처 : https://www.timlrx.com/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/ blogdown으로 블로그를 운영하는데 아쉬운 건 테마, 폰트 등 수도 없지만 더 아쉬운건 파이썬을 쓰기 번거롭다는 것이다. ‘reticulate’</description>
     </item>
     
     <item>
       <title>Today I Learn / python tip (print, list, 진법, 몫, 나머지)</title>
-      <link>https://blog-rhyeu.netlify.app/2019/09/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/09/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
       <description>library(reticulate) Sys.setlocale(&amp;#39;LC_ALL&amp;#39;,&amp;#39;C&amp;#39;) ## [1] &amp;quot;C&amp;quot; 요새 코드업 기초 100제를 풀어보고 있는데 헷갈리는 것들을 정리! 1. sep 옵션 in python 파이썬에서 여러 개를 출력할 때 sep 옵션을 걸 수 있음 print(1920, 1080, sep = &amp;#39;x&amp;#39;) ## 1920x1080 print(&amp;#39;Hello&amp;#39;, &amp;#39;Python&amp;#39;,</description>
     </item>
     
     <item>
       <title>Today I Learn / cor2cov</title>
-      <link>https://blog-rhyeu.netlify.app/2019/09/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/09/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
       <description>cor2cov 함수 Gaussian mixture 시뮬레이션을 하는데 적절한 공분산을 컨트롤 하기 힘들었는데 적당한 함수를 발견! ‘MBESS’, ‘stremo’ 등 여러 패키지에서 제공하는데 일</description>
     </item>
     
     <item>
       <title>Today I Learn - GBHC 등</title>
-      <link>https://blog-rhyeu.netlify.app/2019/08/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/08/today-i-learn/</link>
       <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/08/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/08/today-i-learn/</guid>
       <description>Gaussian assumption을 사용한 BHC도 존재 (Bayesian Hierarchical Clustering with a Gaussian Conjugate Prior, Sirinukunwattana, Savage and Pajpoot, 2012) noise에 좀 더 Robust discretizing을 하는 시간을 줄일 수 있음 overepresentation 문제를</description>
     </item>
     
     <item>
       <title>Today I learn - eval(parse)</title>
-      <link>https://blog-rhyeu.netlify.app/2019/07/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/07/today-i-learn/</link>
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/07/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/07/today-i-learn/</guid>
       <description>eval(parse(text = )) 사용 법 반복문 사용할 때 항상 eval + parse를 어떻게 하는 지 애먹었는데 나를 위해 예문과 함께 정리해봄. 중요한 건 eval(parse(text = &#34; &#34; )) 괄호 안에 text의 형태로 들</description>
     </item>
     
     <item>
       <title>Today I Learn - BHC 장/단점</title>
-      <link>https://blog-rhyeu.netlify.app/2019/07/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/07/today-i-learn/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/07/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/07/today-i-learn/</guid>
       <description>BHC의 장점 1. predictive distribution을 활용하기 좋다. 1. 따로 cluster의 수나 distance measure를 고려하지 않아도 좋다. 1. outlier에 r</description>
     </item>
     
     <item>
       <title>Today I learn - &#39;ggfortify&#39; 패키지</title>
-      <link>https://blog-rhyeu.netlify.app/2019/06/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/06/today-i-learn/</link>
       <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/06/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/06/today-i-learn/</guid>
       <description>R에서는 ‘ggfortify’ 패키지를 사용하면, PCA와 일부 클러스터링 결과에 대해 시각화를 예쁘게 해볼 수 있다. https://cran.r-project.org/web/packages/ggfortify/vignettes/plot_pca.html</description>
     </item>
     
     <item>
       <title>Today I learn - Broom / Stacking</title>
-      <link>https://blog-rhyeu.netlify.app/2019/06/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/06/today-i-learn/</link>
       <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2019/06/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/06/today-i-learn/</guid>
       <description>Broom glm, Regression tree, GAM 등에서 사용가능 - 심지어 데이터 프레임으로 output이 나옴 glance : 전체 퍼포먼스 tidy : 계수 augment : predicted value Stacking fitted value가 나오는 결로 디자인 matri</description>
     </item>
     
     <item>
       <title>Hello R Markdown</title>
-      <link>https://blog-rhyeu.netlify.app/2015/07/hello-r-markdown/</link>
+      <link>https://rhyeu.netlify.app/2015/07/hello-r-markdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2015/07/hello-r-markdown/</guid>
+      <guid>https://rhyeu.netlify.app/2015/07/hello-r-markdown/</guid>
       <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
@@ -164,118 +164,118 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     
     <item>
       <title>Welcome to Tranquilpeak 0.4.8-BETA</title>
-      <link>https://blog-rhyeu.netlify.app/2015/06/welcome-to-tranquilpeak-0.4.8-beta/</link>
+      <link>https://rhyeu.netlify.app/2015/06/welcome-to-tranquilpeak-0.4.8-beta/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2015/06/welcome-to-tranquilpeak-0.4.8-beta/</guid>
+      <guid>https://rhyeu.netlify.app/2015/06/welcome-to-tranquilpeak-0.4.8-beta/</guid>
       <description>&lt;p&gt;Tranquilpeak is a gorgeous responsive theme for Hugo blog framework. It has many features and integrated services to improve user experience.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Who&#39;s using Tranquilpeak Hugo Theme</title>
-      <link>https://blog-rhyeu.netlify.app/2015/06/who-is-using-tranquilpeak-hugo-theme/</link>
+      <link>https://rhyeu.netlify.app/2015/06/who-is-using-tranquilpeak-hugo-theme/</link>
       <pubDate>Sun, 14 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2015/06/who-is-using-tranquilpeak-hugo-theme/</guid>
+      <guid>https://rhyeu.netlify.app/2015/06/who-is-using-tranquilpeak-hugo-theme/</guid>
       <description>&lt;p&gt;Here you can find a list of the blogs that use Tranquilpeak theme, with different styles and customizations.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Elements showcase</title>
-      <link>https://blog-rhyeu.netlify.app/2015/05/elements-showcase/</link>
+      <link>https://rhyeu.netlify.app/2015/05/elements-showcase/</link>
       <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2015/05/elements-showcase/</guid>
+      <guid>https://rhyeu.netlify.app/2015/05/elements-showcase/</guid>
       <description>&lt;p&gt;Check out how Tranquilpeak theme display well HTML elements (title, paragraph, blockquote, table and more..). It&amp;rsquo;s simple and elegant.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Cover image showcase</title>
-      <link>https://blog-rhyeu.netlify.app/2015/05/cover-image-showcase/</link>
+      <link>https://rhyeu.netlify.app/2015/05/cover-image-showcase/</link>
       <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2015/05/cover-image-showcase/</guid>
+      <guid>https://rhyeu.netlify.app/2015/05/cover-image-showcase/</guid>
       <description>&lt;p&gt;Tranquilpeak integrate a unique &amp;ldquo;cover image&amp;rdquo; feature. Open this post to see how this feature sublimate your article.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>highlighted code showcase</title>
-      <link>https://blog-rhyeu.netlify.app/2015/03/highlighted-code-showcase/</link>
+      <link>https://rhyeu.netlify.app/2015/03/highlighted-code-showcase/</link>
       <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2015/03/highlighted-code-showcase/</guid>
+      <guid>https://rhyeu.netlify.app/2015/03/highlighted-code-showcase/</guid>
       <description>&lt;p&gt;Tranquilpeak Hugo theme have its own theme to highlight source code. It&amp;rsquo;s based on GitHub theme: simple and elegant. Check out how it sublimate source codes.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Tags plugins showcase</title>
-      <link>https://blog-rhyeu.netlify.app/2014/10/tags-plugins-showcase/</link>
+      <link>https://rhyeu.netlify.app/2014/10/tags-plugins-showcase/</link>
       <pubDate>Wed, 29 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2014/10/tags-plugins-showcase/</guid>
+      <guid>https://rhyeu.netlify.app/2014/10/tags-plugins-showcase/</guid>
       <description>&lt;p&gt;This post is used to show how tag plugins are displayed. See &lt;a href=&#34;https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md#tags&#34;&gt;docs&lt;/a&gt; for more info.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hidden social section showcase</title>
-      <link>https://blog-rhyeu.netlify.app/2014/08/hidden-social-section-showcase/</link>
+      <link>https://rhyeu.netlify.app/2014/08/hidden-social-section-showcase/</link>
       <pubDate>Sun, 17 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2014/08/hidden-social-section-showcase/</guid>
+      <guid>https://rhyeu.netlify.app/2014/08/hidden-social-section-showcase/</guid>
       <description>&lt;p&gt;This post is used to show how a site looks if the social section is hidden.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hidden tag section showcase</title>
-      <link>https://blog-rhyeu.netlify.app/2014/08/hidden-tag-section-showcase/</link>
+      <link>https://rhyeu.netlify.app/2014/08/hidden-tag-section-showcase/</link>
       <pubDate>Sat, 16 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2014/08/hidden-tag-section-showcase/</guid>
+      <guid>https://rhyeu.netlify.app/2014/08/hidden-tag-section-showcase/</guid>
       <description>&lt;p&gt;This post is used to show how a site looks if the tag section is hidden.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hidden pagination showcase</title>
-      <link>https://blog-rhyeu.netlify.app/2014/08/hidden-pagination-showcase/</link>
+      <link>https://rhyeu.netlify.app/2014/08/hidden-pagination-showcase/</link>
       <pubDate>Fri, 15 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2014/08/hidden-pagination-showcase/</guid>
+      <guid>https://rhyeu.netlify.app/2014/08/hidden-pagination-showcase/</guid>
       <description>&lt;p&gt;This post is used to show how a site looks if the pagination is hidden.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Video integrations showcase</title>
-      <link>https://blog-rhyeu.netlify.app/2014/08/video-integrations-showcase/</link>
+      <link>https://rhyeu.netlify.app/2014/08/video-integrations-showcase/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2014/08/video-integrations-showcase/</guid>
+      <guid>https://rhyeu.netlify.app/2014/08/video-integrations-showcase/</guid>
       <description>&lt;p&gt;Youtube and Vimeo videos are easily integrated thanks to tags plugins. Of course, you can add video other platforms like dailymotion.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>中文測試</title>
-      <link>https://blog-rhyeu.netlify.app/2013/10/chinese-test/</link>
+      <link>https://rhyeu.netlify.app/2013/10/chinese-test/</link>
       <pubDate>Wed, 02 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2013/10/chinese-test/</guid>
+      <guid>https://rhyeu.netlify.app/2013/10/chinese-test/</guid>
       <description>&lt;p&gt;This is a chinese test post to show you how chinese is displayed.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Image gallery showcase</title>
-      <link>https://blog-rhyeu.netlify.app/2013/02/image-gallery-showcase/</link>
+      <link>https://rhyeu.netlify.app/2013/02/image-gallery-showcase/</link>
       <pubDate>Mon, 18 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2013/02/image-gallery-showcase/</guid>
+      <guid>https://rhyeu.netlify.app/2013/02/image-gallery-showcase/</guid>
       <description>&lt;p&gt;And here is the image gallery!&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>日本語テスト</title>
-      <link>https://blog-rhyeu.netlify.app/2013/01/japanese-test/</link>
+      <link>https://rhyeu.netlify.app/2013/01/japanese-test/</link>
       <pubDate>Wed, 02 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://blog-rhyeu.netlify.app/2013/01/japanese-test/</guid>
+      <guid>https://rhyeu.netlify.app/2013/01/japanese-test/</guid>
       <description>&lt;p&gt;This is a Japanese test post to show you how japanese is displayed.&lt;/p&gt;</description>
     </item>
     

@@ -1,5 +1,5 @@
 ---
-title: Today I Learn
+title: Today I Learn / GitHub 저장소 이름 및 url 변경하기
 author: 류성균
 date: '2020-10-04'
 slug: today-i-learn.en-us
