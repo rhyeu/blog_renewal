@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Visualization on 기억하기쉬운블로그</title>
-    <link>https://rhyeu.netlify.app/tags/visualization/</link>
+    <link>/tags/visualization/</link>
     <description>Recent content in Visualization on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Today I learn - &#39;ggfortify&#39; 패키지</title>
-      <link>https://rhyeu.netlify.app/2019/06/today-i-learn/</link>
+      <link>/2019/06/today-i-learn/</link>
       <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://rhyeu.netlify.app/2019/06/today-i-learn/</guid>
+      <guid>/2019/06/today-i-learn/</guid>
       <description>R에서는 ‘ggfortify’ 패키지를 사용하면, PCA와 일부 클러스터링 결과에 대해 시각화를 예쁘게 해볼 수 있다. https://cran.r-project.org/web/packages/ggfortify/vignettes/plot_pca.html</description>
     </item>
     

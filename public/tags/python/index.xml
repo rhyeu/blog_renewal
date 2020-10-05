@@ -2,35 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on 기억하기쉬운블로그</title>
-    <link>https://rhyeu.netlify.app/tags/python/</link>
+    <link>/tags/python/</link>
     <description>Recent content in python on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>os.path.join in Python</title>
-      <link>https://rhyeu.netlify.app/2020/06/os-path-join-in-python/</link>
+      <link>/2020/06/os-path-join-in-python/</link>
       <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rhyeu.netlify.app/2020/06/os-path-join-in-python/</guid>
-      <description>os.path.join : 파일 경로의 폴더명, 파일명을 인자로 받아 정상적인 파일 경로를 출력해줌 ## install.packages(&amp;quot;reticulate&amp;quot;) library(reticulate) # import os # for dirname, _, filenames in os.walk(&amp;#39;/kaggle/input&amp;#39;): # for filename in filenames: # print(os.path.join(dirname, filename)) ## Any results you write to the current directory are saved as output. 예시</description>
+      <guid>/2020/06/os-path-join-in-python/</guid>
+      <description>
+
+
+</description>
     </item>
     
     <item>
       <title>Today I Learn / 파이썬 팁 - 리스트 출력, 연산자, range 함수</title>
-      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
+      <link>/2019/09/today-i-learn/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
+      <guid>/2019/09/today-i-learn/</guid>
       <description>괄호 없이 리스트 출력하기 리스트 a = [1,2,&amp;#39;X&amp;#39;,4,5] print(*a, sep = &amp;quot; &amp;quot;) ## 1 2 X 4 5 파이썬 비트 연산자 AND : &amp;amp; OR : | XOR : ^ NOT : ~ 삼항 연산자 익숙해지면 코드가 더 간단해 질듯 a = 10</description>
     </item>
     
     <item>
       <title>Today I Learn / python tip (print, list, 진법, 몫, 나머지)</title>
-      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
+      <link>/2019/09/today-i-learn/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
+      <guid>/2019/09/today-i-learn/</guid>
       <description>library(reticulate) Sys.setlocale(&amp;#39;LC_ALL&amp;#39;,&amp;#39;C&amp;#39;) ## [1] &amp;quot;C&amp;quot; 요새 코드업 기초 100제를 풀어보고 있는데 헷갈리는 것들을 정리! 1. sep 옵션 in python 파이썬에서 여러 개를 출력할 때 sep 옵션을 걸 수 있음 print(1920, 1080, sep = &amp;#39;x&amp;#39;) ## 1920x1080 print(&amp;#39;Hello&amp;#39;, &amp;#39;Python&amp;#39;,</description>
     </item>
     

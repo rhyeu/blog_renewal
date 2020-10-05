@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>for on 기억하기쉬운블로그</title>
-    <link>https://rhyeu.netlify.app/tags/for/</link>
+    <link>/tags/for/</link>
     <description>Recent content in for on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/for/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/for/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Today I learn - eval(parse)</title>
-      <link>https://rhyeu.netlify.app/2019/07/today-i-learn/</link>
+      <link>/2019/07/today-i-learn/</link>
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://rhyeu.netlify.app/2019/07/today-i-learn/</guid>
+      <guid>/2019/07/today-i-learn/</guid>
       <description>eval(parse(text = )) 사용 법 반복문 사용할 때 항상 eval + parse를 어떻게 하는 지 애먹었는데 나를 위해 예문과 함께 정리해봄. 중요한 건 eval(parse(text = &#34; &#34; )) 괄호 안에 text의 형태로 들</description>
     </item>
     

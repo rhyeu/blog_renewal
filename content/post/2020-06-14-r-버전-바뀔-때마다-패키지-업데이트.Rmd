@@ -10,6 +10,8 @@ tags:
   - package
 ---
 
+<!--more-->
+
 - reference : 출처: https://3months.tistory.com/383 [Deep Play]
 
 ### R 버전 업데이트

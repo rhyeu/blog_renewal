@@ -12,6 +12,8 @@ keywords:
   - tech
 ---
 
+<!--more-->
+
 - reference : https://12bme.tistory.com/43
 
 ### GitHub 저장소 이름 및 url 변경하기

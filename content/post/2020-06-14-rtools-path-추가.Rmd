@@ -9,6 +9,8 @@ tags:
   - RTOOLS
 ---
 
+<!--more-->
+
 ### RTOOLS PATH 추가
 ```
 # writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con = "~/.Renviron")
