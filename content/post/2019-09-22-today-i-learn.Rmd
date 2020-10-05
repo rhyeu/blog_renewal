@@ -9,6 +9,8 @@ tags:
   - jupyter notebook
 ---
 
+<!--more-->
+
 - 출처 : https://www.timlrx.com/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/
 
 blogdown으로 블로그를 운영하는데 아쉬운 건 테마, 폰트 등 수도 없지만 더 아쉬운건 파이썬을 쓰기 번거롭다는 것이다. 'reticulate' 패키지를 써도 되긴하는데 주피터 노트북도 사용 가능하다고 한다!!

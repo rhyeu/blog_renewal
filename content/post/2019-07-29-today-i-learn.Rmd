@@ -9,6 +9,8 @@ tags:
   - BHC
 ---
 
+<!--more-->
+
 ### BHC의 장점
 	
 	1. predictive distribution을 활용하기 좋다.

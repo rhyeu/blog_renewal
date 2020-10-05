@@ -10,6 +10,8 @@ tags:
   - python 2 dimensional array
 ---
 
+<!--more-->
+
 ### list 중복 없애기
 - 참조 : https://bluese05.tistory.com/13
 

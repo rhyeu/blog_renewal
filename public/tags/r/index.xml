@@ -44,7 +44,10 @@
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</guid>
-      <description>출처 : http://blog.naver.com/PostView.nhn?blogId=coder1252&amp;amp;logNo=221294821930&amp;amp;parentCategoryNo=&amp;amp;categoryNo=6&amp;amp;viewDate=&amp;amp;isShowPopularPosts=true&amp;amp;from=search 엔간한 데이터 요약과 정리는 dplyr 동사들로 할 수 있지만, ’aggregate’를 사용하면 더 깔끔한 듯. 매번 찾아보다가 정말 잘 정리된 블로그가 있어 참고</description>
+      <description>
+
+
+</description>
     </item>
     
     <item>
@@ -53,7 +56,10 @@
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/07/today-i-learn/</guid>
-      <description>eval(parse(text = )) 사용 법 반복문 사용할 때 항상 eval + parse를 어떻게 하는 지 애먹었는데 나를 위해 예문과 함께 정리해봄. 중요한 건 eval(parse(text = &#34; &#34; )) 괄호 안에 text의 형태로 들</description>
+      <description>
+
+
+</description>
     </item>
     
     <item>
@@ -62,7 +68,10 @@
       <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/06/today-i-learn/</guid>
-      <description>R에서는 ‘ggfortify’ 패키지를 사용하면, PCA와 일부 클러스터링 결과에 대해 시각화를 예쁘게 해볼 수 있다. https://cran.r-project.org/web/packages/ggfortify/vignettes/plot_pca.html</description>
+      <description>
+
+
+</description>
     </item>
     
     <item>
@@ -71,7 +80,10 @@
       <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/06/today-i-learn/</guid>
-      <description>Broom glm, Regression tree, GAM 등에서 사용가능 - 심지어 데이터 프레임으로 output이 나옴 glance : 전체 퍼포먼스 tidy : 계수 augment : predicted value Stacking fitted value가 나오는 결로 디자인 matri</description>
+      <description>
+
+
+</description>
     </item>
     
   </channel>
