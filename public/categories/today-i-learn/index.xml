@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Today I learn on 기억하기쉬운블로그</title>
-    <link>/categories/today-i-learn/</link>
+    <link>https://rhyeu.netlify.app/categories/today-i-learn/</link>
     <description>Recent content in Today I learn on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/today-i-learn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/categories/today-i-learn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Today I Learn / blog 세팅하기</title>
-      <link>/2020/10/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2020/10/today-i-learn/</link>
       <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/10/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2020/10/today-i-learn/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;
@@ -28,10 +28,10 @@
     
     <item>
       <title>R 버전 바뀔 때마다 패키지 업데이트</title>
-      <link>/2020/06/r-%EB%B2%84%EC%A0%84-%EB%B0%94%EB%80%94-%EB%95%8C%EB%A7%88%EB%8B%A4-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</link>
+      <link>https://rhyeu.netlify.app/2020/06/r-%EB%B2%84%EC%A0%84-%EB%B0%94%EB%80%94-%EB%95%8C%EB%A7%88%EB%8B%A4-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</link>
       <pubDate>Sun, 14 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/06/r-%EB%B2%84%EC%A0%84-%EB%B0%94%EB%80%94-%EB%95%8C%EB%A7%88%EB%8B%A4-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</guid>
+      <guid>https://rhyeu.netlify.app/2020/06/r-%EB%B2%84%EC%A0%84-%EB%B0%94%EB%80%94-%EB%95%8C%EB%A7%88%EB%8B%A4-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</guid>
       <description>
 
 
@@ -40,10 +40,10 @@
     
     <item>
       <title>Rtools path 추가</title>
-      <link>/2020/06/rtools-path-%EC%B6%94%EA%B0%80/</link>
+      <link>https://rhyeu.netlify.app/2020/06/rtools-path-%EC%B6%94%EA%B0%80/</link>
       <pubDate>Sun, 14 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/06/rtools-path-%EC%B6%94%EA%B0%80/</guid>
+      <guid>https://rhyeu.netlify.app/2020/06/rtools-path-%EC%B6%94%EA%B0%80/</guid>
       <description>
 
 
@@ -52,10 +52,10 @@
     
     <item>
       <title>os.path.join in Python</title>
-      <link>/2020/06/os-path-join-in-python/</link>
+      <link>https://rhyeu.netlify.app/2020/06/os-path-join-in-python/</link>
       <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/06/os-path-join-in-python/</guid>
+      <guid>https://rhyeu.netlify.app/2020/06/os-path-join-in-python/</guid>
       <description>
 
 
@@ -64,10 +64,10 @@
     
     <item>
       <title>Today I Learn / R aggreagate 함수</title>
-      <link>/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</link>
+      <link>https://rhyeu.netlify.app/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</guid>
+      <guid>https://rhyeu.netlify.app/2019/10/today-i-learn-/-r-aggreagate-%ED%95%A8%EC%88%98/</guid>
       <description>
 
 
@@ -76,10 +76,10 @@
     
     <item>
       <title>Today I Learn / list 중복 없애기, 2차원 행렬</title>
-      <link>/2019/10/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/10/today-i-learn/</link>
       <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/10/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/10/today-i-learn/</guid>
       <description>
 
 
@@ -88,10 +88,10 @@
     
     <item>
       <title>Today I Learn / 파이썬 팁 - 리스트 출력, 연산자, range 함수</title>
-      <link>/2019/09/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/09/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
       <description>
 
 
@@ -100,10 +100,10 @@
     
     <item>
       <title>Today I Learn / 주피터 노트북 포스팅</title>
-      <link>/2019/09/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
       <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/09/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
       <description>
 
 
@@ -112,10 +112,10 @@
     
     <item>
       <title>Today I Learn / python tip (print, list, 진법, 몫, 나머지)</title>
-      <link>/2019/09/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/09/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
       <description>
 
 
@@ -124,10 +124,10 @@
     
     <item>
       <title>Today I Learn / cor2cov</title>
-      <link>/2019/09/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/09/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
       <description>
 
 
@@ -136,10 +136,10 @@
     
     <item>
       <title>Today I Learn - GBHC 등</title>
-      <link>/2019/08/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/08/today-i-learn/</link>
       <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/08/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/08/today-i-learn/</guid>
       <description>
 
 
@@ -148,10 +148,10 @@
     
     <item>
       <title>Today I learn - eval(parse)</title>
-      <link>/2019/07/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/07/today-i-learn/</link>
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/07/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/07/today-i-learn/</guid>
       <description>
 
 
@@ -160,10 +160,10 @@
     
     <item>
       <title>Today I Learn - BHC 장/단점</title>
-      <link>/2019/07/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/07/today-i-learn/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/07/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/07/today-i-learn/</guid>
       <description>
 
 
@@ -172,10 +172,10 @@
     
     <item>
       <title>Today I learn - &#39;ggfortify&#39; 패키지</title>
-      <link>/2019/06/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/06/today-i-learn/</link>
       <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/06/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/06/today-i-learn/</guid>
       <description>
 
 
@@ -184,10 +184,10 @@
     
     <item>
       <title>Today I learn - Broom / Stacking</title>
-      <link>/2019/06/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/06/today-i-learn/</link>
       <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/06/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/06/today-i-learn/</guid>
       <description>
 
 

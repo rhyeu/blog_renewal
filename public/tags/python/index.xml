@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on 기억하기쉬운블로그</title>
-    <link>/tags/python/</link>
+    <link>https://rhyeu.netlify.app/tags/python/</link>
     <description>Recent content in python on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>os.path.join in Python</title>
-      <link>/2020/06/os-path-join-in-python/</link>
+      <link>https://rhyeu.netlify.app/2020/06/os-path-join-in-python/</link>
       <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/06/os-path-join-in-python/</guid>
+      <guid>https://rhyeu.netlify.app/2020/06/os-path-join-in-python/</guid>
       <description>
 
 
@@ -21,10 +21,10 @@
     
     <item>
       <title>Today I Learn / 파이썬 팁 - 리스트 출력, 연산자, range 함수</title>
-      <link>/2019/09/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/09/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
       <description>
 
 
@@ -33,10 +33,10 @@
     
     <item>
       <title>Today I Learn / python tip (print, list, 진법, 몫, 나머지)</title>
-      <link>/2019/09/today-i-learn/</link>
+      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/09/today-i-learn/</guid>
+      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
       <description>
 
 
