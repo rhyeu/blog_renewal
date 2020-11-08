@@ -27,13 +27,16 @@ keywords:
 <p>월간 뉴턴 9월호는 베이즈 통계에 대해 다룬다. (보통 국내에서는 <em>베이즈</em> 라고 표현해서 개인적으로는 약간 어색하게 느껴진다.) 그 중 ‘양치기 소년’ 예시를 좀 더 디테일하게 다뤄보면서 ’빈도주의 통계’와 ’베이지안 통계’의 차이를 다뤄보고자 한다.</p>
 <hr />
 </div>
-<div id="양치기-소년-이야기" class="section level3">
-<h3>양치기 소년 이야기</h3>
-<p><img src="https://github.com/rhyeu/blog_renewal/blob/main/content/img/202011_sheep_keeper/pexels-steve-397857.jpg?raw=true" /></p>
+<div id="양치기-소년-이야기" class="section level1">
+<h1>양치기 소년 이야기</h1>
+<div class="figure">
+<img src="https://github.com/rhyeu/blog_renewal/blob/main/content/img/202011_sheep_keeper/pexels-steve-397857.jpg?raw=true" alt="" />
+<p class="caption">출처 - Steve in Pexel</p>
+</div>
 <p><br />
 </p>
 <blockquote>
-<p>양을 치는 소년이 심심풀이로 “늑대가 나타났다!”라고 거짓말을 하고 소란을 일으킨다. 그 동네의 어른들은 소년의 거짓말에 속아 무기를 가져오지만, 헛수고로 끝난다. 양치기 소년은 이런 거짓말을 여러 번 반복했다. 결국 어느 날에 정말 늑대가 나타났지만 어른들은 더 이상 양치기 소년의 말을 믿지 않았고, 아무도 도우러 가지 않았다. 결국 양치기 소년의 모든 양이 늑대에 의해 잡아먹혔다.(출처 - <a href="https://ko.wikipedia.org/wiki/%EC%96%91%EC%B9%98%EA%B8%B0_%EC%86%8C%EB%85%84">위키백과</a>)</p>
+<p>양을 치는 소년이 심심풀이로 “늑대가 나타났다!”라고 거짓말을 하고 소란을 일으킨다. 그 동네의 어른들은 소년의 거짓말에 속아 무기를 가져오지만, 헛수고로 끝난다. 양치기 소년은 이런 거짓말을 여러 번 반복했다. 결국 어느 날에 정말 늑대가 나타났지만 어른들은 더 이상 양치기 소년의 말을 믿지 않았고, 아무도 도우러 가지 않았다. 결국 양치기 소년의 모든 양이 늑대에 의해 잡아먹혔다.(<a href="https://ko.wikipedia.org/wiki/%EC%96%91%EC%B9%98%EA%B8%B0_%EC%86%8C%EB%85%84">위키백과</a>)</p>
 </blockquote>
 <p><br />
  </p>
@@ -49,8 +52,8 @@ report</code></pre>
 <pre><code>## [1] 0 0 0 0 0 0 1 1</code></pre>
 <hr />
 </div>
-<div id="이항-검정" class="section level3">
-<h3>이항 검정</h3>
+<div id="이항-검정" class="section level1">
+<h1>이항 검정</h1>
 <ul>
 <li>소년이 거짓말쟁이인지 검증하고자 한다. 마을 사람들은 보통 10번에 한 번 정도만 거짓말을 한다고 가정하고 소년이 마을 사람들보다 거짓말을 더 자주하는 지 확인해보자. 이 때, 영가설 <span class="math inline">\(H_0\)</span>은 아래와 같이 가정한다.</li>
 </ul>
@@ -92,8 +95,8 @@ report</code></pre>
 ##                   0.25</code></pre>
 <hr />
 </div>
-<div id="베이즈-정리" class="section level3">
-<h3>베이즈 정리</h3>
+<div id="베이즈-정리" class="section level1">
+<h1>베이즈 정리</h1>
 <ul>
 <li><p>그럼 이번엔 베이즈 정리를 이용해 8번의 시행마다 거짓말을 할 확률이 어떻게 변화하는 지 확인해보자.(이 부분은 월간 뉴턴의 내용을 인용함.)2</p></li>
 <li><p>소년이 거짓말쟁이일 사전 확률을 0.1, 정직할 사전 확률을 0.9로 두자. 또한, 소년이 거짓말쟁이일 때 늑대가 발견될 확률을 0.3, 소년이 거짓말쟁이일 때 늑대가 발견될 확률을 0.7로 보자. 이러한 내용은 아래의 수식이나 표로 표현할 수 도 있다.</p></li>
@@ -192,8 +195,8 @@ legend(&quot;bottomleft&quot;,
 ##  [8,] 0.9871125 0.012887528
 ##  [9,] 0.9663559 0.033644092</code></pre>
 </div>
-<div id="베이지안-추정" class="section level3">
-<h3>베이지안 추정</h3>
+<div id="베이지안-추정" class="section level1">
+<h1>베이지안 추정</h1>
 <ul>
 <li><p>이젠 ‘거짓말할 확률의 분포를 추정하는’ <strong>베이지안 추정</strong>으로 넘어가보자. 빈도주의와 베이지안의 가장 큰 차이점은 모수와 데이터의 관계이다. 빈도주의는 데이터의 분포(실은 주로 표본 평균의 분포를 가정)를 보고 모수 값을 추정하는데 반해, 베이지안 세팅에서는 데이터와 사전확률을 통해 모수의 분포를 추정한다.</p></li>
 <li><p>데이터와 사전 확률을 결합하기 위해서는 위와 같이 베이즈 정리를 활용한다는 점에서는 같지만, 베이지안 추정에선 확률값의 점추정이 아닌 분포를 직접 계산한다. 그리고 모수가 확률일 때는 계산의 편의성을 위해서 이항분포와 베타분포 켤레 관계를 사용한다.</p></li>
@@ -297,8 +300,8 @@ beta2_df %&gt;% filter(trial == c(&quot;prior&quot;, &quot;trial1&quot;, &quot;t
   ggtitle(&quot;시행에 따른 확률분포 변화&quot;)</code></pre>
 <p><img src="/post/2020-11-08-양치기-소년/index.en-us_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </div>
-<div id="epilogue" class="section level3">
-<h3>Epilogue</h3>
+<div id="epilogue" class="section level1">
+<h1>Epilogue</h1>
 <ul>
 <li><p>본 포스팅에서는 <strong>이항 검정</strong>과 <strong>베이즈 정리를 활용한 확률 추정</strong>, <strong>베이지안 분포 추정</strong>을 비교했다. 빈도주의와 비교해볼 때, 베이지안 추정은 이전 시행의 정보를 확인할 수 있다는 장점이 있다. 베이지안에서는 분포 추정 뿐만 아니라 가설 검정도 진행할 수 있는데 다룰 지 말 지 고민중이다.</p></li>
 <li><p>읽어주셔서 감사합니다.</p></li>
