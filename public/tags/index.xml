@@ -6,7 +6,43 @@
     <description>Recent content in Tags on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bayesian</title>
+      <link>https://rhyeu.netlify.app/tags/bayesian/</link>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/tags/bayesian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bayesian_computing</title>
+      <link>https://rhyeu.netlify.app/tags/bayesian_computing/</link>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/tags/bayesian_computing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bayesian_updating</title>
+      <link>https://rhyeu.netlify.app/tags/bayesian_updating/</link>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/tags/bayesian_updating/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>t-test</title>
+      <link>https://rhyeu.netlify.app/tags/t-test/</link>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/tags/t-test/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>blogdown</title>
       <link>https://rhyeu.netlify.app/tags/blogdown/</link>
@@ -211,24 +247,6 @@
       <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rhyeu.netlify.app/tags/stacking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bayesian</title>
-      <link>https://rhyeu.netlify.app/tags/bayesian/</link>
-      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://rhyeu.netlify.app/tags/bayesian/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bayesian_computing</title>
-      <link>https://rhyeu.netlify.app/tags/bayesian_computing/</link>
-      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://rhyeu.netlify.app/tags/bayesian_computing/</guid>
       <description></description>
     </item>
     
