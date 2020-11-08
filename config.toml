@@ -147,10 +147,10 @@ canonifyurls = true
   coverImage = "images/cover.jpg"
 
   # Display an image gallery at the end of a post which have photos variables (false: disabled, true: enabled)
-  imageGallery = true
+  imageGallery = false
 
   # Display thumbnail image of each post on index pages (false: disabled, true: enabled)
-  thumbnailImage = true
+  thumbnailImage = false
   # Display thumbnail image at the right of title in index pages (`right`, `left` or `bottom`)
   # Set this value to `right` if you have old posts to keep the old style on them
   # and define `thumbnailImagePosition` on a post to overwrite this setting
@@ -173,7 +173,7 @@ canonifyurls = true
 
   # Display `Next` on left side of the pagination, and `Prev` on right side one.
   # If you set this value to `true`, these positions swap.
-   swapPaginator = true
+   swapPaginator = false
 
   # Custom CSS. Put here your custom CSS files. They are loaded after the theme CSS;
   # they have to be referred from static root. Example
