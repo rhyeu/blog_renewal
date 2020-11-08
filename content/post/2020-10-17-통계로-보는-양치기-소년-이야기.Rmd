@@ -1,0 +1,233 @@
+---
+title: 통계로 보는 양치기 소년 이야기
+author: 류성균
+date: '2020-10-17'
+slug: 통계로-보는-양치기-소년-이야기
+categories:
+  - essay
+tags:
+  - bayesian
+  - t-test
+  - bayesian_update
+  - posterior_probability
+  - frequntist
+keywords:
+  - tech
+editor_options: 
+  chunk_output_type: console
+---
+
+<!--more-->
+
+- Reference : [월간 뉴턴 9월호](http://www.newtonkorea.co.kr/SrcWeb/BOOK/NEW_NEWTON.aspx?hddNO=20012)
+
+### Prologue
+
+월간 뉴턴 9월호는 베이즈 통계에 대해 다룬다. (보통 국내에서는 *베이즈* 라고 표현해서 개인적으로는 약간 어색하게 느껴진다.) 그 중 '양치기 소년' 예시를 좀 더 디테일하게 다뤄보면서 '빈도주의 통계'와 '베이지안 통계'의 차이를 다뤄보고자 한다.
+
+---
+
+### 양치기 소년 이야기
+
+![wolf](C:\Users\rhyeu\Documents\GitHub\blog_renewal\content\img\202011_sheep_keeper)
+
+양을 치는 소년이 심심풀이로 "늑대가 나타났다!"라고 거짓말을 하고 소란을 일으킨다. 그 동네의 어른들은 소년의 거짓말에 속아 무기를 가져오지만, 헛수고로 끝난다. 양치기 소년은 이런 거짓말을 여러 번 반복했다. 결국 어느 날에 정말 늑대가 나타났지만 어른들은 더 이상 양치기 소년의 말을 믿지 않았고, 아무도 도우러 가지 않았다. 결국 양치기 소년의 모든 양이 늑대에 의해 잡아먹혔다.(출처 - [위키백과](https://ko.wikipedia.org/wiki/%EC%96%91%EC%B9%98%EA%B8%B0_%EC%86%8C%EB%85%84))
+
+- 양치기 소년이 10일 동안 양을 치고 있었고, 매일 "늑대가 나타났다."라고 거짓말을 하며 사람들을 불러모았다고 하자. 그 중 8번은 늑대가 나타나지 않았지만 9일차, 10일차에는 늑대가 나타났다고 가정해본다. 이를 표현하면 아래와 같다. 이를 가지고 소년이 거짓말쟁이인지 통계적으로 판단해보자. 방법은 **전통적인 이항검정**, **베이즈 정리를 이용한 추정**, **베이지안 사후확률**을 구하는 방법 순으로 해보고자 한다.
+
+
+```{r, message=FALSE}
+library(tidyverse)
+library(data.table)
+library(RColorBrewer)
+library(knitr)
+```
+
+```{r}
+report <- c(rep(0,6), rep(1, 2)) # 0 - 거짓(늑대가 안 나타남), 1 - 진실(늑대가 나타남)
+report
+```
+
+---
+
+### 이항 검정
+
+- 소년이 거짓말쟁이인지 검증하고자 한다. 마을 사람들은 보통 10번에 한 번 정도만 거짓말을 한다고 가정하고 소년이 마을 사람들보다 거짓말을 더 자주하는 지 확인해보자. 이 때, 영가설 $H_0$은 아래와 같이 가정한다.
+
+$H_0 : \pi = 0.9$ => (소년이 진실을 말할 확률 $\pi$는 0.9이다.)
+
+이를 판단하기 위한 검정에는 여러 가지가 있겠지만, 매번 늑대가 나타날 확률이 독립적이라고 할 경우 이항 검정을 통해 가설 검정을 할 수 있다. 먼저 이항 검정의 가정은 아래와 같다.(이 때, $\pi_0$은 영가설 하에서의 $\pi$를 의미한다.)
+
+$$Y \overset{iid}{\sim} Bin(10, \pi_0)$$
+
+- 위의 가정 하에서 영가설을 기각할 p-value는 0에 가깝다. 따라서, '소년은 해당 데이터를 볼 때 마을 사람들보다 거짓말을 더 많이 했다.($\pi < 0.9$)'가 이항검정이 나타내는 결론이다.
+
+```{r}
+binom.test(x = sum(report==1), n = length(report), p = 0.9, alternative = "less")
+```
+
+- 한 가지 흥미로운 점은, 소년의 말이 8번 중 2번은 맞았다는 점이다. 따라서 '소년이 거짓말을 하지 않을 확률은 0.25이다.'라고 할 때는 p-value가 1로 나오는 걸 알 수 있다. 
+- 덧붙여 이항시행에서 아쉬운 점은 소년의 보고(거짓말 / 참말)을 독립시행이라고 봤기 때문에 거짓말이나 참말의 순서를 전혀 고려하지 못하게 된다.
+
+```{r}
+binom.test(x = sum(report==1), n = length(report), p = 0.25)
+```
+
+---
+
+### 베이즈 정리
+
+- 그럼 이번엔 베이즈 정리를 이용해 10번의 시행마다 거짓말을 할 확률이 어떻게 변화하는 지 확인해보자.(이 부분은 월간 뉴턴의 내용을 인용함.)
+- 소년이 거짓말 쟁이일 확률을 0.1, 정직할 확률을 0.9로 두자.(이를 관측을 하기 전에 가정한다는 의미로 '사전확률'이라고 한다.) 또한, 소년이 거짓말쟁이일 때 늑대가 발견될 확률을 0.3, 소년이 거짓말쟁이일 때 늑대가 발견될 확률을 0.7로 보자. 이러한 내용은 아래의 수식으로 표현할 수 도 있다.
+
+- $p(거짓) = 0.1$ / $p(정직) = 0.9$
+- $p(발견 |정직) = 0.8$ / $p(미발견|거짓) = 0.7$
+```{r}
+mat = matrix(c(0.8,0.2, 1,0.3,0.7, 1), nrow = 2, byrow= T,
+       dimnames = list(c("정직", "거짓"), c("발견", "미발견", "합계"))) 
+```
+```{r}
+mat %>% knitr::kable()
+```
+
+
+```{r}
+lie <- rep(NA, 9)
+honest <- rep(NA, 9)
+
+lie[1] = 0.1 # 거짓말쟁이일 사전확률
+honest[1] = 0.9 # 정직한 아이일 사전확률
+```
+
+- 이제 소년이 거짓말쟁이일 확률을 구해보자, 첫번 째 날, 소년이 "늑대가 나타났다."고 말했지만 늑대가 나타나지 않았다. 가능한 경우의 수는 두 가지 인데, 소년이 정직하게 말했지만 늑대가 보이지 않았거나, 소년이 거짓말쟁이어서 늑대가 없었던 것이다. 먼저, 소년이 거짓말을 했을 확률은 아래와 같은 계산을 통해 `r lie[1]*mat["거짓","미발견"] / (lie[1]*mat["거짓","미발견"] + honest[1]*mat["정직","미발견"])`이 나온다. 
+
+$$\begin{matrix}
+p(거짓 | 미발견) &=& \frac{p(거짓) * p(미발견|거짓)}{p(미발견)} \\
+                 &=& \frac{p(거짓) * p(미발견|거짓)}{p(거짓) * p(미발견|거짓) + p(정직) * p(미발견|정직)}
+\end{matrix}$$
+
+```{r}
+lie[2] = lie[1]*mat["거짓","미발견"] / (lie[1]*mat["거짓","미발견"] + honest[1]*mat["정직","미발견"])
+
+honest[2] = 1- lie[2]
+
+print(lie[2]) 
+print(honest[2])
+```
+
+- 늑대가 나타나지 않자, 소년이 거짓말쟁이일 확률은 0.1에서 0.28로 2배 넘게 올라갔다. 그렇다면 8번의 경우에 따라 소년이 거짓말을 할 확률도 모두 계산해볼 수 있다. 흥미로운 점은 이미 여러 차례 늑대가 발견되지 않았기 때문에, 7번째와 8번째 시행에서 늑대가 나타났다고 하더라도 거짓말할 확률은 크게 바뀌지 않았다는 점이다.
+- 추가로 베이즈 정리를 활용한 확률 추정에서는 이전 시행의 정보를 가지고 다음 시행의 확률을 갱신하는 내용이 추가된 점도 확인할 수 있다.
+
+```{r, warning= FALSE}
+for (i in 3:9){
+  if(report == 0){
+    lie[i] = lie[i-1]*mat["거짓","미발견"] / (lie[i-1]*mat["거짓","미발견"] + honest[i-1]*mat["정직","미발견"])
+    honest[i] = 1 - lie[i]
+  } else{
+    lie[i] = lie[i-1]*mat["거짓","발견"] / (lie[i-1]*mat["거짓","발견"] + honest[i-1]*mat["정직","발견"])
+    honest[i] = 1 - lie[i]
+  }
+}
+  
+est_prop <- cbind(lie, honest) 
+```
+
+```{r}
+# 출처 : https://www.r-graph-gallery.com/119-add-a-legend-to-a-plot.html
+plot(lie[2:9]~c(1:8) , type="b" , bty="l", col="tomato" , lwd=3 , pch=c(rep(4, 6), rep(1,2)), ylim = c(0,1), xlab="시행", ylab = "확률", main = "시행에 따른 확률 변화")
+lines(honest[2:9] ~c(1:8), col="royalblue" , lwd=3 , pch=c(rep(4, 6), rep(1,2)), type="b" )
+ 
+# Add a legend
+legend("bottomleft", 
+  legend = c("거짓말쟁이일 확률-미발견", "정직할 확률-미발견",
+             "거짓말쟁이일 확률-발견", "정직할 확률-발견"), 
+  col = c("tomato", "royalblue", 
+          "tomato", "royalblue"), 
+  pch = c(4, 4, 1, 1), 
+  bty = "n", 
+  pt.cex = 2, 
+  cex = 1.2, 
+  text.col = "black", 
+  horiz = F , 
+  inset = c(0.6,0.5))
+```
+
+```{r}
+print(est_prop)
+```
+
+
+### 베이지안 추정
+- 이젠 '거짓말할 확률의 분포를 추정하는' **베이지안 추정**으로 넘어가보자. 빈도주의와 베이지안의 가장 큰 차이점은 모수와 데이터의 관계이다. 빈도주의는 데이터의 분포(실은 주로 표본 평균의 분포를 가정)를 보고 모수 값을 추정하는데 반해, 베이지안 세팅에서는 데이터와 사전확률을 통해 모수의 분포를 추정한다.
+
+- 데이터와 사전 확률을 결합하기 위해서는 위와 같이 베이즈 정리를 활용한다는 점에서는 같지만, 베이지안 추정에선 확률값의 점추정이 아닌 분포를 직접 계산한다. 그리고 모수가 확률일 때는 계산의 편의성을 위해서 이항분포와 베타분포 켤레 관계를 사용한다.
+- 시행에 따라 갱신되는 $\pi$의 분포는 아래와 같다.
+
+$$\begin{matrix}
+y|\pi &\overset{iid}{\sim}& Bin(n, \pi) \\
+\pi &\sim& Beta(\alpha, \beta)
+\end{matrix}
+$$
+$$\pi |y \sim Beta(\alpha + y, n -y+\beta)$$
+
+- 위의 경우는 분포가 이미 알려진 분포로 깔끔하게 정리되었기 때문에 쉽게 샘플링해서 분포를 확인할 수 있다. 아래의 함수는 사전 확률과 각각의 시행에 따라 갱신되는 분포에 따라, 10000개의 샘플을 추출해 컬럼에 저장하는 함수이다.
+
+```{r}
+set.seed(1234)
+a1 = 1; b1 = 1
+beta1 <- matrix(rep(NA, 10000*9), ncol=9, )
+beta1[,1] = rbeta(10000, a1, b1)
+for (i in 1:length(report)){
+  beta1[,i+1] = rbeta(10000, a1+sum(report[1:i]==1), 
+                      length(report[1:i])- sum(report[1:i]==1) + b1 )
+}
+
+beta1_df<- beta1 %>% as.data.frame()
+names(beta1_df) <- c("prior", "trial1","trial2", "trial3", "trial4", "trial5", "trial6", "trial7", "trial8")
+beta1_df <- beta1_df %>% 
+  reshape2::melt() %>% 
+  dplyr::rename(trial = variable)
+```
+
+- 아래 그림은 샘플링한 값들의 분포들을 하나의 그림으로 겹처놓은 것이다. 확인해보면 사전분포에서는 거짓말할 확률이 균등분포를 따르다가 6번째 시행으로 진행되면서 점점 0에 가깝게 변화한다. 이후 늑대가 나타나면서 다시 분포의 값은 오른쪽으로 이동하는 것을 확인할 수 있다.
+
+```{r}
+## 분포 평균의 변화
+apply(beta1, 2, mean) %>% kable()
+```
+
+```{r}
+# Plot
+beta1_df %>% filter(trial == c("prior", "trial1", "trial3","trial6",  "trial7", "trial8"))%>%
+  ggplot( aes(x=value, fill=trial)) +
+  geom_density(alpha=0.4) + 
+   scale_fill_manual( values = brewer.pal(9, "YlOrRd")[c(1,3,5,7,8,9)]) +
+  ggtitle("시행에 따른 확률분포 변화")
+```
+
+- 베이지안 통계학에서 흥미로운 점은 사전확률을 바꿀 수 있다는 점이다. 만약에 사전 확률이 균등분포가 아니라 소년이 정직하다는 것에 가중치를 둘 경우($\alpha = 1, \beta=10$) 분포의 변화는 아래와 같다. 사전분포는 확률이 1에 치우친 반면
+
+```{r}
+set.seed(1234)
+a2 = 1; b2 = 10
+beta2 <- matrix(rep(NA, 10000*9), ncol=9, )
+beta2[,1] = rbeta(10000, a2, b2)
+for (i in 1:length(report)){
+  beta2[,i+1] = rbeta(10000, a2+sum(report[1:i]==1), 
+                      length(report[1:i])- sum(report[1:i]==1) + b2 )
+}
+
+beta2_df<- beta2 %>% as.data.frame()
+names(beta2_df) <- c("prior", "trial1","trial2", "trial3", "trial4", "trial5", "trial6", "trial7", "trial8")
+beta2_df <- beta2_df %>% 
+  reshape2::melt() %>% 
+  dplyr::rename(trial = variable)
+
+# Plot
+beta2_df %>% filter(trial == c("prior", "trial1", "trial3","trial6",  "trial7", "trial8"))%>%
+  ggplot( aes(x=value, fill=trial)) +
+  geom_density(alpha=0.4) + 
+   scale_fill_manual( values = brewer.pal(9, "YlOrRd")[c(1,3,5,7,8,9)]) +
+  ggtitle("시행에 따른 확률분포 변화")
+
+```
