@@ -9,7 +9,7 @@ tags:
   - bayesian
   - bayesian_computing
   - bayesian_updating
-  - t-test
+  - binomial-test
 keywords:
   - tech
 ---
