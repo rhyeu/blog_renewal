@@ -1,0 +1,293 @@
+---
+title: xgboost tutorial
+author: 류성균
+date: '2020-11-23'
+slug: index.en-us
+categories:
+  - Today I learn
+tags:
+  - xgboost
+  - kaggle
+  - machine-learning
+keywords:
+  - tech
+editor_options: 
+  chunk_output_type: console
+---
+
+<!--more-->
+
+```{r}
+# install.packages("xgboost")
+# install.packages("DiagrammeR") # for tree visulization
+
+library(xgboost)
+library(tidyverse)
+```
+
+### 예제 데이터셋 : 식용 버섯 구별하기 in UCI machine learning repository
+
+```{r}
+data(agaricus.train, package = 'xgboost')
+data(agaricus.test, package = 'xgboost')
+
+train <- agaricus.train
+test <- agaricus.test
+```
+
+```{r}
+glimpse(train) # label : target variable
+```
+
+```{r}
+dim(train$data)
+dim(test$data)
+```
+
+```{r}
+class(train$data)[1] # sparse matrix
+class(train$label)[1]
+```
+
+### Basic training using XGBoost
+
+#### 주요한 parameter
+- objective = "binary:logistric"
+- max.depth = 2 : the trees won't be deep
+- nthread = 2 : cpu 갯수
+- nrounds = 2 : there will be two passes on the data, the second one will enhance the model by further reducing the difference between ground truth and prediction.
+
+
+```{r}
+bstSparse <- xgboost(data = train$data,
+                     label = train$label, 
+                     max.depth = 2,
+                     eta = 1, 
+                     nthread = 2,
+                     nrounds = 2,
+                     objective = "binary:logistic")
+```
+
+
+#### Parameter variations
+##### Dense matrix
+```{r}
+bstDense <- xgboost(data = as.matrix(train$data),
+                     label = train$label, 
+                     max.depth = 2,
+                     eta = 1, 
+                     nthread = 2,
+                     nrounds = 2,
+                     objective = "binary:logistic")
+```
+
+##### xgb.DMatrix : data, label 같이 
+```{r}
+dtrain <- xgb.DMatrix(data = train$data, label = train$label)
+bstDMatrix <- xgboost(data=dtrain, 
+                      max.depth = 2,
+                      eta = 1, 
+                      nthread = 2,
+                      nrounds = 2,
+                      objective = "binary:logistic")
+```
+
+##### verbose option
+```{r}
+# verbose = 0, no message
+bst <- xgboost(data=dtrain, 
+                      max.depth = 2,
+                      eta = 1, 
+                      nthread = 2,
+                      nrounds = 2,
+                      objective = "binary:logistic",
+                      verbose = 0)
+```
+
+```{r}
+# verbose = 1, print evaluation metric
+
+bst <- xgboost(data=dtrain, 
+                      max.depth = 2,
+                      eta = 1, 
+                      nthread = 2,
+                      nrounds = 2,
+                      objective = "binary:logistic",
+                      verbose = 1)
+```
+
+
+```{r}
+# verbose = 2, also print information about tree
+
+bst <- xgboost(data=dtrain, 
+                      max.depth = 2,
+                      eta = 1, 
+                      nthread = 2,
+                      nrounds = 2,
+                      objective = "binary:logistic",
+                      verbose = 1)
+```
+
+### Basic Pridiction using XGBoost
+```{r}
+pred <- predict(bst, test$data)
+
+# size of the prediction vector
+print(length(pred))
+```
+
+```{r}
+## 확률이 출력됨
+print(head(pred))
+```
+
+
+```{r}
+prediction <- as.numeric(pred > 0.5)
+print(head(prediction))
+```
+
+
+#### Measuring model performance
+```{r}
+err <- mean(as.numeric(pred > 0.5) != test$label)
+print(paste("test-error=", err)) # "test-error= 0.0217256362507759"
+```
+
+
+### Advanced features
+
+#### Dataset preparation
+
+- xgb.DMatrix 객체를 사용하면 매 라운드마다 report를 해줌
+```{r}
+dtrain <- xgb.DMatrix(data = train$data, label = train$label)
+dtest <- xgb.DMatrix(data = test$data, label = test$label)
+```
+
+
+```{r}
+watchlist <- list(train = dtrain, test = dtest)
+bst <- xgb.train(data = dtrain, 
+                 max.depth = 2, 
+                 eta = 1, 
+                 nthread = 2, 
+                 nrounds = 2, 
+                 watchlist = watchlist,
+                 objective = "binary:logistic")
+```
+
+
+- 다른 metric을 사용해보자
+```{r}
+bst <- xgb.train(data = dtrain, 
+                 max.depth = 2,
+                 eta = 1,
+                 nthread = 2,
+                 nrounds = 2,
+                 watchlist = watchlist,
+                 eval.metric = "error",
+                 eval.metric = "logloss",
+                 objective = "binary:logistic"
+                 )
+```
+
+- decision tree가 아닌 linear boosting을 해보자
+```{r}
+bst <- xgb.train(data = dtrain, 
+                 booster = "gblinear",
+                 nthread = 2,
+                 nrounds = 2,
+                 watchlist = watchlist,
+                 eval.metric = "error",
+                 eval.metric = "logloss",
+                 objective = "binary:logistic"
+                 )
+```
+
+### Manipulating xgb.DMatrix
+
+#### model 저장 / loading
+```{r}
+xgb.DMatrix.save(dtrain, "dtrain.buffer")
+```
+
+```{r}
+dtrain2 <- xgb.DMatrix("dtrain.buffer")
+```
+
+```{r}
+bst <- xgb.train(data = dtrain2, 
+                 max.depth = 2, 
+                 eta = 1, 
+                 nthread = 2, 
+                 nrounds = 2,
+                 watchlist = watchlist,
+                 objective = "binary:logistic")
+```
+
+#### Information extraction
+
+```{r}
+label <- getinfo(dtest, "label")
+pred <- predict(bst, dtest)
+err <- as.numeric(sum(as.integer(pred > 0.5 ) != label)) / length(label)
+print(paste("test-error=", err))
+```
+
+
+### View feature importance / influence from the learnt model
+
+```{r}
+importance_matrix <- xgb.importance(model = bst)
+
+print(importance_matrix)
+xgb.plot.importance(importance_matrix = importance_matrix)
+```
+
+#### view the trees from a model
+```{r}
+xgb.dump(bst, with_stats = T) # 
+```
+
+```{r}
+xgb.plot.tree(model = bst)
+```
+
+
+### Save and load models
+```{r}
+### save model to binary local file
+xgb.save(bst, "xgboost.model")
+```
+
+```{r}
+bst2 <- xgb.load("xgboost.model")
+pred2 <- predict(bst2, test$data)
+
+# And now the test
+print(paste("sum(abs(pred2-pred))=", sum(abs(pred2-pred))))
+```
+
+
+```{r}
+# save model to R's raw vector
+rawVec <- xgb.save.raw(bst)
+```
+
+```{r}
+# print class
+print(class(rawVec))
+```
+
+```{r}
+# load binary model to R
+bst3 <- xgb.load(rawVec)
+pred3 <- predict(bst3, test$data)
+
+# pred3 should be identical to pred
+print(paste("sum(abs(pred3-pred))=", sum(abs(pred3-pred))))
+```
+
+- reference : https://xgboost.readthedocs.io/en/latest/R-package/xgboostPresentation.html
