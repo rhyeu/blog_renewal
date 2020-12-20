@@ -3,6 +3,71 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://rhyeu.netlify.app/2020/12/index.en-us/</loc>
+    <lastmod>2020-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/categories/</loc>
+    <lastmod>2020-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/tags/machine-learning/</loc>
+    <lastmod>2020-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/post/</loc>
+    <lastmod>2020-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/categories/r/</loc>
+    <lastmod>2020-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/tags/</loc>
+    <lastmod>2020-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/tags/tidymodels/</loc>
+    <lastmod>2020-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/tags/tidyverse/</loc>
+    <lastmod>2020-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/</loc>
+    <lastmod>2020-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/tags/kaggle/</loc>
+    <lastmod>2020-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/categories/today-i-learn/</loc>
+    <lastmod>2020-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/tags/xgboost/</loc>
+    <lastmod>2020-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/2020/11/index.en-us/</loc>
+    <lastmod>2020-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://rhyeu.netlify.app/tags/bayesian/</loc>
     <lastmod>2020-11-08T00:00:00+00:00</lastmod>
   </url>
@@ -18,32 +83,12 @@
   </url>
   
   <url>
-    <loc>https://rhyeu.netlify.app/categories/</loc>
+    <loc>https://rhyeu.netlify.app/tags/binomial-test/</loc>
     <lastmod>2020-11-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://rhyeu.netlify.app/categories/essay/</loc>
-    <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/post/</loc>
-    <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/tags/t-test/</loc>
-    <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/tags/</loc>
-    <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/</loc>
     <lastmod>2020-11-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -59,16 +104,6 @@
   
   <url>
     <loc>https://rhyeu.netlify.app/tags/r/</loc>
-    <lastmod>2020-10-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/categories/r/</loc>
-    <lastmod>2020-10-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/categories/today-i-learn/</loc>
     <lastmod>2020-10-04T00:00:00+00:00</lastmod>
   </url>
   

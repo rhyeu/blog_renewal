@@ -6,7 +6,52 @@
     <description>Recent content in Tags on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>machine-learning</title>
+      <link>https://rhyeu.netlify.app/tags/machine-learning/</link>
+      <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidymodels</title>
+      <link>https://rhyeu.netlify.app/tags/tidymodels/</link>
+      <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/tags/tidymodels/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidyverse</title>
+      <link>https://rhyeu.netlify.app/tags/tidyverse/</link>
+      <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/tags/tidyverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kaggle</title>
+      <link>https://rhyeu.netlify.app/tags/kaggle/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/tags/kaggle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xgboost</title>
+      <link>https://rhyeu.netlify.app/tags/xgboost/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/tags/xgboost/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>bayesian</title>
       <link>https://rhyeu.netlify.app/tags/bayesian/</link>
@@ -35,11 +80,11 @@
     </item>
     
     <item>
-      <title>t-test</title>
-      <link>https://rhyeu.netlify.app/tags/t-test/</link>
+      <title>binomial-test</title>
+      <link>https://rhyeu.netlify.app/tags/binomial-test/</link>
       <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rhyeu.netlify.app/tags/t-test/</guid>
+      <guid>https://rhyeu.netlify.app/tags/binomial-test/</guid>
       <description></description>
     </item>
     

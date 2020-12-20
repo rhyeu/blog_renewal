@@ -2,18 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>xgboost on 기억하기쉬운블로그</title>
-    <link>/tags/xgboost/</link>
+    <link>https://rhyeu.netlify.app/tags/xgboost/</link>
     <description>Recent content in xgboost on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/xgboost/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/xgboost/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>xgboost in tidymodel</title>
-      <link>/2020/09/xgboost-in-tidymodel/</link>
-      <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
+      <title>xgboost tutorial</title>
+      <link>https://rhyeu.netlify.app/2020/11/index.en-us/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/09/xgboost-in-tidymodel/</guid>
-      <description># install.packages(c(&amp;quot;AmesHousing&amp;quot;, &amp;quot;janitor&amp;quot;, &amp;quot;dplyr&amp;quot;, &amp;quot;rsample&amp;quot;, &amp;quot;recipes&amp;quot;, &amp;quot;parsnip&amp;quot;, &amp;quot;tune&amp;quot;, &amp;quot;dials&amp;quot;, &amp;quot;workflows&amp;quot;, &amp;quot;yardstick&amp;quot;, &amp;quot;doParallel&amp;quot;)) # data library(AmesHousing, quietly = T) # data cleaning library(janitor, quietly = T) ## ## 다음의 패키지를 부착합니다: &amp;#39;janitor&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## chisq.test, fisher.test # data prep library(dplyr, quietly = T) ## ## 다음의 패키지를 부</description>
+      <guid>https://rhyeu.netlify.app/2020/11/index.en-us/</guid>
+      <description>
+&lt;link href=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://rhyeu.netlify.app/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://rhyeu.netlify.app/rmarkdown-libs/viz/viz.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://rhyeu.netlify.app/rmarkdown-libs/DiagrammeR-styles/styles.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://rhyeu.netlify.app/rmarkdown-libs/grViz-binding/grViz.js&#34;&gt;&lt;/script&gt;
+
+
+</description>
     </item>
     
   </channel>

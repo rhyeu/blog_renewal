@@ -13,22 +13,34 @@
 
 
 
+
+
+
+
 ">
 
 
 <meta property="og:description" content="
+
+
+
+
 
 
 
 
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="양치기 소년">
-<meta name="twitter:title" content="양치기 소년">
+<meta property="og:title" content="xgboost tutorial">
+<meta name="twitter:title" content="xgboost tutorial">
 <meta property="og:url" content="https://rhyeu.netlify.app/2020/11/index.en-us/">
 <meta property="twitter:url" content="https://rhyeu.netlify.app/2020/11/index.en-us/">
 <meta property="og:site_name" content="기억하기쉬운블로그">
 <meta property="og:description" content="
+
+
+
+
 
 
 
@@ -39,30 +51,32 @@
 
 
 
+
+
+
+
 ">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-11-08T00:00:00">
+    <meta property="article:published_time" content="2020-11-23T00:00:00">
   
   
-    <meta property="article:modified_time" content="2020-11-08T00:00:00">
+    <meta property="article:modified_time" content="2020-11-23T00:00:00">
   
-  
-  
-    
-      <meta property="article:section" content="essay">
-    
   
   
     
-      <meta property="article:tag" content="bayesian">
+      <meta property="article:section" content="Today I learn">
     
-      <meta property="article:tag" content="bayesian_computing">
+  
+  
     
-      <meta property="article:tag" content="bayesian_updating">
+      <meta property="article:tag" content="xgboost">
     
-      <meta property="article:tag" content="t-test">
+      <meta property="article:tag" content="kaggle">
+    
+      <meta property="article:tag" content="machine-learning">
     
   
 
@@ -83,7 +97,7 @@
   <meta property="twitter:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
 
 
-    <title>양치기 소년</title>
+    <title>xgboost tutorial</title>
 
     <link rel="icon" href="https://rhyeu.netlify.app/favicon.png">
     
@@ -238,15 +252,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      양치기 소년
+      xgboost tutorial
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-11-08T00:00:00Z">
+      <time itemprop="datePublished" datetime="2020-11-23T00:00:00Z">
         
-  November 8, 2020
+  November 23, 2020
 
       </time>
     
@@ -255,7 +269,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://rhyeu.netlify.app/categories/essay">essay</a>
+      <a class="category-link" href="https://rhyeu.netlify.app/categories/today-i-learn">Today I learn</a>
     
   
 
@@ -265,289 +279,290 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <ul>
-<li>Reference : <a href="http://www.newtonkorea.co.kr/SrcWeb/BOOK/NEW_NEWTON.aspx?hddNO=20012">월간 뉴턴 9월호</a></li>
-</ul>
-<div id="prologue" class="section level3">
-<h3>Prologue</h3>
-<p>월간 뉴턴 9월호는 베이즈 통계에 대해 다룬다. (보통 국내에서는 <em>베이즈</em> 라고 표현해서 개인적으로는 약간 어색하게 느껴진다.) 그 중 ‘양치기 소년’ 예시를 좀 더 디테일하게 다뤄보면서 ’빈도주의 통계’와 ’베이지안 통계’의 차이를 다뤄보고자 한다.</p>
-<hr />
-</div>
-<div id="양치기-소년-이야기" class="section level3">
-<h3>양치기 소년 이야기</h3>
-<p><img src="https://github.com/rhyeu/blog_renewal/blob/main/content/img/202011_sheep_keeper/pexels-steve-397857.jpg?raw=true" /></p>
-<p><br />
-</p>
-<blockquote>
-<p>양을 치는 소년이 심심풀이로 “늑대가 나타났다!”라고 거짓말을 하고 소란을 일으킨다. 그 동네의 어른들은 소년의 거짓말에 속아 무기를 가져오지만, 헛수고로 끝난다. 양치기 소년은 이런 거짓말을 여러 번 반복했다. 결국 어느 날에 정말 늑대가 나타났지만 어른들은 더 이상 양치기 소년의 말을 믿지 않았고, 아무도 도우러 가지 않았다. 결국 양치기 소년의 모든 양이 늑대에 의해 잡아먹혔다.(출처 - <a href="https://ko.wikipedia.org/wiki/%EC%96%91%EC%B9%98%EA%B8%B0_%EC%86%8C%EB%85%84">위키백과</a>)</p>
-</blockquote>
-<p><br />
- </p>
-<ul>
-<li>양치기 소년이 8일 동안 양을 치고 있었고, 매일 “늑대가 나타났다.”라고 거짓말을 하며 사람들을 불러모았다고 하자. 그 중 6번은 늑대가 나타나지 않았지만 7일차, 8일차에는 늑대가 나타났다고 가정해본다. 이를 표현하면 아래와 같다. 이를 가지고 소년이 거짓말쟁이인지 통계적으로 판단해보자. 방법은 <strong>빈도주의 이항검정</strong>, <strong>베이즈 정리를 이용한 추정</strong>, <strong>베이지안 사후확률</strong>을 구하는 방법 순으로 해보고자 한다.</li>
-</ul>
-<pre class="r"><code>library(tidyverse)
-library(data.table)
-library(RColorBrewer)
-library(knitr)</code></pre>
-<pre class="r"><code>report &lt;- c(rep(0,6), rep(1, 2)) # 0 - 거짓(늑대가 안 나타남), 1 - 진실(늑대가 나타남)
-report</code></pre>
-<pre><code>## [1] 0 0 0 0 0 0 1 1</code></pre>
-<hr />
-</div>
-<div id="이항-검정" class="section level3">
-<h3>이항 검정</h3>
-<ul>
-<li>소년이 거짓말쟁이인지 검증하고자 한다. 마을 사람들은 보통 10번에 한 번 정도만 거짓말을 한다고 가정하고 소년이 마을 사람들보다 거짓말을 더 자주하는 지 확인해보자. 이 때, 영가설 <span class="math inline">\(H_0\)</span>은 아래와 같이 가정한다.</li>
-</ul>
-<p><span class="math display">\[H_0 : \pi = 0.9 \rightarrow (소년이 \ 진실을 \ 말할 \ 확률 \  \pi는 \ 0.9이다.)\]</span></p>
-<ul>
-<li>이를 판단하기 위한 검정에는 여러 가지가 있겠지만, 매번 소년이 거짓말 / 참말을 할 확률이 독립이라고 가정한다면 이항 검정을 통해 가설 검정을 할 수 있다. 먼저 이항 검정의 가정은 아래와 같다.(이 때, <span class="math inline">\(\pi_0\)</span>은 영가설 하에서의 <span class="math inline">\(\pi\)</span>를 의미한다.)</li>
-</ul>
-<p><span class="math display">\[Y \overset{iid}{\sim} Bin(10, \pi_0)\]</span></p>
-<ul>
-<li>위의 가정 하에서 영가설을 기각할 p-value는 0에 가깝다. 따라서, ’소년은 해당 데이터를 볼 때 마을 사람들보다 거짓말을 더 많이 했다.(<span class="math inline">\(\pi &lt; 0.9\)</span>)’가 이항검정이 나타내는 결론이다.</li>
-</ul>
-<pre class="r"><code>binom.test(x = sum(report==1), n = length(report), p = 0.9, alternative = &quot;less&quot;)</code></pre>
-<pre><code>## 
-##  Exact binomial test
-## 
-## data:  sum(report == 1) and length(report)
-## number of successes = 2, number of trials = 8, p-value = 2.341e-05
-## alternative hypothesis: true probability of success is less than 0.9
-## 95 percent confidence interval:
-##  0.0000000 0.5996894
-## sample estimates:
-## probability of success 
-##                   0.25</code></pre>
-<ul>
-<li>한 가지 흥미로운 점은, 소년의 말이 8번 중 2번은 맞았다는 점이다. 따라서 ’소년이 거짓말을 하지 않을 확률은 0.25이다.’라고 할 때는 p-value가 1로 나오는 걸 알 수 있다.</li>
-<li>덧붙여 이항 검정은 소년의 보고(거짓말 / 참말)을 독립시행이라고 봤기 때문에 이전 시행의 정보를 고려하지 못한다.</li>
-</ul>
-<pre class="r"><code>binom.test(x = sum(report==1), n = length(report), p = 0.25)</code></pre>
-<pre><code>## 
-##  Exact binomial test
-## 
-## data:  sum(report == 1) and length(report)
-## number of successes = 2, number of trials = 8, p-value = 1
-## alternative hypothesis: true probability of success is not equal to 0.25
-## 95 percent confidence interval:
-##  0.03185403 0.65085579
-## sample estimates:
-## probability of success 
-##                   0.25</code></pre>
-<hr />
-</div>
-<div id="베이즈-정리" class="section level3">
-<h3>베이즈 정리</h3>
-<ul>
-<li><p>그럼 이번엔 베이즈 정리를 이용해 8번의 시행마다 거짓말을 할 확률이 어떻게 변화하는 지 확인해보자.(이 부분은 월간 뉴턴의 내용을 인용함.)2</p></li>
-<li><p>소년이 거짓말쟁이일 사전 확률을 0.1, 정직할 사전 확률을 0.9로 두자. 또한, 소년이 거짓말쟁이일 때 늑대가 발견될 확률을 0.3, 소년이 거짓말쟁이일 때 늑대가 발견될 확률을 0.7로 보자. 이러한 내용은 아래의 수식이나 표로 표현할 수 도 있다.</p></li>
-<li><p><span class="math inline">\(p(거짓) = 0.1\)</span> / <span class="math inline">\(p(정직) = 0.9\)</span></p></li>
-<li><p><span class="math inline">\(p(발견 |정직) = 0.8\)</span> / <span class="math inline">\(p(미발견|거짓) = 0.7\)</span></p></li>
-</ul>
-<pre class="r"><code>mat = matrix(c(0.8,0.2, 1,0.3,0.7, 1), nrow = 2, byrow= T,
-       dimnames = list(c(&quot;정직&quot;, &quot;거짓&quot;), c(&quot;발견&quot;, &quot;미발견&quot;, &quot;합계&quot;))) </code></pre>
-<pre class="r"><code>mat %&gt;% knitr::kable()</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">발견</th>
-<th align="right">미발견</th>
-<th align="right">합계</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">정직</td>
-<td align="right">0.8</td>
-<td align="right">0.2</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="left">거짓</td>
-<td align="right">0.3</td>
-<td align="right">0.7</td>
-<td align="right">1</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code>lie &lt;- rep(NA, 9)
-honest &lt;- rep(NA, 9)
+              <pre class="r"><code># install.packages(&quot;xgboost&quot;)
+# install.packages(&quot;DiagrammeR&quot;) # for tree visulization
 
-lie[1] = 0.1 # 거짓말쟁이일 사전확률
-honest[1] = 0.9 # 정직한 아이일 사전확률</code></pre>
-<ul>
-<li>이제 소년이 거짓말쟁이일 확률을 구해보자, 첫번 째 날, 소년이 “늑대가 나타났다.”고 말했지만 늑대가 나타나지 않았다. 가능한 경우의 수는 두 가지 인데, 소년이 정직하게 말했지만 늑대가 보이지 않았거나, 소년이 거짓말쟁이어서 늑대가 없었던 것이다. 첫째 날 소년이 정직할 확률은 아래와 같은 계산을 통해 0.72이 나온다.</li>
-</ul>
-<p><span class="math display">\[\begin{matrix}
-p(거짓 | 미발견) &amp;=&amp; \frac{p(거짓) * p(미발견|거짓)}{p(미발견)} \\
-                 &amp;=&amp; \frac{p(거짓) * p(미발견|거짓)}{p(거짓) * p(미발견|거짓) + p(정직) * p(미발견|정직)}
-\end{matrix}\]</span></p>
-<pre class="r"><code>lie[2] = lie[1]*mat[&quot;거짓&quot;,&quot;미발견&quot;] / (lie[1]*mat[&quot;거짓&quot;,&quot;미발견&quot;] + honest[1]*mat[&quot;정직&quot;,&quot;미발견&quot;])
+library(xgboost)</code></pre>
+<pre><code>## Warning: 패키지 &#39;xgboost&#39;는 R 버전 4.0.3에서 작성되었습니다</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages ------------------------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## √ ggplot2 3.3.2     √ purrr   0.3.4
+## √ tibble  3.0.3     √ dplyr   1.0.2
+## √ tidyr   1.1.2     √ stringr 1.4.0
+## √ readr   1.3.1     √ forcats 0.5.0</code></pre>
+<pre><code>## -- Conflicts ---------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## x dplyr::slice()  masks xgboost::slice()</code></pre>
+<div id="예제-데이터셋-식용-버섯-구별하기-in-uci-machine-learning-repository" class="section level3">
+<h3>예제 데이터셋 : 식용 버섯 구별하기 in UCI machine learning repository</h3>
+<pre class="r"><code>data(agaricus.train, package = &#39;xgboost&#39;)
+data(agaricus.test, package = &#39;xgboost&#39;)
 
-honest[2] = 1- lie[2]
-
-print(lie[2]) </code></pre>
-<pre><code>## [1] 0.28</code></pre>
-<pre class="r"><code>print(honest[2])</code></pre>
-<pre><code>## [1] 0.72</code></pre>
-<ul>
-<li>늑대가 나타나지 않자, 소년이 정직할 확률은 0.9에서 0.72로 내려갔다. 그렇다면 8번의 시행마다 소년이 거짓말쟁이일지 정직할지의 확률이 어떻게 바뀔 지 모두 계산해볼 수 있다. 흥미로운 점은 이미 여러 차례 늑대가 발견되지 않았기 때문에, 7번째와 8번째 시행에서 늑대가 나타났다고 하더라도 거짓말할 확률은 크게 바뀌지 않았다는 점이다.</li>
-<li>추가로 베이즈 정리를 활용한 확률 추정에서는 이전 시행의 정보를 가지고 다음 시행의 확률을 갱신하는 내용이 추가된 점도 확인할 수 있다.</li>
-</ul>
-<pre class="r"><code>for (i in 3:9){
-  if(report[i-1] == 0){
-    lie[i] = lie[i-1]*mat[&quot;거짓&quot;,&quot;미발견&quot;] / (lie[i-1]*mat[&quot;거짓&quot;,&quot;미발견&quot;] + honest[i-1]*mat[&quot;정직&quot;,&quot;미발견&quot;])
-    honest[i] = 1 - lie[i]
-  } else{
-    lie[i] = lie[i-1]*mat[&quot;거짓&quot;,&quot;발견&quot;] / (lie[i-1]*mat[&quot;거짓&quot;,&quot;발견&quot;] + honest[i-1]*mat[&quot;정직&quot;,&quot;발견&quot;])
-    honest[i] = 1 - lie[i]
-  }
-}
-  
-est_prop &lt;- cbind(lie, honest) </code></pre>
-<pre class="r"><code># 출처 : https://www.r-graph-gallery.com/119-add-a-legend-to-a-plot.html
-plot(lie[2:9]~c(1:8) , type=&quot;b&quot; , bty=&quot;l&quot;, col=&quot;tomato&quot; , lwd=3 , pch=c(rep(4, 6), rep(1,2)), ylim = c(0,1), xlab=&quot;시행&quot;, ylab = &quot;확률&quot;, main = &quot;시행에 따른 확률 변화&quot;)
-lines(honest[2:9] ~c(1:8), col=&quot;royalblue&quot; , lwd=3 , pch=c(rep(4, 6), rep(1,2)), type=&quot;b&quot; )
- 
-# Add a legend
-legend(&quot;bottomleft&quot;, 
-  legend = c(&quot;거짓말쟁이일 확률-미발견&quot;, &quot;정직할 확률-미발견&quot;,
-             &quot;거짓말쟁이일 확률-발견&quot;, &quot;정직할 확률-발견&quot;), 
-  col = c(&quot;tomato&quot;, &quot;royalblue&quot;, 
-          &quot;tomato&quot;, &quot;royalblue&quot;), 
-  pch = c(4, 4, 1, 1), 
-  bty = &quot;n&quot;, 
-  pt.cex = 2, 
-  cex = 1.2, 
-  text.col = &quot;black&quot;, 
-  horiz = F , 
-  inset = c(0.6,0.5))</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-11-08-양치기-소년/index.en-us_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre class="r"><code>print(est_prop)</code></pre>
-<pre><code>##             lie      honest
-##  [1,] 0.1000000 0.900000000
-##  [2,] 0.2800000 0.720000000
-##  [3,] 0.5764706 0.423529412
-##  [4,] 0.8265060 0.173493976
-##  [5,] 0.9434185 0.056581532
-##  [6,] 0.9831530 0.016847031
-##  [7,] 0.9951279 0.004872066
-##  [8,] 0.9871125 0.012887528
-##  [9,] 0.9663559 0.033644092</code></pre>
+train &lt;- agaricus.train
+test &lt;- agaricus.test</code></pre>
+<pre class="r"><code>glimpse(train) # label : target variable</code></pre>
+<pre><code>## List of 2
+##  $ data :Formal class &#39;dgCMatrix&#39; [package &quot;Matrix&quot;] with 6 slots
+##   .. ..@ i       : int [1:143286] 2 6 8 11 18 20 21 24 28 32 ...
+##   .. ..@ p       : int [1:127] 0 369 372 3306 5845 6489 6513 8380 8384 10991 ...
+##   .. ..@ Dim     : int [1:2] 6513 126
+##   .. ..@ Dimnames:List of 2
+##   .. ..@ x       : num [1:143286] 1 1 1 1 1 1 1 1 1 1 ...
+##   .. ..@ factors : list()
+##  $ label: num [1:6513] 1 0 0 1 0 0 0 1 0 0 ...</code></pre>
+<pre class="r"><code>dim(train$data)</code></pre>
+<pre><code>## [1] 6513  126</code></pre>
+<pre class="r"><code>dim(test$data)</code></pre>
+<pre><code>## [1] 1611  126</code></pre>
+<pre class="r"><code>class(train$data)[1] # sparse matrix</code></pre>
+<pre><code>## [1] &quot;dgCMatrix&quot;</code></pre>
+<pre class="r"><code>class(train$label)[1]</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
 </div>
-<div id="베이지안-추정" class="section level3">
-<h3>베이지안 추정</h3>
+<div id="basic-training-using-xgboost" class="section level3">
+<h3>Basic training using XGBoost</h3>
+<div id="주요한-parameter" class="section level4">
+<h4>주요한 parameter</h4>
 <ul>
-<li><p>이젠 ‘거짓말할 확률의 분포를 추정하는’ <strong>베이지안 추정</strong>으로 넘어가보자. 빈도주의와 베이지안의 가장 큰 차이점은 모수와 데이터의 관계이다. 빈도주의는 데이터의 분포(실은 주로 표본 평균의 분포를 가정)를 보고 모수 값을 추정하는데 반해, 베이지안 세팅에서는 데이터와 사전확률을 통해 모수의 분포를 추정한다.</p></li>
-<li><p>데이터와 사전 확률을 결합하기 위해서는 위와 같이 베이즈 정리를 활용한다는 점에서는 같지만, 베이지안 추정에선 확률값의 점추정이 아닌 분포를 직접 계산한다. 그리고 모수가 확률일 때는 계산의 편의성을 위해서 이항분포와 베타분포 켤레 관계를 사용한다.</p></li>
-<li><p>시행에 따라 갱신되는 <span class="math inline">\(\pi\)</span>의 분포는 아래와 같다.</p></li>
+<li>objective = “binary:logistric”</li>
+<li>max.depth = 2 : the trees won’t be deep</li>
+<li>nthread = 2 : cpu 갯수</li>
+<li>nrounds = 2 : there will be two passes on the data, the second one will enhance the model by further reducing the difference between ground truth and prediction.</li>
 </ul>
-<p><span class="math display">\[\begin{matrix}
-y|\pi &amp;\overset{iid}{\sim}&amp; Bin(n, \pi) \\
-\pi &amp;\sim&amp; Beta(\alpha, \beta)
-\end{matrix}
-\]</span>
-<span class="math display">\[\pi |y \sim Beta(\alpha + y, n -y+\beta)\]</span></p>
-<ul>
-<li>위의 경우는 분포가 이미 알려진 분포로 깔끔하게 정리되었기 때문에 쉽게 샘플링해서 분포를 확인할 수 있다. 아래의 함수는 사전 확률과 각각의 시행에 따라 갱신되는 분포에 따라, 10000개의 샘플을 추출해 컬럼에 저장하는 함수이다.</li>
-</ul>
-<pre class="r"><code>set.seed(1234)
-a1 = 1; b1 = 1
-beta1 &lt;- matrix(rep(NA, 10000*9), ncol=9, )
-beta1[,1] = rbeta(10000, a1, b1)
-for (i in 1:length(report)){
-  beta1[,i+1] = rbeta(10000, a1+sum(report[1:i]==1), 
-                      length(report[1:i])- sum(report[1:i]==1) + b1 )
-}
-
-beta1_df&lt;- beta1 %&gt;% as.data.frame()
-names(beta1_df) &lt;- c(&quot;prior&quot;, &quot;trial1&quot;,&quot;trial2&quot;, &quot;trial3&quot;, &quot;trial4&quot;, &quot;trial5&quot;, &quot;trial6&quot;, &quot;trial7&quot;, &quot;trial8&quot;)
-beta1_df &lt;- beta1_df %&gt;% 
-  reshape2::melt() %&gt;% 
-  dplyr::rename(trial = variable)</code></pre>
-<pre><code>## No id variables; using all as measure variables</code></pre>
-<ul>
-<li>아래 그림은 샘플링한 값들의 분포들을 하나의 그림으로 겹처놓은 것이다. 확인해보면 사전분포에서는 거짓말할 확률이 균등분포를 따르다가 6번째 시행으로 진행되면서 점점 0에 가깝게 변화한다. 이후 늑대가 나타나면서 다시 분포의 값은 오른쪽으로 이동하는 것을 확인할 수 있다.</li>
-</ul>
-<pre class="r"><code>## 분포 평균의 변화
-apply(beta1, 2, mean) %&gt;% kable()</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="right">x</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">0.4980288</td>
-</tr>
-<tr class="even">
-<td align="right">0.3325625</td>
-</tr>
-<tr class="odd">
-<td align="right">0.2482703</td>
-</tr>
-<tr class="even">
-<td align="right">0.1997752</td>
-</tr>
-<tr class="odd">
-<td align="right">0.1671256</td>
-</tr>
-<tr class="even">
-<td align="right">0.1434839</td>
-</tr>
-<tr class="odd">
-<td align="right">0.1237962</td>
-</tr>
-<tr class="even">
-<td align="right">0.2237928</td>
-</tr>
-<tr class="odd">
-<td align="right">0.3019557</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code># Plot
-beta1_df %&gt;% filter(trial == c(&quot;prior&quot;, &quot;trial1&quot;, &quot;trial3&quot;,&quot;trial6&quot;,  &quot;trial7&quot;, &quot;trial8&quot;))%&gt;%
-  ggplot( aes(x=value, fill=trial)) +
-  geom_density(alpha=0.4) + 
-   scale_fill_manual( values = brewer.pal(9, &quot;YlOrRd&quot;)[c(1,3,5,7,8,9)]) +
-  ggtitle(&quot;시행에 따른 확률분포 변화&quot;)</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-11-08-양치기-소년/index.en-us_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
-<ul>
-<li>베이지안 통계학에서 흥미로운 점은 사전확률을 바꿀 수 있다는 점이다. 만약에 사전 확률이 균등분포가 아니라 소년이 정직하다는 것에 가중치를 둘 경우(<span class="math inline">\(\alpha = 10, \beta=1\)</span>) 분포의 변화는 아래와 같다. 사전분포는 확률(소년이 정직할 확률)이 1에 치우친 반면, 점점 시행이 진행됨에 따라 0쪽으로 분포가 이동하는 걸 확인할 수 있다.</li>
-</ul>
-<pre class="r"><code>set.seed(1234)
-a2 = 10; b2 = 1
-beta2 &lt;- matrix(rep(NA, 10000*9), ncol=9, )
-beta2[,1] = rbeta(10000, a2, b2)
-for (i in 1:length(report)){
-  beta2[,i+1] = rbeta(10000, a2+sum(report[1:i]==1), 
-                      length(report[1:i])- sum(report[1:i]==1) + b2 )
-}
-
-beta2_df&lt;- beta2 %&gt;% as.data.frame()
-names(beta2_df) &lt;- c(&quot;prior&quot;, &quot;trial1&quot;,&quot;trial2&quot;, &quot;trial3&quot;, &quot;trial4&quot;, &quot;trial5&quot;, &quot;trial6&quot;, &quot;trial7&quot;, &quot;trial8&quot;)
-beta2_df &lt;- beta2_df %&gt;% 
-  reshape2::melt() %&gt;% 
-  dplyr::rename(trial = variable)</code></pre>
-<pre><code>## No id variables; using all as measure variables</code></pre>
-<pre class="r"><code># Plot
-beta2_df %&gt;% filter(trial == c(&quot;prior&quot;, &quot;trial1&quot;, &quot;trial3&quot;,&quot;trial6&quot;,  &quot;trial7&quot;, &quot;trial8&quot;))%&gt;%
-  ggplot( aes(x=value, fill=trial)) +
-  geom_density(alpha=0.4) + 
-   scale_fill_manual( values = brewer.pal(9, &quot;YlOrRd&quot;)[c(1,3,5,7,8,9)]) +
-  ggtitle(&quot;시행에 따른 확률분포 변화&quot;)</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-11-08-양치기-소년/index.en-us_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<pre class="r"><code>bstSparse &lt;- xgboost(data = train$data,
+                     label = train$label, 
+                     max.depth = 2,
+                     eta = 1, 
+                     nthread = 2,
+                     nrounds = 2,
+                     objective = &quot;binary:logistic&quot;)</code></pre>
+<pre><code>## [1]  train-error:0.046522 
+## [2]  train-error:0.022263</code></pre>
 </div>
-<div id="epilogue" class="section level3">
-<h3>Epilogue</h3>
+<div id="parameter-variations" class="section level4">
+<h4>Parameter variations</h4>
+<div id="dense-matrix" class="section level5">
+<h5>Dense matrix</h5>
+<pre class="r"><code>bstDense &lt;- xgboost(data = as.matrix(train$data),
+                     label = train$label, 
+                     max.depth = 2,
+                     eta = 1, 
+                     nthread = 2,
+                     nrounds = 2,
+                     objective = &quot;binary:logistic&quot;)</code></pre>
+<pre><code>## [1]  train-error:0.046522 
+## [2]  train-error:0.022263</code></pre>
+</div>
+<div id="xgb.dmatrix-data-label-같이" class="section level5">
+<h5>xgb.DMatrix : data, label 같이</h5>
+<pre class="r"><code>dtrain &lt;- xgb.DMatrix(data = train$data, label = train$label)
+bstDMatrix &lt;- xgboost(data=dtrain, 
+                      max.depth = 2,
+                      eta = 1, 
+                      nthread = 2,
+                      nrounds = 2,
+                      objective = &quot;binary:logistic&quot;)</code></pre>
+<pre><code>## [1]  train-error:0.046522 
+## [2]  train-error:0.022263</code></pre>
+</div>
+<div id="verbose-option" class="section level5">
+<h5>verbose option</h5>
+<pre class="r"><code># verbose = 0, no message
+bst &lt;- xgboost(data=dtrain, 
+                      max.depth = 2,
+                      eta = 1, 
+                      nthread = 2,
+                      nrounds = 2,
+                      objective = &quot;binary:logistic&quot;,
+                      verbose = 0)</code></pre>
+<pre class="r"><code># verbose = 1, print evaluation metric
+
+bst &lt;- xgboost(data=dtrain, 
+                      max.depth = 2,
+                      eta = 1, 
+                      nthread = 2,
+                      nrounds = 2,
+                      objective = &quot;binary:logistic&quot;,
+                      verbose = 1)</code></pre>
+<pre><code>## [1]  train-error:0.046522 
+## [2]  train-error:0.022263</code></pre>
+<pre class="r"><code># verbose = 2, also print information about tree
+
+bst &lt;- xgboost(data=dtrain, 
+                      max.depth = 2,
+                      eta = 1, 
+                      nthread = 2,
+                      nrounds = 2,
+                      objective = &quot;binary:logistic&quot;,
+                      verbose = 1)</code></pre>
+<pre><code>## [1]  train-error:0.046522 
+## [2]  train-error:0.022263</code></pre>
+</div>
+</div>
+</div>
+<div id="basic-pridiction-using-xgboost" class="section level3">
+<h3>Basic Pridiction using XGBoost</h3>
+<pre class="r"><code>pred &lt;- predict(bst, test$data)
+
+# size of the prediction vector
+print(length(pred))</code></pre>
+<pre><code>## [1] 1611</code></pre>
+<pre class="r"><code>## 확률이 출력됨
+print(head(pred))</code></pre>
+<pre><code>## [1] 0.28583017 0.92392391 0.28583017 0.28583017 0.05169873 0.92392391</code></pre>
+<pre class="r"><code>prediction &lt;- as.numeric(pred &gt; 0.5)
+print(head(prediction))</code></pre>
+<pre><code>## [1] 0 1 0 0 0 1</code></pre>
+<div id="measuring-model-performance" class="section level4">
+<h4>Measuring model performance</h4>
+<pre class="r"><code>err &lt;- mean(as.numeric(pred &gt; 0.5) != test$label)
+print(paste(&quot;test-error=&quot;, err)) # &quot;test-error= 0.0217256362507759&quot;</code></pre>
+<pre><code>## [1] &quot;test-error= 0.0217256362507759&quot;</code></pre>
+</div>
+</div>
+<div id="advanced-features" class="section level3">
+<h3>Advanced features</h3>
+<div id="dataset-preparation" class="section level4">
+<h4>Dataset preparation</h4>
 <ul>
-<li><p>본 포스팅에서는 <strong>이항 검정</strong>과 <strong>베이즈 정리를 활용한 확률 추정</strong>, <strong>베이지안 분포 추정</strong>을 비교했다. 빈도주의와 비교해볼 때, 베이지안 추정은 이전 시행의 정보를 확인할 수 있다는 장점이 있다. 베이지안에서는 분포 추정 뿐만 아니라 가설 검정도 진행할 수 있는데 다룰 지 말 지 고민중이다.</p></li>
-<li><p>읽어주셔서 감사합니다.</p></li>
+<li>xgb.DMatrix 객체를 사용하면 매 라운드마다 report를 해줌</li>
+</ul>
+<pre class="r"><code>dtrain &lt;- xgb.DMatrix(data = train$data, label = train$label)
+dtest &lt;- xgb.DMatrix(data = test$data, label = test$label)</code></pre>
+<pre class="r"><code>watchlist &lt;- list(train = dtrain, test = dtest)
+bst &lt;- xgb.train(data = dtrain, 
+                 max.depth = 2, 
+                 eta = 1, 
+                 nthread = 2, 
+                 nrounds = 2, 
+                 watchlist = watchlist,
+                 objective = &quot;binary:logistic&quot;)</code></pre>
+<pre><code>## [1]  train-error:0.046522    test-error:0.042831 
+## [2]  train-error:0.022263    test-error:0.021726</code></pre>
+<ul>
+<li>다른 metric을 사용해보자</li>
+</ul>
+<pre class="r"><code>bst &lt;- xgb.train(data = dtrain, 
+                 max.depth = 2,
+                 eta = 1,
+                 nthread = 2,
+                 nrounds = 2,
+                 watchlist = watchlist,
+                 eval.metric = &quot;error&quot;,
+                 eval.metric = &quot;logloss&quot;,
+                 objective = &quot;binary:logistic&quot;
+                 )</code></pre>
+<pre><code>## [1]  train-error:0.046522    train-logloss:0.233366  test-error:0.042831 test-logloss:0.226687 
+## [2]  train-error:0.022263    train-logloss:0.136656  test-error:0.021726 test-logloss:0.137875</code></pre>
+<ul>
+<li>decision tree가 아닌 linear boosting을 해보자</li>
+</ul>
+<pre class="r"><code>bst &lt;- xgb.train(data = dtrain, 
+                 booster = &quot;gblinear&quot;,
+                 nthread = 2,
+                 nrounds = 2,
+                 watchlist = watchlist,
+                 eval.metric = &quot;error&quot;,
+                 eval.metric = &quot;logloss&quot;,
+                 objective = &quot;binary:logistic&quot;
+                 )</code></pre>
+<pre><code>## [1]  train-error:0.018118    train-logloss:0.194402  test-error:0.019863 test-logloss:0.199134 
+## [2]  train-error:0.003378    train-logloss:0.084331  test-error:0.004345 test-logloss:0.086923</code></pre>
+</div>
+</div>
+<div id="manipulating-xgb.dmatrix" class="section level3">
+<h3>Manipulating xgb.DMatrix</h3>
+<div id="model-저장-loading" class="section level4">
+<h4>model 저장 / loading</h4>
+<pre class="r"><code>xgb.DMatrix.save(dtrain, &quot;dtrain.buffer&quot;)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>dtrain2 &lt;- xgb.DMatrix(&quot;dtrain.buffer&quot;)</code></pre>
+<pre><code>## [22:33:52] 6513x126 matrix with 143286 entries loaded from dtrain.buffer</code></pre>
+<pre class="r"><code>bst &lt;- xgb.train(data = dtrain2, 
+                 max.depth = 2, 
+                 eta = 1, 
+                 nthread = 2, 
+                 nrounds = 2,
+                 watchlist = watchlist,
+                 objective = &quot;binary:logistic&quot;)</code></pre>
+<pre><code>## [1]  train-error:0.046522    test-error:0.042831 
+## [2]  train-error:0.022263    test-error:0.021726</code></pre>
+</div>
+<div id="information-extraction" class="section level4">
+<h4>Information extraction</h4>
+<pre class="r"><code>label &lt;- getinfo(dtest, &quot;label&quot;)
+pred &lt;- predict(bst, dtest)
+err &lt;- as.numeric(sum(as.integer(pred &gt; 0.5 ) != label)) / length(label)
+print(paste(&quot;test-error=&quot;, err))</code></pre>
+<pre><code>## [1] &quot;test-error= 0.0217256362507759&quot;</code></pre>
+</div>
+</div>
+<div id="view-feature-importance-influence-from-the-learnt-model" class="section level3">
+<h3>View feature importance / influence from the learnt model</h3>
+<pre class="r"><code>importance_matrix &lt;- xgb.importance(model = bst)
+
+print(importance_matrix)</code></pre>
+<pre><code>##    Feature       Gain     Cover Frequency
+## 1:      28 0.67615471 0.4978746       0.4
+## 2:      55 0.17135375 0.1920543       0.2
+## 3:      59 0.12317236 0.1638750       0.2
+## 4:     108 0.02931918 0.1461960       0.2</code></pre>
+<pre class="r"><code>xgb.plot.importance(importance_matrix = importance_matrix)</code></pre>
+<p><img src="https://rhyeu.netlify.app/post/2020-11-23-xgboost-tutorial/index.en-us_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<div id="view-the-trees-from-a-model" class="section level4">
+<h4>view the trees from a model</h4>
+<pre class="r"><code>xgb.dump(bst, with_stats = T) # </code></pre>
+<pre><code>##  [1] &quot;booster[0]&quot;                                                                   
+##  [2] &quot;0:[f28&lt;-9.53674316e-07] yes=1,no=2,missing=1,gain=4000.53101,cover=1628.25&quot;   
+##  [3] &quot;1:[f55&lt;-9.53674316e-07] yes=3,no=4,missing=3,gain=1158.21204,cover=924.5&quot;     
+##  [4] &quot;3:leaf=1.71217716,cover=812&quot;                                                  
+##  [5] &quot;4:leaf=-1.70044053,cover=112.5&quot;                                               
+##  [6] &quot;2:[f108&lt;-9.53674316e-07] yes=5,no=6,missing=5,gain=198.173828,cover=703.75&quot;   
+##  [7] &quot;5:leaf=-1.94070864,cover=690.5&quot;                                               
+##  [8] &quot;6:leaf=1.85964918,cover=13.25&quot;                                                
+##  [9] &quot;booster[1]&quot;                                                                   
+## [10] &quot;0:[f59&lt;-9.53674316e-07] yes=1,no=2,missing=1,gain=832.545044,cover=788.852051&quot;
+## [11] &quot;1:[f28&lt;-9.53674316e-07] yes=3,no=4,missing=3,gain=569.725098,cover=768.389709&quot;
+## [12] &quot;3:leaf=0.78471756,cover=458.936859&quot;                                           
+## [13] &quot;4:leaf=-0.968530357,cover=309.45282&quot;                                          
+## [14] &quot;2:leaf=-6.23624468,cover=20.462389&quot;</code></pre>
+<pre class="r"><code>xgb.plot.tree(model = bst)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"digraph {\n\ngraph [layout = \"dot\",\n       rankdir = \"LR\"]\n\nnode [color = \"DimGray\",\n      style = \"filled\",\n      fontname = \"Helvetica\"]\n\nedge [color = \"DimGray\",\n     arrowsize = \"1.5\",\n     arrowhead = \"vee\",\n     fontname = \"Helvetica\"]\n\n  \"1\" [label = \"Tree 1\n59\nCover: 788.852051\nGain: 832.545044\", shape = \"rectangle\", fontcolor = \"black\", fillcolor = \"Beige\"] \n  \"2\" [label = \"28\nCover: 768.389709\nGain: 569.725098\", shape = \"rectangle\", fontcolor = \"black\", fillcolor = \"Beige\"] \n  \"3\" [label = \"Leaf\nCover: 20.462389\nValue: -6.23624468\", shape = \"oval\", fontcolor = \"black\", fillcolor = \"Khaki\"] \n  \"4\" [label = \"Leaf\nCover: 458.936859\nValue: 0.78471756\", shape = \"oval\", fontcolor = \"black\", fillcolor = \"Khaki\"] \n  \"5\" [label = \"Leaf\nCover: 309.45282\nValue: -0.968530357\", shape = \"oval\", fontcolor = \"black\", fillcolor = \"Khaki\"] \n  \"6\" [label = \"Tree 0\n28\nCover: 1628.25\nGain: 4000.53101\", shape = \"rectangle\", fontcolor = \"black\", fillcolor = \"Beige\"] \n  \"7\" [label = \"55\nCover: 924.5\nGain: 1158.21204\", shape = \"rectangle\", fontcolor = \"black\", fillcolor = \"Beige\"] \n  \"8\" [label = \"108\nCover: 703.75\nGain: 198.173828\", shape = \"rectangle\", fontcolor = \"black\", fillcolor = \"Beige\"] \n  \"9\" [label = \"Leaf\nCover: 812\nValue: 1.71217716\", shape = \"oval\", fontcolor = \"black\", fillcolor = \"Khaki\"] \n  \"10\" [label = \"Leaf\nCover: 112.5\nValue: -1.70044053\", shape = \"oval\", fontcolor = \"black\", fillcolor = \"Khaki\"] \n  \"11\" [label = \"Leaf\nCover: 690.5\nValue: -1.94070864\", shape = \"oval\", fontcolor = \"black\", fillcolor = \"Khaki\"] \n  \"12\" [label = \"Leaf\nCover: 13.25\nValue: 1.85964918\", shape = \"oval\", fontcolor = \"black\", fillcolor = \"Khaki\"] \n\"1\"->\"2\" [label = \"< -9.53674316e-07\", style = \"bold\"] \n\"2\"->\"4\" [label = \"< -9.53674316e-07\", style = \"bold\"] \n\"6\"->\"7\" [label = \"< -9.53674316e-07\", style = \"bold\"] \n\"7\"->\"9\" [label = \"< -9.53674316e-07\", style = \"bold\"] \n\"8\"->\"11\" [label = \"< -9.53674316e-07\", style = \"bold\"] \n\"1\"->\"3\" [style = \"bold\", style = \"solid\"] \n\"2\"->\"5\" [style = \"solid\", style = \"solid\"] \n\"6\"->\"8\" [style = \"solid\", style = \"solid\"] \n\"7\"->\"10\" [style = \"solid\", style = \"solid\"] \n\"8\"->\"12\" [style = \"solid\", style = \"solid\"] \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="save-and-load-models" class="section level3">
+<h3>Save and load models</h3>
+<pre class="r"><code>### save model to binary local file
+xgb.save(bst, &quot;xgboost.model&quot;)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>bst2 &lt;- xgb.load(&quot;xgboost.model&quot;)
+pred2 &lt;- predict(bst2, test$data)
+
+# And now the test
+print(paste(&quot;sum(abs(pred2-pred))=&quot;, sum(abs(pred2-pred))))</code></pre>
+<pre><code>## [1] &quot;sum(abs(pred2-pred))= 0&quot;</code></pre>
+<pre class="r"><code># save model to R&#39;s raw vector
+rawVec &lt;- xgb.save.raw(bst)</code></pre>
+<pre class="r"><code># print class
+print(class(rawVec))</code></pre>
+<pre><code>## [1] &quot;raw&quot;</code></pre>
+<pre class="r"><code># load binary model to R
+bst3 &lt;- xgb.load(rawVec)</code></pre>
+<pre><code>## Warning in value[[3L]](cond): The model had been generated by XGBoost version
+## 1.0.0 or earlier and was loaded from a RDS file. We strongly ADVISE AGAINST
+## using saveRDS() function, to ensure that your model can be read in current
+## and upcoming XGBoost releases. Please use xgb.save() instead to preserve
+## models for the long term. For more details and explanation, see https://
+## xgboost.readthedocs.io/en/latest/tutorials/saving_model.html</code></pre>
+<pre class="r"><code>pred3 &lt;- predict(bst3, test$data)
+
+# pred3 should be identical to pred
+print(paste(&quot;sum(abs(pred3-pred))=&quot;, sum(abs(pred3-pred))))</code></pre>
+<pre><code>## [1] &quot;sum(abs(pred3-pred))= 0&quot;</code></pre>
+<ul>
+<li>reference : <a href="https://xgboost.readthedocs.io/en/latest/R-package/xgboostPresentation.html" class="uri">https://xgboost.readthedocs.io/en/latest/R-package/xgboostPresentation.html</a></li>
 </ul>
 </div>
 
@@ -562,13 +577,11 @@ beta2_df %&gt;% filter(trial == c(&quot;prior&quot;, &quot;trial1&quot;, &quot;t
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://rhyeu.netlify.app/tags/bayesian/">bayesian</a>
+  <a class="tag tag--primary tag--small" href="https://rhyeu.netlify.app/tags/xgboost/">xgboost</a>
 
-  <a class="tag tag--primary tag--small" href="https://rhyeu.netlify.app/tags/bayesian_computing/">bayesian_computing</a>
+  <a class="tag tag--primary tag--small" href="https://rhyeu.netlify.app/tags/kaggle/">kaggle</a>
 
-  <a class="tag tag--primary tag--small" href="https://rhyeu.netlify.app/tags/bayesian_updating/">bayesian_updating</a>
-
-  <a class="tag tag--primary tag--small" href="https://rhyeu.netlify.app/tags/t-test/">t-test</a>
+  <a class="tag tag--primary tag--small" href="https://rhyeu.netlify.app/tags/machine-learning/">machine-learning</a>
 
                   </div>
                 
@@ -581,7 +594,7 @@ beta2_df %&gt;% filter(trial == c(&quot;prior&quot;, &quot;trial1&quot;, &quot;t
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/index.en-us/" data-tooltip="A gentle introduction to tidymodels">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -589,7 +602,7 @@ beta2_df %&gt;% filter(trial == c(&quot;prior&quot;, &quot;trial1&quot;, &quot;t
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/10/today-i-learn/" data-tooltip="Today I Learn / blog 세팅하기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/11/index.en-us/" data-tooltip="양치기 소년">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -655,7 +668,7 @@ beta2_df %&gt;% filter(trial == c(&quot;prior&quot;, &quot;trial1&quot;, &quot;t
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/index.en-us/" data-tooltip="A gentle introduction to tidymodels">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -663,7 +676,7 @@ beta2_df %&gt;% filter(trial == c(&quot;prior&quot;, &quot;trial1&quot;, &quot;t
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/10/today-i-learn/" data-tooltip="Today I Learn / blog 세팅하기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/11/index.en-us/" data-tooltip="양치기 소년">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
