@@ -55,15 +55,11 @@ iris_split %>%
   - step_center()
   - step_scale()
   
-```{r}
-# iris_split %>% 
-#   training() %>% 
-#   print(all_outcomes)
-```
+
 ```{r}
 iris_split %>%
   training() %>%
-  print(all_predictors())
+  print()
 ```
 
   
