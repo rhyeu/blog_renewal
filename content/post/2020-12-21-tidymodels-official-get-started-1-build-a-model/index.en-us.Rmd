@@ -14,12 +14,6 @@ keywords:
 
 <!--more-->
 
-- reference : https://www.tidymodels.org/start/models/
-
-```{r setup, echo=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ```{r}
 # install.packages(c("tidymodels"))
 library(tidymodels, quietly = T)  # for the parsnip package, along with the rest of tidymodels
@@ -57,7 +51,7 @@ urchins %>% summary()
 
 - plot : 처리별로 성자의 기울기가 다른 걸 확인할 수 있음
 
-```{r, warning=False}
+```{r}
 ggplot(urchins, aes(x = initial_volume, y = width, col = food_regime)) +
   geom_point() +
   geom_smooth(method = lm, se = F) +
@@ -184,3 +178,5 @@ ggplot(bayes_plot_data, aes(x = food_regime)) +
 
 ### Why does it work that way?
 - tidymodels는 모델을 튜닝하기에 적합(한번에 모델을 적합하지 않고 점증적으로 원하는 것들을 쌓아나가기 때문)
+
+- reference : https://www.tidymodels.org/start/models/

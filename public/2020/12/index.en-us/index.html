@@ -23,8 +23,8 @@
 
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tidymodels : official get started - 1. Build a model">
-<meta name="twitter:title" content="tidymodels : official get started - 1. Build a model">
+<meta property="og:title" content="A gentle introduction to tidymodels">
+<meta name="twitter:title" content="A gentle introduction to tidymodels">
 <meta property="og:url" content="https://rhyeu.netlify.app/2020/12/index.en-us/">
 <meta property="twitter:url" content="https://rhyeu.netlify.app/2020/12/index.en-us/">
 <meta property="og:site_name" content="기억하기쉬운블로그">
@@ -43,10 +43,10 @@
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-12-21T00:00:00">
+    <meta property="article:published_time" content="2020-12-20T00:00:00">
   
   
-    <meta property="article:modified_time" content="2020-12-21T00:00:00">
+    <meta property="article:modified_time" content="2020-12-20T00:00:00">
   
   
   
@@ -57,6 +57,8 @@
   
     
       <meta property="article:tag" content="tidymodels">
+    
+      <meta property="article:tag" content="tidyverse">
     
       <meta property="article:tag" content="machine-learning">
     
@@ -79,7 +81,7 @@
   <meta property="twitter:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
 
 
-    <title>tidymodels : official get started - 1. Build a model</title>
+    <title>A gentle introduction to tidymodels</title>
 
     <link rel="icon" href="https://rhyeu.netlify.app/favicon.png">
     
@@ -234,15 +236,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      tidymodels : official get started - 1. Build a model
+      A gentle introduction to tidymodels
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-12-21T00:00:00Z">
+      <time itemprop="datePublished" datetime="2020-12-20T00:00:00Z">
         
-  December 21, 2020
+  December 20, 2020
 
       </time>
     
@@ -261,15 +263,361 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-<link href="https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+              <div id="example-iris" class="section level3">
+<h3>Example : iris</h3>
+<pre class="r"><code>library(tidymodels, quietly = T)</code></pre>
+<pre><code>## -- Attaching packages --------------------- tidymodels 0.1.1 --</code></pre>
+<pre><code>## √ broom     0.7.0      √ recipes   0.1.13
+## √ dials     0.0.8      √ rsample   0.0.7 
+## √ dplyr     1.0.2      √ tibble    3.0.3 
+## √ ggplot2   3.3.2      √ tidyr     1.1.2 
+## √ infer     0.5.3      √ tune      0.1.1 
+## √ modeldata 0.0.2      √ workflows 0.1.3 
+## √ parsnip   0.1.3      √ yardstick 0.0.7 
+## √ purrr     0.3.4</code></pre>
+<pre><code>## -- Conflicts ------------------------ tidymodels_conflicts() --
+## x purrr::discard() masks scales::discard()
+## x dplyr::filter()  masks stats::filter()
+## x dplyr::lag()     masks stats::lag()
+## x recipes::step()  masks stats::step()</code></pre>
+<pre class="r"><code># install.packages(c(&quot;ranger&quot;, &quot;randomForest&quot;))
+library(ranger, quietly = T)
+library(randomForest, quietly = T)</code></pre>
+<pre><code>## randomForest 4.6-14</code></pre>
+<pre><code>## Type rfNews() to see new features/changes/bug fixes.</code></pre>
+<pre><code>## 
+## 다음의 패키지를 부착합니다: &#39;randomForest&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ranger&#39;:
+## 
+##     importance</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     margin</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     combine</code></pre>
+<div id="data-sampling" class="section level4">
+<h4>Data Sampling</h4>
+<p>‘initial_split’ 함수는 ‘rsample’ 함수와 활용하기 좋음</p>
+<pre class="r"><code>iris_split &lt;- initial_split(iris, prop = 0.6)
 
+iris_split # testing / training / total 을 출력함</code></pre>
+<pre><code>## &lt;Analysis/Assess/Total&gt;
+## &lt;90/60/150&gt;</code></pre>
+<pre class="r"><code>iris_split %&gt;% 
+  training() %&gt;% 
+  glimpse()</code></pre>
+<pre><code>## Rows: 90
+## Columns: 5
+## $ Sepal.Length &lt;dbl&gt; 4.7, 4.6, 5.4, 4.6, 5.0, 4.4, 5.4, 4.8, 4.3, 5.7, 5.1,...
+## $ Sepal.Width  &lt;dbl&gt; 3.2, 3.1, 3.9, 3.4, 3.4, 2.9, 3.7, 3.0, 3.0, 4.4, 3.5,...
+## $ Petal.Length &lt;dbl&gt; 1.3, 1.5, 1.7, 1.4, 1.5, 1.4, 1.5, 1.4, 1.1, 1.5, 1.4,...
+## $ Petal.Width  &lt;dbl&gt; 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.2, 0.1, 0.1, 0.4, 0.3,...
+## $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa...</code></pre>
+</div>
+<div id="pre-process-interface" class="section level4">
+<h4>Pre-process interface</h4>
+<ul>
+<li>recipe</li>
+<li>prep</li>
+<li>step
+<ul>
+<li>step_corr() : 다른 설명변수들과 상관관계가 높은 변수들을 제거</li>
+<li>step_center()</li>
+<li>step_scale()</li>
+</ul></li>
+</ul>
+<pre class="r"><code>iris_split %&gt;%
+  training() %&gt;%
+  print()</code></pre>
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 3            4.7         3.2          1.3         0.2     setosa
+## 4            4.6         3.1          1.5         0.2     setosa
+## 6            5.4         3.9          1.7         0.4     setosa
+## 7            4.6         3.4          1.4         0.3     setosa
+## 8            5.0         3.4          1.5         0.2     setosa
+## 9            4.4         2.9          1.4         0.2     setosa
+## 11           5.4         3.7          1.5         0.2     setosa
+## 13           4.8         3.0          1.4         0.1     setosa
+## 14           4.3         3.0          1.1         0.1     setosa
+## 16           5.7         4.4          1.5         0.4     setosa
+## 18           5.1         3.5          1.4         0.3     setosa
+## 19           5.7         3.8          1.7         0.3     setosa
+## 20           5.1         3.8          1.5         0.3     setosa
+## 23           4.6         3.6          1.0         0.2     setosa
+## 25           4.8         3.4          1.9         0.2     setosa
+## 26           5.0         3.0          1.6         0.2     setosa
+## 28           5.2         3.5          1.5         0.2     setosa
+## 30           4.7         3.2          1.6         0.2     setosa
+## 32           5.4         3.4          1.5         0.4     setosa
+## 33           5.2         4.1          1.5         0.1     setosa
+## 34           5.5         4.2          1.4         0.2     setosa
+## 38           4.9         3.6          1.4         0.1     setosa
+## 40           5.1         3.4          1.5         0.2     setosa
+## 41           5.0         3.5          1.3         0.3     setosa
+## 42           4.5         2.3          1.3         0.3     setosa
+## 43           4.4         3.2          1.3         0.2     setosa
+## 44           5.0         3.5          1.6         0.6     setosa
+## 45           5.1         3.8          1.9         0.4     setosa
+## 46           4.8         3.0          1.4         0.3     setosa
+## 47           5.1         3.8          1.6         0.2     setosa
+## 48           4.6         3.2          1.4         0.2     setosa
+## 49           5.3         3.7          1.5         0.2     setosa
+## 51           7.0         3.2          4.7         1.4 versicolor
+## 53           6.9         3.1          4.9         1.5 versicolor
+## 54           5.5         2.3          4.0         1.3 versicolor
+## 55           6.5         2.8          4.6         1.5 versicolor
+## 56           5.7         2.8          4.5         1.3 versicolor
+## 58           4.9         2.4          3.3         1.0 versicolor
+## 59           6.6         2.9          4.6         1.3 versicolor
+## 60           5.2         2.7          3.9         1.4 versicolor
+## 61           5.0         2.0          3.5         1.0 versicolor
+## 62           5.9         3.0          4.2         1.5 versicolor
+## 64           6.1         2.9          4.7         1.4 versicolor
+## 65           5.6         2.9          3.6         1.3 versicolor
+## 66           6.7         3.1          4.4         1.4 versicolor
+## 67           5.6         3.0          4.5         1.5 versicolor
+## 68           5.8         2.7          4.1         1.0 versicolor
+## 71           5.9         3.2          4.8         1.8 versicolor
+## 74           6.1         2.8          4.7         1.2 versicolor
+## 75           6.4         2.9          4.3         1.3 versicolor
+## 76           6.6         3.0          4.4         1.4 versicolor
+## 77           6.8         2.8          4.8         1.4 versicolor
+## 78           6.7         3.0          5.0         1.7 versicolor
+## 80           5.7         2.6          3.5         1.0 versicolor
+## 81           5.5         2.4          3.8         1.1 versicolor
+## 84           6.0         2.7          5.1         1.6 versicolor
+## 86           6.0         3.4          4.5         1.6 versicolor
+## 87           6.7         3.1          4.7         1.5 versicolor
+## 88           6.3         2.3          4.4         1.3 versicolor
+## 89           5.6         3.0          4.1         1.3 versicolor
+## 93           5.8         2.6          4.0         1.2 versicolor
+## 94           5.0         2.3          3.3         1.0 versicolor
+## 96           5.7         3.0          4.2         1.2 versicolor
+## 97           5.7         2.9          4.2         1.3 versicolor
+## 101          6.3         3.3          6.0         2.5  virginica
+## 102          5.8         2.7          5.1         1.9  virginica
+## 103          7.1         3.0          5.9         2.1  virginica
+## 107          4.9         2.5          4.5         1.7  virginica
+## 109          6.7         2.5          5.8         1.8  virginica
+## 110          7.2         3.6          6.1         2.5  virginica
+## 111          6.5         3.2          5.1         2.0  virginica
+## 112          6.4         2.7          5.3         1.9  virginica
+## 117          6.5         3.0          5.5         1.8  virginica
+## 120          6.0         2.2          5.0         1.5  virginica
+## 123          7.7         2.8          6.7         2.0  virginica
+## 124          6.3         2.7          4.9         1.8  virginica
+## 126          7.2         3.2          6.0         1.8  virginica
+## 127          6.2         2.8          4.8         1.8  virginica
+## 128          6.1         3.0          4.9         1.8  virginica
+## 131          7.4         2.8          6.1         1.9  virginica
+## 132          7.9         3.8          6.4         2.0  virginica
+## 137          6.3         3.4          5.6         2.4  virginica
+## 139          6.0         3.0          4.8         1.8  virginica
+## 140          6.9         3.1          5.4         2.1  virginica
+## 143          5.8         2.7          5.1         1.9  virginica
+## 144          6.8         3.2          5.9         2.3  virginica
+## 146          6.7         3.0          5.2         2.3  virginica
+## 147          6.3         2.5          5.0         1.9  virginica
+## 148          6.5         3.0          5.2         2.0  virginica
+## 150          5.9         3.0          5.1         1.8  virginica</code></pre>
+<pre class="r"><code>### 질문
+#### - all_outcomes의 의미는 무엇인가?
+#### step_center, step_scale는 왜 저렇게 쓰는가?
+iris_recipe &lt;- training(iris_split) %&gt;% 
+  recipe(Species ~.) %&gt;% # 전처리 시행
+  step_corr(all_predictors()) %&gt;% 
+  step_center(all_predictors(), -all_outcomes()) %&gt;% 
+  step_scale(all_predictors(), -all_outcomes()) %&gt;% 
+  prep() # 전처리 시행</code></pre>
+<pre class="r"><code>iris_recipe</code></pre>
+<pre><code>## Data Recipe
+## 
+## Inputs:
+## 
+##       role #variables
+##    outcome          1
+##  predictor          4
+## 
+## Training data contained 90 data points and no missing data.
+## 
+## Operations:
+## 
+## Correlation filter removed Petal.Length [trained]
+## Centering for Sepal.Length, Sepal.Width, Petal.Width [trained]
+## Scaling for Sepal.Length, Sepal.Width, Petal.Width [trained]</code></pre>
+</div>
+<div id="execute-the-pre-processing" class="section level4">
+<h4>Execute the pre-processing</h4>
+<ul>
+<li>recipe, bake 함수를 사용</li>
+</ul>
+<pre class="r"><code>iris_testing &lt;- iris_recipe %&gt;% 
+  bake(testing(iris_split))
 
+iris_testing %&gt;% glimpse()</code></pre>
+<pre><code>## Rows: 60
+## Columns: 4
+## $ Sepal.Length &lt;dbl&gt; -0.81137375, -1.05118865, -0.93128120, -1.05118865, -1...
+## $ Sepal.Width  &lt;dbl&gt; 0.91105087, -0.16782516, 1.12682608, 0.04795005, 0.695...
+## $ Petal.Width  &lt;dbl&gt; -1.26916753, -1.26916753, -1.26916753, -1.40531184, -1...
+## $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa...</code></pre>
+<pre class="r"><code>iris_training &lt;- juice(iris_recipe)
 
+glimpse(iris_training)</code></pre>
+<pre><code>## Rows: 90
+## Columns: 4
+## $ Sepal.Length &lt;dbl&gt; -1.29100356, -1.41091101, -0.45165140, -1.41091101, -0...
+## $ Sepal.Width  &lt;dbl&gt; 0.26372525, 0.04795005, 1.77415170, 0.69527567, 0.6952...
+## $ Petal.Width  &lt;dbl&gt; -1.2691675, -1.2691675, -0.9968789, -1.1330232, -1.269...
+## $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa...</code></pre>
+</div>
+</div>
+<div id="model-training" class="section level3">
+<h3>Model Training</h3>
+<pre class="r"><code>iris_ranger &lt;- rand_forest(trees = 100, mode = &quot;classification&quot;) %&gt;% 
+  set_engine(&quot;ranger&quot;) %&gt;% 
+  fit(Species ~ ., data = iris_training)</code></pre>
+<pre class="r"><code>iris_rf &lt;- rand_forest(trees = 100, mode = &quot;classification&quot;) %&gt;% 
+  set_engine(&quot;randomForest&quot;) %&gt;% 
+  fit(Species ~ ., data = iris_training)</code></pre>
+</div>
+<div id="prediction" class="section level3">
+<h3>Prediction</h3>
+<pre class="r"><code>predict(iris_ranger, iris_testing)</code></pre>
+<pre><code>## # A tibble: 60 x 1
+##    .pred_class
+##    &lt;fct&gt;      
+##  1 setosa     
+##  2 setosa     
+##  3 setosa     
+##  4 setosa     
+##  5 setosa     
+##  6 setosa     
+##  7 setosa     
+##  8 setosa     
+##  9 setosa     
+## 10 setosa     
+## # ... with 50 more rows</code></pre>
+<ul>
+<li>testing data에 예측값을 결합</li>
+</ul>
+<pre class="r"><code>iris_ranger %&gt;% 
+  predict(iris_testing) %&gt;% 
+  bind_cols(iris_testing) %&gt;% 
+  glimpse()</code></pre>
+<pre><code>## Rows: 60
+## Columns: 5
+## $ .pred_class  &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa...
+## $ Sepal.Length &lt;dbl&gt; -0.81137375, -1.05118865, -0.93128120, -1.05118865, -1...
+## $ Sepal.Width  &lt;dbl&gt; 0.91105087, -0.16782516, 1.12682608, 0.04795005, 0.695...
+## $ Petal.Width  &lt;dbl&gt; -1.26916753, -1.26916753, -1.26916753, -1.40531184, -1...
+## $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa...</code></pre>
+</div>
+<div id="model-validation" class="section level3">
+<h3>Model Validation</h3>
+<pre class="r"><code>iris_ranger %&gt;% 
+  predict(iris_testing) %&gt;% 
+  bind_cols(iris_testing) %&gt;% 
+  metrics(truth = Species, estimate=.pred_class)</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   .metric  .estimator .estimate
+##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+## 1 accuracy multiclass     0.95 
+## 2 kap      multiclass     0.925</code></pre>
+<pre class="r"><code>iris_rf %&gt;% 
+  predict(iris_testing) %&gt;% 
+  bind_cols(iris_testing) %&gt;% 
+  metrics(truth = Species, estimate = .pred_class)</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   .metric  .estimator .estimate
+##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+## 1 accuracy multiclass     0.95 
+## 2 kap      multiclass     0.925</code></pre>
+</div>
+<div id="per-classifier-metric" class="section level3">
+<h3>Per classifier metric</h3>
+<ul>
+<li>각 class에 배정될 확률을 가지고 할 수 있는 게 많다.</li>
+</ul>
+<pre class="r"><code>iris_ranger %&gt;% 
+  predict(iris_testing, type = &quot;prob&quot;) %&gt;% 
+  glimpse()</code></pre>
+<pre><code>## Rows: 60
+## Columns: 3
+## $ .pred_setosa     &lt;dbl&gt; 0.991527778, 0.851261905, 0.975813492, 0.863039683...
+## $ .pred_versicolor &lt;dbl&gt; 0.00000000, 0.11600000, 0.01000000, 0.10755556, 0....
+## $ .pred_virginica  &lt;dbl&gt; 0.008472222, 0.032738095, 0.014186508, 0.029404762...</code></pre>
+<pre class="r"><code>iris_probs &lt;- iris_ranger %&gt;% 
+  predict(iris_testing, type = &quot;prob&quot;) %&gt;% 
+  bind_cols(iris_testing)
 
-HUGOMORE42
-
+glimpse(iris_probs)</code></pre>
+<pre><code>## Rows: 60
+## Columns: 7
+## $ .pred_setosa     &lt;dbl&gt; 0.991527778, 0.851261905, 0.975813492, 0.863039683...
+## $ .pred_versicolor &lt;dbl&gt; 0.00000000, 0.11600000, 0.01000000, 0.10755556, 0....
+## $ .pred_virginica  &lt;dbl&gt; 0.008472222, 0.032738095, 0.014186508, 0.029404762...
+## $ Sepal.Length     &lt;dbl&gt; -0.81137375, -1.05118865, -0.93128120, -1.05118865...
+## $ Sepal.Width      &lt;dbl&gt; 0.91105087, -0.16782516, 1.12682608, 0.04795005, 0...
+## $ Petal.Width      &lt;dbl&gt; -1.26916753, -1.26916753, -1.26916753, -1.40531184...
+## $ Species          &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, se...</code></pre>
+<ul>
+<li>gain_curve : 해당 클래스로 분류할 확률을 내림차순으로 정렬해 누적 분위수와 실제 해당 클래스의 누적 비율과 비교해서 모델의 효율성을 평가.</li>
+</ul>
+<pre class="r"><code>iris_probs %&gt;% 
+  gain_curve(Species, .pred_setosa:.pred_virginica) %&gt;% 
+  glimpse()</code></pre>
+<pre><code>## Rows: 140
+## Columns: 5
+## $ .level          &lt;chr&gt; &quot;setosa&quot;, &quot;setosa&quot;, &quot;setosa&quot;, &quot;setosa&quot;, &quot;setosa&quot;, &quot;...
+## $ .n              &lt;dbl&gt; 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 16, 17, ...
+## $ .n_events       &lt;dbl&gt; 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 16, 17, ...
+## $ .percent_tested &lt;dbl&gt; 0.000000, 3.333333, 5.000000, 6.666667, 8.333333, 1...
+## $ .percent_found  &lt;dbl&gt; 0.00000, 11.11111, 16.66667, 22.22222, 27.77778, 33...</code></pre>
+<pre class="r"><code>iris_probs %&gt;% 
+  gain_curve(Species, .pred_setosa:.pred_virginica) %&gt;% 
+  autoplot()</code></pre>
+<p><img src="https://rhyeu.netlify.app/post/2020-12-20-a-gentle-introduction-to-tidymodels/index.en-us_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<ul>
+<li>ROC curve</li>
+</ul>
+<pre class="r"><code>iris_probs %&gt;% 
+  roc_curve(Species, .pred_setosa:.pred_virginica) %&gt;% 
+  autoplot()</code></pre>
+<p><img src="https://rhyeu.netlify.app/post/2020-12-20-a-gentle-introduction-to-tidymodels/index.en-us_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<ul>
+<li>각 클래스의 prob와 최종 예측 클래스를 모두 표현</li>
+</ul>
+<pre class="r"><code>predict(iris_ranger, iris_testing, type = &quot;prob&quot;) %&gt;% 
+  bind_cols(predict(iris_ranger, iris_testing)) %&gt;% 
+  bind_cols(select(iris_testing, Species)) %&gt;% 
+  glimpse()</code></pre>
+<pre><code>## Rows: 60
+## Columns: 5
+## $ .pred_setosa     &lt;dbl&gt; 0.991527778, 0.851261905, 0.975813492, 0.863039683...
+## $ .pred_versicolor &lt;dbl&gt; 0.00000000, 0.11600000, 0.01000000, 0.10755556, 0....
+## $ .pred_virginica  &lt;dbl&gt; 0.008472222, 0.032738095, 0.014186508, 0.029404762...
+## $ .pred_class      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, se...
+## $ Species          &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, se...</code></pre>
+<ul>
+<li>평가 measure report</li>
+</ul>
+<pre class="r"><code>predict(iris_ranger, iris_testing, type = &quot;prob&quot;) %&gt;% 
+  bind_cols(predict(iris_ranger, iris_testing)) %&gt;% 
+  bind_cols(select(iris_testing, Species)) %&gt;% 
+  metrics(Species, .pred_setosa:.pred_virginica, estimate = .pred_class)</code></pre>
+<pre><code>## # A tibble: 4 x 3
+##   .metric     .estimator .estimate
+##   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;
+## 1 accuracy    multiclass     0.95 
+## 2 kap         multiclass     0.925
+## 3 mn_log_loss multiclass     0.222
+## 4 roc_auc     hand_till      0.988</code></pre>
+<ul>
+<li>Reference : <a href="https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/" class="uri">https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/</a></li>
+</ul>
+</div>
 
               
             </div>
@@ -284,6 +632,8 @@ HUGOMORE42
                     
   <a class="tag tag--primary tag--small" href="https://rhyeu.netlify.app/tags/tidymodels/">tidymodels</a>
 
+  <a class="tag tag--primary tag--small" href="https://rhyeu.netlify.app/tags/tidyverse/">tidyverse</a>
+
   <a class="tag tag--primary tag--small" href="https://rhyeu.netlify.app/tags/machine-learning/">machine-learning</a>
 
                   </div>
@@ -297,7 +647,7 @@ HUGOMORE42
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/index.en-us/" data-tooltip="tidymodels : official get started - 1. Build a model">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -305,7 +655,7 @@ HUGOMORE42
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/index.en-us/" data-tooltip="A gentle introduction to tidymodels">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/11/index.en-us/" data-tooltip="xgboost tutorial">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -371,7 +721,7 @@ HUGOMORE42
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/index.en-us/" data-tooltip="tidymodels : official get started - 1. Build a model">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -379,7 +729,7 @@ HUGOMORE42
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/index.en-us/" data-tooltip="A gentle introduction to tidymodels">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/11/index.en-us/" data-tooltip="xgboost tutorial">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
