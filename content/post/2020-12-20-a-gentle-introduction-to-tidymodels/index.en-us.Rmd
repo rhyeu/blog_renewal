@@ -14,7 +14,6 @@ keywords:
 ---
 
 <!--more-->
-
 - Reference : https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/
 
 ```{r setup, include=FALSE}
@@ -55,18 +54,7 @@ iris_split %>%
   - step_center()
   - step_scale()
   
-```{r}
-# iris_split %>% 
-#   training() %>% 
-#   print(all_outcomes)
-```
-```{r}
-iris_split %>%
-  training() %>%
-  print(all_predictors())
-```
 
-  
 ```{r}
 ### 질문
 #### - all_outcomes의 의미는 무엇인가?

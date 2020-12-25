@@ -1,0 +1,186 @@
+---
+title: tidymodels official get started chpt 1 build a model
+author: 류성균
+date: '2020-12-25'
+slug: index.en-us
+categories:
+  - R
+tags:
+  - tidymodels
+  - responsive
+  - tidyverse
+keywords:
+  - tech
+---
+
+<!--more-->
+- reference : https://www.tidymodels.org/start/models/
+
+
+```{r}
+# install.packages(c("tidymodels"))
+library(tidymodels)  # for the parsnip package, along with the rest of tidymodels
+
+library(curl)
+
+# Helper packages
+library(readr)       # for importing data
+library(broom.mixed) # for converting bayesian models to tidy tibbles
+library(dotwhisker)  # for visualizing regression results
+```
+
+
+###  THE SEA URCHINS DATA
+- 먹이가 성게 크기에 미치는 영향을 나타낸 데이터 [Constable (1993)](https://link.springer.com/article/10.1007/BF00349318) 
+
+```{r}
+urchins <- 
+  # Data were assembled for a tutorial 
+  # at https://www.flutterbys.com.au/stats/tut/tut7.5a.html
+read_csv("https://tidymodels.org/start/models/urchins.csv") %>% 
+  # Change the names to be a little more verbose
+  setNames(c("food_regime", "initial_volume", "width")) %>%
+  # Factors are very helpful for modeling, so we convert one column
+  mutate(food_regime = factor(food_regime, levels = c("Initial", "Low", "High")))
+```
+
+- 데이터는 tibble로 저장됨 : [tibble chpater in R4DS](https://r4ds.had.co.nz/tibbles.html) 참조
+```{r}
+urchins %>% summary()
+```
+
+- 컬럼 구성
+  - 먹이주기 그룹 : `food_regime` - `Initial`, `Low`, `High
+  - 실험 시작 시 성게 크기(mm) : `initial_volume`
+  - 실험 종료 시 폭 : `width`
+
+- plot : 처리별로 성자의 기울기가 다른 걸 확인할 수 있음
+
+```{r}
+ggplot(urchins, aes(x = initial_volume, y = width, col = food_regime)) +
+  geom_point() +
+  geom_smooth(method = lm, se = F) +
+  scale_color_viridis_d(option = "plasma", end = 0.7)
+```
+
+
+### Build and Fit a model
+
+- 위의 plot을 통해 세워볼 수 있는 모델은 아래와 같음
+```{r}
+width ~ initial_volumn * food_regime
+```
+
+- `parsnip packages` 를 활용해서 모형 학습
+  - 일반 선형 모형(OLS)
+```{r}
+linear_reg()
+```
+```{r}
+lm_mod <- linear_reg() %>% 
+  set_engine("lm")
+```
+
+```{r}
+lm_fit <- lm_mod %>% 
+  fit(width ~ initial_volume * food_regime, data = urchins)
+
+# lm_fit
+tidy(lm_fit)
+```
+
+```{r}
+tidy(lm_fit) %>% 
+  dwplot(dot_args = list(size = 2, color = "black"),
+         whisker_args = list(color = "black"),
+         vline = geom_vline(xintercept = 0, colour = "grey50", linetype = 2))
+```
+
+
+### Use a model to predict 
+
+```{r}
+new_points <- expand.grid(initial_volume = 20,
+                         food_regime = c("Initial", "Low", "High"))
+
+new_points
+```
+
+```{r}
+mean_pred <- predict(lm_fit, new_data = new_points)
+mean_pred
+```
+
+```{r}
+conf_int_pred <- predict(lm_fit, new_data = new_points,
+                         type = "conf_int")
+conf_int_pred
+```
+
+```{r}
+plot_data <- 
+  new_points %>% 
+  bind_cols(mean_pred, conf_int_pred)
+
+ggplot(plot_data, aes(x = food_regime)) +
+  geom_point(aes(y = .pred)) +
+  geom_errorbar(aes(ymin = .pred_lower,
+                    ymax = .pred_upper),
+                width = .2) +
+  labs(y = "urchin size")
+```
+
+
+### Model with a different engine
+
+- `stan` engine을 활용해서 bayesian approach를 시도해보자
+
+```{r}
+# install.packages("rstanarm")
+```
+
+
+```{r}
+# set the prior distribution
+
+prior_dist <- rstanarm::student_t(df = 1)
+set.seed(123)
+
+# make the parsnip model
+
+bayes_mod <-
+  linear_reg() %>% 
+  set_engine("stan",
+             prior_intercept = prior_dist,
+             prior = prior_dist)
+
+# train the model
+bayes_fit <-
+  bayes_mod %>% 
+  fit(width ~ initial_volume * food_regime, data = urchins)
+
+print(bayes_fit, digits = 5)
+```
+
+- 베이지안 모델로 parameter table 업데이트
+```{r}
+tidy(bayes_fit, conf.int = T)
+```
+
+```{r}
+bayes_plot_data <-
+  new_points %>% 
+  bind_cols(predict(bayes_fit, new_data = new_points)) %>% 
+  bind_cols(predict(bayes_fit, new_data = new_points, type = "conf_int"))
+
+ggplot(bayes_plot_data, aes(x = food_regime)) +
+  geom_point(aes(y = .pred)) +
+  geom_errorbar(aes(ymin = .pred_lower,
+                    ymax = .pred_upper), 
+                width = .2) +
+  labs(y = "urchin size") + 
+  ggtitle("Bayesian model with t(1) prior distribution")
+```
+
+### Why does it work that way?
+- tidymodels는 모델을 튜닝하기에 적합(한번에 모델을 적합하지 않고 점증적으로 원하는 것들을 쌓아나가기 때문)
