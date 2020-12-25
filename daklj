@@ -1,0 +1,188 @@
+[33mcommit 7ae0881789a50c1a5ca77d3f72ccae52a4c63b75[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Fri Dec 25 11:07:22 2020 +0900
+
+    tidymodels get started official chpt1 build a model
+
+[33mcommit 85d18f9311d192d8a0a9cfef7a188403cf002407[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Dec 20 11:33:07 2020 +0900
+
+    안 보이는 현상 해결
+
+[33mcommit 28b0428ee1496271cad83a495e9bcb7edca47caa[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Dec 20 11:28:10 2020 +0900
+
+    12/20 a gentle introduction to tidymodels 필사
+
+[33mcommit d860eb2d0120f966f429628dce9cf5a13edff17f[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Mon Nov 23 22:34:39 2020 +0900
+
+    xgboost 튜토리얼
+
+[33mcommit 6a3528f9ff700259b8d986a634822242de5db3f8[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Nov 22 15:55:29 2020 +0900
+
+    t-test를 binomial-test로 변경
+
+[33mcommit 017112a858c16b74190912bcbe54ecff2db9a9c0[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Nov 8 17:54:43 2020 +0900
+
+    양치기 소년 포스팅 하이퍼링크 수정
+
+[33mcommit 31d1d04dbf420f45691d25692afb6e19941c243f[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Nov 8 17:49:30 2020 +0900
+
+    홈페이지 config 수정 -> 이전 포스트 확인하는 버튼 수정
+
+[33mcommit d3c9e8c18c4c776ea4e0362afe7d49ed623429c3[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Nov 8 17:37:43 2020 +0900
+
+    양치기 소년 포스팅 완료
+
+[33mcommit 2efead3fef5c908b4578ce16f4e5fc771b11a845[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Nov 8 16:43:57 2020 +0900
+
+    양치기 소년 포스팅 - 그림 추가
+
+[33mcommit 68963cc033fb3de35485c29fa22f4ef29c8ec2ab[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sat Oct 17 22:48:03 2020 +0900
+
+    stan 유용성 build_site()
+
+[33mcommit 03235993d48c001513ab11ab5a65c8a8090d2ffe[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sat Oct 17 22:42:20 2020 +0900
+
+    stan이 좋은 점 post
+
+[33mcommit d0eb21ad63cce8a5e27752497c3188789b74bd09[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sat Oct 17 22:25:44 2020 +0900
+
+    사진 변경 테스트
+
+[33mcommit 20c7242b68ed6baaedfc9aabfb1bfb2a14817f04[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Mon Oct 5 23:21:08 2020 +0900
+
+    예쁜 index를 위해 \<\!\-\-more\-\-\> 추가
+    
+    2 : 이전에 썼던 포스트 전부 적용
+
+[33mcommit fdb75637b6d1c8183a51b7cec69dedb602d2adc1[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Mon Oct 5 23:13:29 2020 +0900
+
+    예쁜 index를 위해 \<\!\-\-more\-\-\> 추가
+
+[33mcommit a3aa27d274239b832e6c1790ed6d268951fca4a1[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 22:35:40 2020 +0900
+
+    blog 세팅방법 정리
+
+[33mcommit 45ebf334974f4bfa6530868a1467a8735d841ce5[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 16:44:38 2020 +0900
+
+    latex 문제 해결 : https://github.com/wowchemy/starter-academic/blob/master/config/_default/params.toml
+
+[33mcommit 8a3f29dee5377c67ba3fdf5d98fc6d04adf16c6a[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 16:22:38 2020 +0900
+
+     config : swapPaginator = true
+
+[33mcommit 58adf82943089652c93c36cd29025b8080ef3e64[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 15:09:25 2020 +0900
+
+    README.md 추가
+
+[33mcommit 188862b1da4786307c2db6e193f755fcc0c0f73d[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 15:05:29 2020 +0900
+
+    사진 변경
+
+[33mcommit ae06d92dbabfa55de7eb403a77ccad938aef3bfa[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 14:54:25 2020 +0900
+
+    facebook, github 주소 변경, 프로필 사진 추가
+
+[33mcommit c67cc4ed407149e9fb29110fd88154904dd7ebe4[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 13:10:52 2020 +0900
+
+    10.4 포스트 제목 변경
+
+[33mcommit 95e2c36d78959420e791e0735afdc125be49e816[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 12:38:50 2020 +0900
+
+    netlify 주소 변경
+    https://rhyeu.netlify.app -> "https://rhyeu.netlify.app"
+
+[33mcommit e799dd7864b711f7f0caeae1a0a84a7424be6495[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 12:35:42 2020 +0900
+
+    repository 이름 변경 test
+
+[33mcommit 7147802645f6320bebae2e2293c597fb374c3c01[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 12:24:06 2020 +0900
+
+    tidymodel 빼고 모두 이사
+
+[33mcommit 37eb7cab66baade16c71c3ead8b2e7fbf17477a7[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 12:18:30 2020 +0900
+
+    2020.6.14 R console 언어 바꾸기, tidy model 포스트 생략
+
+[33mcommit 952d88882888e1af1e198a24b43674fd0847ecf9[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 11:46:44 2020 +0900
+
+    2019.10.31 R-console 출력언어 바꾸기만 빼고 2020.06.10.까지 옮김
+
+[33mcommit 6f37fabee9d5d6bda9f69230aff947fe348da3f8[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 11:33:01 2020 +0900
+
+    2019.10.3 post까지 이사
+
+[33mcommit 57f76ea76f6732422e8368541b2fc5c323792ff4[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 11:28:30 2020 +0900
+
+    config 수정 : bio, menu
+
+[33mcommit 690bdd86e01f0027932728a2b166f96c6485bd3e[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 11:19:21 2020 +0900
+
+    first config define
+
+[33mcommit 818bcfa24628e78ef92e5d0e9358b577bba60382[m
+Author: rhyeu <sk.rhyeu@gmail.com>
+Date:   Sun Oct 4 11:08:17 2020 +0900
+
+    blog init
+
+[33mcommit 8325acc4515ca08c440d0b731c1a03cce2d42c50[m
+Author: rhyeu <39024627+rhyeu@users.noreply.github.com>
+Date:   Sun Oct 4 10:56:52 2020 +0900
+
+    Initial commit
