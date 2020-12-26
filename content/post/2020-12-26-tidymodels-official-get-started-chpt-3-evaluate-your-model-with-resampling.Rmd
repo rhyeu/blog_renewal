@@ -6,8 +6,8 @@ slug: tidymodels-official-get-started-chpt-3-evaluate-your-model-with-resampling
 categories:
   - R
 tags:
-  - tidymodels
   - tidyverse
+  - tidymodels
   - machine-learning
 keywords:
   - tech
@@ -38,9 +38,8 @@ cells
 
 
 ```{r}
-glimpse(cells)
+cells
 ```
-
 
 ```{r}
 cells %>% 
@@ -175,5 +174,3 @@ rf_testing_pred %>%
 rf_testing_pred %>% 
   accuracy(truth = class, .pred_class)
 ```
-
-

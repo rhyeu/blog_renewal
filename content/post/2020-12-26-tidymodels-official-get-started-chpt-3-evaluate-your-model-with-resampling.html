@@ -1,0 +1,300 @@
+---
+title: tidymodels official get started chpt 3 Evaluate your model with resampling
+author: 류성균
+date: '2020-12-26'
+slug: tidymodels-official-get-started-chpt-3-evaluate-your-model-with-resampling
+categories:
+  - R
+tags:
+  - tidyverse
+  - tidymodels
+  - machine-learning
+keywords:
+  - tech
+---
+
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<!--more-->
+<ul>
+<li>reference : <a href="https://www.tidymodels.org/start/resampling/" class="uri">https://www.tidymodels.org/start/resampling/</a></li>
+</ul>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<pre class="r"><code>library(tidymodels)</code></pre>
+<pre><code>## -- Attaching packages --------------------- tidymodels 0.1.1 --</code></pre>
+<pre><code>## √ broom     0.7.0      √ recipes   0.1.13
+## √ dials     0.0.8      √ rsample   0.0.7 
+## √ dplyr     1.0.2      √ tibble    3.0.3 
+## √ ggplot2   3.3.2      √ tidyr     1.1.2 
+## √ infer     0.5.3      √ tune      0.1.1 
+## √ modeldata 0.0.2      √ workflows 0.1.3 
+## √ parsnip   0.1.3      √ yardstick 0.0.7 
+## √ purrr     0.3.4</code></pre>
+<pre><code>## -- Conflicts ------------------------ tidymodels_conflicts() --
+## x purrr::discard() masks scales::discard()
+## x dplyr::filter()  masks stats::filter()
+## x dplyr::lag()     masks stats::lag()
+## x recipes::step()  masks stats::step()</code></pre>
+<pre class="r"><code>library(modeldata)</code></pre>
+</div>
+<div id="the-cell-image-data" class="section level3">
+<h3>The cell image data</h3>
+<ul>
+<li>Image Segmentation에 활용되는 데이터</li>
+</ul>
+<pre class="r"><code>data(cells, packages = &quot;modeldata&quot;)</code></pre>
+<pre><code>## Warning in data(cells, packages = &quot;modeldata&quot;): data set &#39;modeldata&#39; not found</code></pre>
+<pre class="r"><code>cells</code></pre>
+<pre><code>## # A tibble: 2,019 x 58
+##    case  class angle_ch_1 area_ch_1 avg_inten_ch_1 avg_inten_ch_2 avg_inten_ch_3
+##    &lt;fct&gt; &lt;fct&gt;      &lt;dbl&gt;     &lt;int&gt;          &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Test  PS        143.         185           15.7           4.95           9.55
+##  2 Train PS        134.         819           31.9         207.            69.9 
+##  3 Train WS        107.         431           28.0         116.            63.9 
+##  4 Train PS         69.2        298           19.5         102.            28.2 
+##  5 Test  PS          2.89       285           24.3         112.            20.5 
+##  6 Test  WS         40.7        172          326.          654.           129.  
+##  7 Test  WS        174.         177          260.          596.           124.  
+##  8 Test  PS        180.         251           18.3           5.73          17.2 
+##  9 Test  WS         18.9        495           16.1          89.5           13.7 
+## 10 Test  WS        153.         384           17.7          89.9           20.4 
+## # ... with 2,009 more rows, and 51 more variables: avg_inten_ch_4 &lt;dbl&gt;,
+## #   convex_hull_area_ratio_ch_1 &lt;dbl&gt;, convex_hull_perim_ratio_ch_1 &lt;dbl&gt;,
+## #   diff_inten_density_ch_1 &lt;dbl&gt;, diff_inten_density_ch_3 &lt;dbl&gt;,
+## #   diff_inten_density_ch_4 &lt;dbl&gt;, entropy_inten_ch_1 &lt;dbl&gt;,
+## #   entropy_inten_ch_3 &lt;dbl&gt;, entropy_inten_ch_4 &lt;dbl&gt;,
+## #   eq_circ_diam_ch_1 &lt;dbl&gt;, eq_ellipse_lwr_ch_1 &lt;dbl&gt;,
+## #   eq_ellipse_oblate_vol_ch_1 &lt;dbl&gt;, eq_ellipse_prolate_vol_ch_1 &lt;dbl&gt;,
+## #   eq_sphere_area_ch_1 &lt;dbl&gt;, eq_sphere_vol_ch_1 &lt;dbl&gt;,
+## #   fiber_align_2_ch_3 &lt;dbl&gt;, fiber_align_2_ch_4 &lt;dbl&gt;,
+## #   fiber_length_ch_1 &lt;dbl&gt;, fiber_width_ch_1 &lt;dbl&gt;, inten_cooc_asm_ch_3 &lt;dbl&gt;,
+## #   inten_cooc_asm_ch_4 &lt;dbl&gt;, inten_cooc_contrast_ch_3 &lt;dbl&gt;,
+## #   inten_cooc_contrast_ch_4 &lt;dbl&gt;, inten_cooc_entropy_ch_3 &lt;dbl&gt;,
+## #   inten_cooc_entropy_ch_4 &lt;dbl&gt;, inten_cooc_max_ch_3 &lt;dbl&gt;,
+## #   inten_cooc_max_ch_4 &lt;dbl&gt;, kurt_inten_ch_1 &lt;dbl&gt;, kurt_inten_ch_3 &lt;dbl&gt;,
+## #   kurt_inten_ch_4 &lt;dbl&gt;, length_ch_1 &lt;dbl&gt;, neighbor_avg_dist_ch_1 &lt;dbl&gt;,
+## #   neighbor_min_dist_ch_1 &lt;dbl&gt;, neighbor_var_dist_ch_1 &lt;dbl&gt;,
+## #   perim_ch_1 &lt;dbl&gt;, shape_bfr_ch_1 &lt;dbl&gt;, shape_lwr_ch_1 &lt;dbl&gt;,
+## #   shape_p_2_a_ch_1 &lt;dbl&gt;, skew_inten_ch_1 &lt;dbl&gt;, skew_inten_ch_3 &lt;dbl&gt;,
+## #   skew_inten_ch_4 &lt;dbl&gt;, spot_fiber_count_ch_3 &lt;int&gt;,
+## #   spot_fiber_count_ch_4 &lt;dbl&gt;, total_inten_ch_1 &lt;int&gt;,
+## #   total_inten_ch_2 &lt;dbl&gt;, total_inten_ch_3 &lt;int&gt;, total_inten_ch_4 &lt;int&gt;,
+## #   var_inten_ch_1 &lt;dbl&gt;, var_inten_ch_3 &lt;dbl&gt;, var_inten_ch_4 &lt;dbl&gt;,
+## #   width_ch_1 &lt;dbl&gt;</code></pre>
+</div>
+<div id="back-to-the-cells-data" class="section level3">
+<h3>Back to the cells data</h3>
+<pre class="r"><code>cells</code></pre>
+<pre><code>## # A tibble: 2,019 x 58
+##    case  class angle_ch_1 area_ch_1 avg_inten_ch_1 avg_inten_ch_2 avg_inten_ch_3
+##    &lt;fct&gt; &lt;fct&gt;      &lt;dbl&gt;     &lt;int&gt;          &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Test  PS        143.         185           15.7           4.95           9.55
+##  2 Train PS        134.         819           31.9         207.            69.9 
+##  3 Train WS        107.         431           28.0         116.            63.9 
+##  4 Train PS         69.2        298           19.5         102.            28.2 
+##  5 Test  PS          2.89       285           24.3         112.            20.5 
+##  6 Test  WS         40.7        172          326.          654.           129.  
+##  7 Test  WS        174.         177          260.          596.           124.  
+##  8 Test  PS        180.         251           18.3           5.73          17.2 
+##  9 Test  WS         18.9        495           16.1          89.5           13.7 
+## 10 Test  WS        153.         384           17.7          89.9           20.4 
+## # ... with 2,009 more rows, and 51 more variables: avg_inten_ch_4 &lt;dbl&gt;,
+## #   convex_hull_area_ratio_ch_1 &lt;dbl&gt;, convex_hull_perim_ratio_ch_1 &lt;dbl&gt;,
+## #   diff_inten_density_ch_1 &lt;dbl&gt;, diff_inten_density_ch_3 &lt;dbl&gt;,
+## #   diff_inten_density_ch_4 &lt;dbl&gt;, entropy_inten_ch_1 &lt;dbl&gt;,
+## #   entropy_inten_ch_3 &lt;dbl&gt;, entropy_inten_ch_4 &lt;dbl&gt;,
+## #   eq_circ_diam_ch_1 &lt;dbl&gt;, eq_ellipse_lwr_ch_1 &lt;dbl&gt;,
+## #   eq_ellipse_oblate_vol_ch_1 &lt;dbl&gt;, eq_ellipse_prolate_vol_ch_1 &lt;dbl&gt;,
+## #   eq_sphere_area_ch_1 &lt;dbl&gt;, eq_sphere_vol_ch_1 &lt;dbl&gt;,
+## #   fiber_align_2_ch_3 &lt;dbl&gt;, fiber_align_2_ch_4 &lt;dbl&gt;,
+## #   fiber_length_ch_1 &lt;dbl&gt;, fiber_width_ch_1 &lt;dbl&gt;, inten_cooc_asm_ch_3 &lt;dbl&gt;,
+## #   inten_cooc_asm_ch_4 &lt;dbl&gt;, inten_cooc_contrast_ch_3 &lt;dbl&gt;,
+## #   inten_cooc_contrast_ch_4 &lt;dbl&gt;, inten_cooc_entropy_ch_3 &lt;dbl&gt;,
+## #   inten_cooc_entropy_ch_4 &lt;dbl&gt;, inten_cooc_max_ch_3 &lt;dbl&gt;,
+## #   inten_cooc_max_ch_4 &lt;dbl&gt;, kurt_inten_ch_1 &lt;dbl&gt;, kurt_inten_ch_3 &lt;dbl&gt;,
+## #   kurt_inten_ch_4 &lt;dbl&gt;, length_ch_1 &lt;dbl&gt;, neighbor_avg_dist_ch_1 &lt;dbl&gt;,
+## #   neighbor_min_dist_ch_1 &lt;dbl&gt;, neighbor_var_dist_ch_1 &lt;dbl&gt;,
+## #   perim_ch_1 &lt;dbl&gt;, shape_bfr_ch_1 &lt;dbl&gt;, shape_lwr_ch_1 &lt;dbl&gt;,
+## #   shape_p_2_a_ch_1 &lt;dbl&gt;, skew_inten_ch_1 &lt;dbl&gt;, skew_inten_ch_3 &lt;dbl&gt;,
+## #   skew_inten_ch_4 &lt;dbl&gt;, spot_fiber_count_ch_3 &lt;int&gt;,
+## #   spot_fiber_count_ch_4 &lt;dbl&gt;, total_inten_ch_1 &lt;int&gt;,
+## #   total_inten_ch_2 &lt;dbl&gt;, total_inten_ch_3 &lt;int&gt;, total_inten_ch_4 &lt;int&gt;,
+## #   var_inten_ch_1 &lt;dbl&gt;, var_inten_ch_3 &lt;dbl&gt;, var_inten_ch_4 &lt;dbl&gt;,
+## #   width_ch_1 &lt;dbl&gt;</code></pre>
+<pre class="r"><code>cells %&gt;% 
+  count(class) %&gt;% 
+  mutate(prop = round(n/sum(n), 3))</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   class     n  prop
+##   &lt;fct&gt; &lt;int&gt; &lt;dbl&gt;
+## 1 PS     1300 0.644
+## 2 WS      719 0.356</code></pre>
+</div>
+<div id="data-splitting" class="section level3">
+<h3>Data splitting</h3>
+<pre class="r"><code>set.seed(123)
+
+cell_split &lt;- initial_split(cells %&gt;% select(-case),
+                            strata = class)</code></pre>
+<pre class="r"><code>cell_train &lt;- training(cell_split)
+cell_test &lt;- testing(cell_split)
+
+nrow(cell_train) # 1515</code></pre>
+<pre><code>## [1] 1515</code></pre>
+<pre class="r"><code>nrow(cell_train) / nrow(cells) # 0.7503715</code></pre>
+<pre><code>## [1] 0.7503715</code></pre>
+<pre class="r"><code>cell_train %&gt;% 
+  count(class) %&gt;% 
+  mutate(prop = n/sum(n))</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   class     n  prop
+##   &lt;fct&gt; &lt;int&gt; &lt;dbl&gt;
+## 1 PS      975 0.644
+## 2 WS      540 0.356</code></pre>
+<pre class="r"><code>cell_test %&gt;% 
+  count(class) %&gt;% 
+  mutate(prop = n/sum(n))</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   class     n  prop
+##   &lt;fct&gt; &lt;int&gt; &lt;dbl&gt;
+## 1 PS      325 0.645
+## 2 WS      179 0.355</code></pre>
+<pre class="r"><code>rf_mod &lt;-
+  rand_forest(trees = 1000) %&gt;% 
+  set_engine(&quot;ranger&quot;) %&gt;% 
+  set_mode(&quot;classification&quot;)</code></pre>
+<pre class="r"><code>set.seed(234)
+
+rf_fit &lt;-
+  rf_mod %&gt;% 
+  fit(class ~ . , data = cell_train)
+
+rf_fit</code></pre>
+<pre><code>## parsnip model object
+## 
+## Fit time:  4.1s 
+## Ranger result
+## 
+## Call:
+##  ranger::ranger(formula = class ~ ., data = data, num.trees = ~1000,      num.threads = 1, verbose = FALSE, seed = sample.int(10^5,          1), probability = TRUE) 
+## 
+## Type:                             Probability estimation 
+## Number of trees:                  1000 
+## Sample size:                      1515 
+## Number of independent variables:  56 
+## Mtry:                             7 
+## Target node size:                 10 
+## Variable importance mode:         none 
+## Splitrule:                        gini 
+## OOB prediction error (Brier s.):  0.1220191</code></pre>
+</div>
+<div id="estimating-performance" class="section level3">
+<h3>Estimating performance</h3>
+<pre class="r"><code>predict(rf_fit, cell_train) %&gt;% 
+  bind_cols(predict(rf_fit, cell_train, type = &quot;prob&quot;)) %&gt;% 
+  # Add the true outcome data back in
+  bind_cols(cell_train %&gt;% select(class))</code></pre>
+<pre><code>## # A tibble: 1,515 x 4
+##    .pred_class .pred_PS .pred_WS class
+##    &lt;fct&gt;          &lt;dbl&gt;    &lt;dbl&gt; &lt;fct&gt;
+##  1 PS            0.919    0.0810 PS   
+##  2 PS            0.695    0.305  PS   
+##  3 WS            0.238    0.762  WS   
+##  4 PS            0.917    0.0832 PS   
+##  5 PS            0.970    0.0297 PS   
+##  6 WS            0.0590   0.941  WS   
+##  7 WS            0.104    0.896  WS   
+##  8 PS            0.948    0.0519 PS   
+##  9 WS            0.288    0.712  WS   
+## 10 WS            0.394    0.606  WS   
+## # ... with 1,505 more rows</code></pre>
+<pre class="r"><code>rf_training_pred &lt;-
+  predict(rf_fit, cell_train) %&gt;% 
+  bind_cols(predict(rf_fit, cell_train, type = &quot;prob&quot;)) %&gt;% 
+  # Add the true outcome data back in
+  bind_cols(cell_train %&gt;% select(class))</code></pre>
+<pre class="r"><code>rf_training_pred %&gt;%  # training set predictions
+  roc_auc(truth = class, .pred_PS)</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 roc_auc binary          1.00</code></pre>
+<pre class="r"><code>rf_training_pred %&gt;% 
+  accuracy(truth = class, .pred_class)</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##   .metric  .estimator .estimate
+##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+## 1 accuracy binary         0.994</code></pre>
+<pre class="r"><code>rf_testing_pred &lt;-
+  predict(rf_fit, cell_test) %&gt;% 
+  bind_cols(predict(rf_fit, cell_test, type = &quot;prob&quot;)) %&gt;% 
+  bind_cols(cell_test %&gt;% select(class))</code></pre>
+<pre class="r"><code>rf_testing_pred %&gt;% 
+  roc_auc(truth = class, .pred_PS)</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 roc_auc binary         0.909</code></pre>
+<pre class="r"><code>rf_testing_pred %&gt;% 
+  accuracy(truth = class, .pred_class)</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##   .metric  .estimator .estimate
+##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+## 1 accuracy binary         0.841</code></pre>
+</div>
+<div id="resampling-to-the-rescue" class="section level3">
+<h3>Resampling to the rescue</h3>
+<ul>
+<li>reference : Kuhn and Johnson (2019)</li>
+</ul>
+</div>
+<div id="fit-a-model-with-resampling" class="section level3">
+<h3>Fit a model with resampling</h3>
+<pre class="r"><code>set.seed(345)
+folds &lt;- vfold_cv(cell_train, v = 10)
+folds</code></pre>
+<pre><code>## #  10-fold cross-validation 
+## # A tibble: 10 x 2
+##    splits             id    
+##    &lt;list&gt;             &lt;chr&gt; 
+##  1 &lt;split [1.4K/152]&gt; Fold01
+##  2 &lt;split [1.4K/152]&gt; Fold02
+##  3 &lt;split [1.4K/152]&gt; Fold03
+##  4 &lt;split [1.4K/152]&gt; Fold04
+##  5 &lt;split [1.4K/152]&gt; Fold05
+##  6 &lt;split [1.4K/151]&gt; Fold06
+##  7 &lt;split [1.4K/151]&gt; Fold07
+##  8 &lt;split [1.4K/151]&gt; Fold08
+##  9 &lt;split [1.4K/151]&gt; Fold09
+## 10 &lt;split [1.4K/151]&gt; Fold10</code></pre>
+<pre class="r"><code>rf_wf &lt;-
+  workflow() %&gt;% 
+  add_model(rf_mod) %&gt;% 
+  add_formula(class ~ .)
+
+set.seed(456) 
+rf_fit_rs &lt;-
+  rf_wf %&gt;% 
+  fit_resamples(folds) # fit 대신 resamples를 위해 사용</code></pre>
+<pre class="r"><code>collect_metrics(rf_fit_rs)</code></pre>
+<pre><code>## # A tibble: 2 x 5
+##   .metric  .estimator  mean     n std_err
+##   &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
+## 1 accuracy binary     0.832    10 0.0114 
+## 2 roc_auc  binary     0.904    10 0.00809</code></pre>
+<pre class="r"><code>rf_testing_pred %&gt;% 
+  roc_auc(truth = class, .pred_PS)</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 roc_auc binary         0.909</code></pre>
+<pre class="r"><code>rf_testing_pred %&gt;% 
+  accuracy(truth = class, .pred_class)</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##   .metric  .estimator .estimate
+##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+## 1 accuracy binary         0.841</code></pre>
+</div>
