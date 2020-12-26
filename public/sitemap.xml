@@ -4,7 +4,6 @@
   
   <url>
     <loc>https://rhyeu.netlify.app/categories/</loc>
-<<<<<<< HEAD
     <lastmod>2020-12-25T00:00:00+00:00</lastmod>
   </url>
   
@@ -21,38 +20,15 @@
   <url>
     <loc>https://rhyeu.netlify.app/tags/responsive/</loc>
     <lastmod>2020-12-25T00:00:00+00:00</lastmod>
-=======
-    <lastmod>2020-12-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/tags/machine-learning/</loc>
-    <lastmod>2020-12-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/post/</loc>
-    <lastmod>2020-12-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/categories/r/</loc>
-    <lastmod>2020-12-21T00:00:00+00:00</lastmod>
->>>>>>> 38081259dd8d65bfaeff761b1a585e89b7565d12
   </url>
   
   <url>
     <loc>https://rhyeu.netlify.app/tags/</loc>
-<<<<<<< HEAD
     <lastmod>2020-12-25T00:00:00+00:00</lastmod>
-=======
-    <lastmod>2020-12-21T00:00:00+00:00</lastmod>
->>>>>>> 38081259dd8d65bfaeff761b1a585e89b7565d12
   </url>
   
   <url>
     <loc>https://rhyeu.netlify.app/tags/tidymodels/</loc>
-<<<<<<< HEAD
     <lastmod>2020-12-25T00:00:00+00:00</lastmod>
   </url>
   
@@ -64,36 +40,25 @@
   <url>
     <loc>https://rhyeu.netlify.app/tags/tidyverse/</loc>
     <lastmod>2020-12-25T00:00:00+00:00</lastmod>
-=======
-    <lastmod>2020-12-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/2020/12/index.en-us/</loc>
-    <lastmod>2020-12-21T00:00:00+00:00</lastmod>
->>>>>>> 38081259dd8d65bfaeff761b1a585e89b7565d12
   </url>
   
   <url>
     <loc>https://rhyeu.netlify.app/</loc>
-<<<<<<< HEAD
     <lastmod>2020-12-25T00:00:00+00:00</lastmod>
-=======
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/tags/machine-learning/</loc>
     <lastmod>2020-12-21T00:00:00+00:00</lastmod>
->>>>>>> 38081259dd8d65bfaeff761b1a585e89b7565d12
   </url>
   
   <url>
     <loc>https://rhyeu.netlify.app/2020/12/index.en-us/</loc>
-    <lastmod>2020-12-20T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-<<<<<<< HEAD
-    <loc>https://rhyeu.netlify.app/tags/machine-learning/</loc>
-=======
-    <loc>https://rhyeu.netlify.app/tags/tidyverse/</loc>
->>>>>>> 38081259dd8d65bfaeff761b1a585e89b7565d12
+    <loc>https://rhyeu.netlify.app/2020/12/index.en-us/</loc>
     <lastmod>2020-12-20T00:00:00+00:00</lastmod>
   </url>
   
