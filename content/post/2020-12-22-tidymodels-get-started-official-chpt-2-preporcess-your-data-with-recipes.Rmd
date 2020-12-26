@@ -1,7 +1,7 @@
 ---
-title: tidymodels get started(official) chpt 2 Preporcess your data with recipes
+title: tidymodels official get started chpt 2 Preporcess your data with recipes
 author: 류성균
-date: '2020-12-26'
+date: '2020-12-22'
 slug: tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes
 categories:
   - R

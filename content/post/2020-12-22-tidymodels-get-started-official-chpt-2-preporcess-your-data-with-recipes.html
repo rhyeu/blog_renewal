@@ -1,7 +1,7 @@
 ---
-title: tidymodels get started(official) chpt 2 Preporcess your data with recipes
+title: tidymodels official get started chpt 2 Preporcess your data with recipes
 author: 류성균
-date: '2020-12-26'
+date: '2020-12-22'
 slug: tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes
 categories:
   - R
@@ -352,7 +352,7 @@ flights_wflow</code></pre>
 <pre class="r"><code>flights_pred %&gt;% 
   roc_curve(truth = arr_delay, .pred_late) %&gt;% 
   autoplot()</code></pre>
-<p><img src="/post/2020-12-26-tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="/post/2020-12-22-tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <pre class="r"><code>flights_pred %&gt;% 
   roc_auc(truth = arr_delay, .pred_late)</code></pre>
 <pre><code>## # A tibble: 1 x 3

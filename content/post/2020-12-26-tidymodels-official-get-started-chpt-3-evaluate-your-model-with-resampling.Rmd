@@ -1,0 +1,179 @@
+---
+title: tidymodels official get started chpt 3 Evaluate your model with resampling
+author: 류성균
+date: '2020-12-26'
+slug: tidymodels-official-get-started-chpt-3-evaluate-your-model-with-resampling
+categories:
+  - R
+tags:
+  - tidymodels
+  - tidyverse
+  - machine-learning
+keywords:
+  - tech
+---
+
+<!--more-->
+
+- reference : https://www.tidymodels.org/start/resampling/
+
+
+### Introduction
+
+```{r}
+library(tidymodels)
+library(modeldata)
+```
+
+### The cell image data
+
+- Image Segmentation에 활용되는 데이터
+
+```{r}
+data(cells, packages = "modeldata")
+cells
+```
+
+### Back to the cells data
+
+
+```{r}
+glimpse(cells)
+```
+
+
+```{r}
+cells %>% 
+  count(class) %>% 
+  mutate(prop = round(n/sum(n), 3))
+```
+
+### Data splitting
+```{r}
+set.seed(123)
+
+cell_split <- initial_split(cells %>% select(-case),
+                            strata = class)
+```
+
+```{r}
+cell_train <- training(cell_split)
+cell_test <- testing(cell_split)
+
+nrow(cell_train) # 1515
+nrow(cell_train) / nrow(cells) # 0.7503715
+```
+
+```{r}
+cell_train %>% 
+  count(class) %>% 
+  mutate(prop = n/sum(n))
+```
+
+
+```{r}
+cell_test %>% 
+  count(class) %>% 
+  mutate(prop = n/sum(n))
+```
+
+```{r}
+rf_mod <-
+  rand_forest(trees = 1000) %>% 
+  set_engine("ranger") %>% 
+  set_mode("classification")
+```
+
+```{r}
+set.seed(234)
+
+rf_fit <-
+  rf_mod %>% 
+  fit(class ~ . , data = cell_train)
+
+rf_fit
+```
+
+
+### Estimating performance
+```{r}
+predict(rf_fit, cell_train) %>% 
+  bind_cols(predict(rf_fit, cell_train, type = "prob")) %>% 
+  # Add the true outcome data back in
+  bind_cols(cell_train %>% select(class))
+
+```
+
+```{r}
+rf_training_pred <-
+  predict(rf_fit, cell_train) %>% 
+  bind_cols(predict(rf_fit, cell_train, type = "prob")) %>% 
+  # Add the true outcome data back in
+  bind_cols(cell_train %>% select(class))
+```
+
+```{r}
+rf_training_pred %>%  # training set predictions
+  roc_auc(truth = class, .pred_PS)
+
+rf_training_pred %>% 
+  accuracy(truth = class, .pred_class)
+```
+
+```{r}
+rf_testing_pred <-
+  predict(rf_fit, cell_test) %>% 
+  bind_cols(predict(rf_fit, cell_test, type = "prob")) %>% 
+  bind_cols(cell_test %>% select(class))
+```
+
+```{r}
+rf_testing_pred %>% 
+  roc_auc(truth = class, .pred_PS)
+```
+
+```{r}
+rf_testing_pred %>% 
+  accuracy(truth = class, .pred_class)
+```
+
+
+### Resampling to the rescue
+- reference : Kuhn and Johnson (2019)
+
+### Fit a model with resampling
+
+```{r}
+set.seed(345)
+folds <- vfold_cv(cell_train, v = 10)
+folds
+
+```
+
+```{r}
+rf_wf <-
+  workflow() %>% 
+  add_model(rf_mod) %>% 
+  add_formula(class ~ .)
+
+set.seed(456) 
+rf_fit_rs <-
+  rf_wf %>% 
+  fit_resamples(folds) # fit 대신 resamples를 위해 사용
+```
+
+```{r}
+collect_metrics(rf_fit_rs)
+```
+
+```{r}
+rf_testing_pred %>% 
+  roc_auc(truth = class, .pred_PS)
+```
+
+```{r}
+rf_testing_pred %>% 
+  accuracy(truth = class, .pred_class)
+```
+
+

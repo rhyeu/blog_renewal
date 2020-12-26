@@ -6,7 +6,21 @@
     <description>Recent content in tidymodels on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/tidymodels/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/tidymodels/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tidymodels official get started chpt 2 Preporcess your data with recipes</title>
+      <link>https://rhyeu.netlify.app/2020/12/tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes/</link>
+      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/2020/12/tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes/</guid>
+      <description>
+&lt;link href=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+</description>
+    </item>
+    
     <item>
       <title>tidymodels official get started chpt 1 build a model</title>
       <link>https://rhyeu.netlify.app/2020/12/index.en-us/</link>
