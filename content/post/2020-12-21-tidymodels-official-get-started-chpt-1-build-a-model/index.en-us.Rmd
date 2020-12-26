@@ -1,5 +1,5 @@
 ---
-title: 'tidymodels : official get started - 1. Build a model'
+title: tidymodels official get started chpt 1 build a model
 author: 류성균
 date: '2020-12-21'
 slug: index.en-us
@@ -7,24 +7,28 @@ categories:
   - R
 tags:
   - tidymodels
-  - machine-learning
+  - responsive
+  - tidyverse
 keywords:
   - tech
 ---
 
 <!--more-->
+- reference : https://www.tidymodels.org/start/models/
+
 
 ```{r}
 # install.packages(c("tidymodels"))
-library(tidymodels, quietly = T)  # for the parsnip package, along with the rest of tidymodels
+library(tidymodels)  # for the parsnip package, along with the rest of tidymodels
 
-library(curl, quietly = T)
+library(curl)
 
 # Helper packages
-library(readr, quietly = T)       # for importing data
-library(broom.mixed, quietly = T) # for converting bayesian models to tidy tibbles
-library(dotwhisker, quietly = T)  # for visualizing regression results
+library(readr)       # for importing data
+library(broom.mixed) # for converting bayesian models to tidy tibbles
+library(dotwhisker)  # for visualizing regression results
 ```
+
 
 ###  THE SEA URCHINS DATA
 - 먹이가 성게 크기에 미치는 영향을 나타낸 데이터 [Constable (1993)](https://link.springer.com/article/10.1007/BF00349318) 
@@ -44,6 +48,7 @@ read_csv("https://tidymodels.org/start/models/urchins.csv") %>%
 ```{r}
 urchins %>% summary()
 ```
+
 - 컬럼 구성
   - 먹이주기 그룹 : `food_regime` - `Initial`, `Low`, `High
   - 실험 시작 시 성게 크기(mm) : `initial_volume`
@@ -125,6 +130,7 @@ ggplot(plot_data, aes(x = food_regime)) +
   labs(y = "urchin size")
 ```
 
+
 ### Model with a different engine
 
 - `stan` engine을 활용해서 bayesian approach를 시도해보자
@@ -178,5 +184,3 @@ ggplot(bayes_plot_data, aes(x = food_regime)) +
 
 ### Why does it work that way?
 - tidymodels는 모델을 튜닝하기에 적합(한번에 모델을 적합하지 않고 점증적으로 원하는 것들을 쌓아나가기 때문)
-
-- reference : https://www.tidymodels.org/start/models/

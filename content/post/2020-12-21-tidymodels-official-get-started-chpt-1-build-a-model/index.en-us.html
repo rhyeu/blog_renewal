@@ -1,5 +1,5 @@
 ---
-title: 'tidymodels : official get started - 1. Build a model'
+title: tidymodels official get started chpt 1 build a model
 author: 류성균
 date: '2020-12-21'
 slug: index.en-us
@@ -7,7 +7,8 @@ categories:
   - R
 tags:
   - tidymodels
-  - machine-learning
+  - responsive
+  - tidyverse
 keywords:
   - tech
 ---
@@ -17,9 +18,12 @@ keywords:
 
 
 <!--more-->
+<ul>
+<li>reference : <a href="https://www.tidymodels.org/start/models/" class="uri">https://www.tidymodels.org/start/models/</a></li>
+</ul>
 <pre class="r"><code># install.packages(c(&quot;tidymodels&quot;))
-library(tidymodels, quietly = T)  # for the parsnip package, along with the rest of tidymodels</code></pre>
-<pre><code>## -- Attaching packages --------------------- tidymodels 0.1.1 --</code></pre>
+library(tidymodels)  # for the parsnip package, along with the rest of tidymodels</code></pre>
+<pre><code>## -- Attaching packages ----------------</code></pre>
 <pre><code>## √ broom     0.7.0      √ recipes   0.1.13
 ## √ dials     0.0.8      √ rsample   0.0.7 
 ## √ dplyr     1.0.2      √ tibble    3.0.3 
@@ -28,15 +32,15 @@ library(tidymodels, quietly = T)  # for the parsnip package, along with the rest
 ## √ modeldata 0.0.2      √ workflows 0.1.3 
 ## √ parsnip   0.1.3      √ yardstick 0.0.7 
 ## √ purrr     0.3.4</code></pre>
-<pre><code>## -- Conflicts ------------------------ tidymodels_conflicts() --
+<pre><code>## -- Conflicts -------------------------
 ## x purrr::discard() masks scales::discard()
 ## x dplyr::filter()  masks stats::filter()
 ## x dplyr::lag()     masks stats::lag()
 ## x recipes::step()  masks stats::step()</code></pre>
-<pre class="r"><code>library(curl, quietly = T)
+<pre class="r"><code>library(curl)
 
 # Helper packages
-library(readr, quietly = T)       # for importing data</code></pre>
+library(readr)       # for importing data</code></pre>
 <pre><code>## 
 ## 다음의 패키지를 부착합니다: &#39;readr&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:curl&#39;:
@@ -48,11 +52,11 @@ library(readr, quietly = T)       # for importing data</code></pre>
 <pre><code>## The following object is masked from &#39;package:scales&#39;:
 ## 
 ##     col_factor</code></pre>
-<pre class="r"><code>library(broom.mixed, quietly = T) # for converting bayesian models to tidy tibbles</code></pre>
+<pre class="r"><code>library(broom.mixed) # for converting bayesian models to tidy tibbles</code></pre>
 <pre><code>## Registered S3 method overwritten by &#39;broom.mixed&#39;:
 ##   method      from 
 ##   tidy.gamlss broom</code></pre>
-<pre class="r"><code>library(dotwhisker, quietly = T)  # for visualizing regression results</code></pre>
+<pre class="r"><code>library(dotwhisker)  # for visualizing regression results</code></pre>
 <div id="the-sea-urchins-data" class="section level3">
 <h3>THE SEA URCHINS DATA</h3>
 <ul>
@@ -97,7 +101,7 @@ read_csv(&quot;https://tidymodels.org/start/models/urchins.csv&quot;) %&gt;%
   geom_smooth(method = lm, se = F) +
   scale_color_viridis_d(option = &quot;plasma&quot;, end = 0.7)</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="/post/2020-12-21-tidymodels-official-get-started-1-build-a-model/index.en-us_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2020-12-21-tidymodels-official-get-started-chpt-1-build-a-model/index.en-us_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="build-and-fit-a-model" class="section level3">
 <h3>Build and Fit a model</h3>
@@ -134,7 +138,7 @@ tidy(lm_fit)</code></pre>
   dwplot(dot_args = list(size = 2, color = &quot;black&quot;),
          whisker_args = list(color = &quot;black&quot;),
          vline = geom_vline(xintercept = 0, colour = &quot;grey50&quot;, linetype = 2))</code></pre>
-<p><img src="/post/2020-12-21-tidymodels-official-get-started-1-build-a-model/index.en-us_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="/post/2020-12-21-tidymodels-official-get-started-chpt-1-build-a-model/index.en-us_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <div id="use-a-model-to-predict" class="section level3">
 <h3>Use a model to predict</h3>
@@ -173,7 +177,7 @@ ggplot(plot_data, aes(x = food_regime)) +
                     ymax = .pred_upper),
                 width = .2) +
   labs(y = &quot;urchin size&quot;)</code></pre>
-<p><img src="/post/2020-12-21-tidymodels-official-get-started-1-build-a-model/index.en-us_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="/post/2020-12-21-tidymodels-official-get-started-chpt-1-build-a-model/index.en-us_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
 <div id="model-with-a-different-engine" class="section level3">
 <h3>Model with a different engine</h3>
@@ -202,7 +206,7 @@ bayes_fit &lt;-
 print(bayes_fit, digits = 5)</code></pre>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  20.9s 
+## Fit time:  21.1s 
 ## stan_glm
 ##  family:       gaussian [identity]
 ##  formula:      width ~ initial_volume * food_regime
@@ -249,12 +253,11 @@ print(bayes_fit, digits = 5)</code></pre>
                 width = .2) +
   labs(y = &quot;urchin size&quot;) + 
   ggtitle(&quot;Bayesian model with t(1) prior distribution&quot;)</code></pre>
-<p><img src="/post/2020-12-21-tidymodels-official-get-started-1-build-a-model/index.en-us_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="/post/2020-12-21-tidymodels-official-get-started-chpt-1-build-a-model/index.en-us_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 </div>
 <div id="why-does-it-work-that-way" class="section level3">
 <h3>Why does it work that way?</h3>
 <ul>
-<li><p>tidymodels는 모델을 튜닝하기에 적합(한번에 모델을 적합하지 않고 점증적으로 원하는 것들을 쌓아나가기 때문)</p></li>
-<li><p>reference : <a href="https://www.tidymodels.org/start/models/" class="uri">https://www.tidymodels.org/start/models/</a></p></li>
+<li>tidymodels는 모델을 튜닝하기에 적합(한번에 모델을 적합하지 않고 점증적으로 원하는 것들을 쌓아나가기 때문)</li>
 </ul>
 </div>
