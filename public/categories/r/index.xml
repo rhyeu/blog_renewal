@@ -8,6 +8,20 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/categories/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>tidymodel official get started chpt 4 Tune model parameters</title>
+      <link>https://rhyeu.netlify.app/2020/12/tidymodel-official-get-started-chpt-4-tune-model-parameters/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/2020/12/tidymodel-official-get-started-chpt-4-tune-model-parameters/</guid>
+      <description>
+&lt;link href=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+</description>
+    </item>
+    
+    <item>
       <title>tidymodels official get started chpt 3 Evaluate your model with resampling</title>
       <link>https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-chpt-3-evaluate-your-model-with-resampling/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
