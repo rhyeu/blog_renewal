@@ -1,0 +1,236 @@
+---
+title: tidymodels get started(official) chpt 2 Preporcess your data with recipes
+author: 류성균
+date: '2020-12-26'
+slug: tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes
+categories:
+  - R
+tags:
+  - tidymodels
+  - tidyverse
+keywords:
+  - tech
+---
+
+<!--more-->
+
+- reference : https://www.tidymodels.org/start/recipes/
+
+
+### Introduction
+- tidymodels의 단계
+  1. Built the model (lr_mod),
+
+  2. Created a preprocessing recipe (flights_rec),
+
+  3. Bundled the model and recipe (flights_wflow), and
+  
+  4. Trained our workflow using a single call to fit().
+  
+  5. Predicting to test data
+
+- 이 챕터에서 할 것들
+  - 변수 더미화
+  - 변수 변환 (ex- 로그 변환)
+  - 모든 변수를 동일하게 변화하는 방법
+  - 변수에서 주요한 특성 추출 (ex - 날짜 데이터에서 요일 추출)
+  
+  
+```{r}
+library(tidymodels)      # for the recipes package, along with the rest of tidymodels
+
+# Helper packages
+library(nycflights13)    # for flight data
+library(skimr)           # for variable summaries
+```
+
+### The New York city flight data
+
+- 비행기가 30분 이상 지연이 될지 예측하는 데이터 (New York 인근 공항에서 출발하는 325,819개의 2013년 비행편을 확인하는 데이터) 
+
+
+- 변수 변환 내용
+  1. `arr_delay` 변수를 30분 이상 지연됬는 지 판단하는 factor variable로 활용 (logistic regression model로 활용)
+  2. there are two variables that we don’t want to use as predictors in our model, but that we would like to retain as identification variables that can be used to troubleshoot poorly predicted data points. These are flight, a numeric value, and time_hour, a date-time value.
+  3. there are 104 flight destinations contained in dest and 16 distinct carriers.
+  
+```{r}
+set.seed(1234)
+
+flight_data <- flights %>% 
+  mutate(
+    # Convert the arrival delay to a factor
+    arr_delay = ifelse(arr_delay >= 30, "late", "on_time"),
+    arr_delay = factor(arr_delay),
+    # We will use the date (not date-time) in the recipe below
+    date = as.Date(time_hour)
+) %>% 
+    # Include the weather data
+  inner_join(weather, by = c("origin", "time_hour")) %>% 
+  # Only retain the specific columns we will use
+  select(dep_time, flight, origin, dest, air_time, distance, carrier, date, arr_delay, time_hour) %>% 
+  # Exclude missing data
+  na.omit() %>% 
+  # For creating models, it is better to have qualitative columns
+  # encoded as factors (instead of character strings)
+  mutate_if(is.character, as.factor)
+```
+
+
+```{r}
+flight_data %>% 
+  count(arr_delay) %>% 
+  mutate(prop = n/sum(n))
+```
+
+
+```{r}
+flight_data %>% 
+  skimr::skim(dest, carrier)
+```
+
+### Data splitting
+
+```{r}
+# Fix the random numbers by setting the seed 
+# This enables the analysis to be reproducible when random numbers are used 
+
+set.seed(555)
+
+# Put 3/4 of the data into the training set 
+data_split <- initial_split(flight_data, prop = 3/4)
+
+# Create data frames for the two sets:
+train_data <- training(data_split)
+test_data <- testing(data_split)
+```
+
+### Create recipe and roles
+
+- Initiating a new recipe : logistic regression 시행 for preprocessing
+
+```{r}
+flights_rec <- recipe(arr_delay ~ ., data = train_data)
+```
+
+- role
+  - ID : 행마다 하나의 고유값을 가지는 변수의 경우 "ID" role로 선언하면 모형 적합에서 사용하지 않는다.
+  
+```{r}
+flights_rec <- 
+  recipe(arr_delay ~ ., data = train_data) %>% 
+  update_role(flight, time_hour, new_role = "ID")
+
+flights_rec %>% summary()
+```
+
+
+### Create features
+
+- feature engineering 
+
+- 날짜에서 numeric date 추출
+  - 이를 통해 여러 의미있는 내용 추출
+    - 요일
+    - 달
+    - 휴일이 있는 지?
+    
+```{r}
+flight_data %>% 
+  distinct(date) %>% # date 컬럼에서 distinct한 값을 가져옴
+  mutate(numeric_date = as.numeric(date))
+```
+
+```{r}
+flights_rec <-
+  recipe(arr_delay ~., data = train_data) %>% 
+  update_role(flight, time_hour, new_role = "ID") %>% 
+  step_date(date, features = c("dow", "month")) %>%  # date 에서 요일과 달을 추출 
+  step_holiday(date, holidays = timeDate::listHolidays("US")) %>%  # date에서 휴일을 추출
+  step_rm(date) # date 변수에서 의미있는 변수들을 추출한 뒤 recipe에서 제외외
+```
+
+
+- dummy 변수화
+```{r}
+flights_rec <-
+  recipe(arr_delay ~., data = train_data) %>% 
+  update_role(flight, time_hour, new_role = "ID") %>% 
+  step_date(date, features = c("dow", "month")) %>%  # date 에서 요일과 달을 추출 
+  step_holiday(date, holidays = timeDate::listHolidays("US")) %>%  # date에서 휴일을 추출
+  step_rm(date) %>% # date 변수에서 의미있는 변수들을 추출한 뒤 recipe에서 제외외
+  step_dummy(all_nomial(), -all_outcomes()) # 더미화는 모든 명목변수를 포함하고, 결과변수는 제외(Create dummy variables for all of the factor or character columns unless they are outcomes.)
+```
+
+- 분산이 0인 설명변수는 제외
+
+```{r}
+flights_rec <-
+  recipe(arr_delay ~., data = train_data) %>% 
+  update_role(flight, time_hour, new_role = "ID") %>% 
+  step_date(date, features = c("dow", "month")) %>%  # date 에서 요일과 달을 추출 
+  step_holiday(date, holidays = timeDate::listHolidays("US")) %>%  # date에서 휴일을 추출
+  step_rm(date) %>% # date 변수에서 의미있는 변수들을 추출한 뒤 recipe에서 제외외
+  step_dummy(all_nominal(), -all_outcomes()) %>%  # 더미화는 모든 명목변수를 포함하고, 결과변수는 제외(Create dummy variables for all of the factor or character columns unless they are outcomes.)
+  step_zv(all_predictors()) # dummy 변수화를 통해 많은 분산 0인 dummy 변수가 생성될 수 있기 때문에 이 단계를 step_dummy 뒤에 배치
+```
+
+
+### Fit a model with a recipe
+
+```{r}
+lr_mod <-
+  logistic_reg() %>% 
+  set_engine("glm")
+```
+
+- `tidymodels` 에선 `workflow` 함수를 활용해서 `recipe`와 model을 묶어 여러 `recipe`와 model의 pair를 편리하게 시도하고 비교해볼 수 있도록 한다.
+
+```{r}
+flights_wflow <-
+  workflow() %>% 
+  add_model(lr_mod) %>% 
+  add_recipe(flights_rec)
+
+flights_wflow
+```
+
+```{r}
+flights_fit <-
+  flights_wflow %>% 
+  fit(data = train_data)
+```
+
+- workflow에서 recipe나 모델을 추출하기 위해서는 `pull_workflow_prepped_recipe`나 `pull_workflow_fit` 함수를 사용한다.
+```{r}
+flights_fit %>% 
+  pull_workflow_fit() %>% 
+  tidy()
+```
+
+### Use a trained workflow to predict
+
+```{r}
+predict(flights_fit, test_data)
+```
+
+
+```{r}
+flights_pred <-
+  predict(flights_fit, test_data, type = "prob") %>% 
+  bind_cols(test_data %>% select(arr_delay, time_hour, flight))
+
+```
+
+
+- model 평가 : ROC curve & AUC
+```{r}
+flights_pred %>% 
+  roc_curve(truth = arr_delay, .pred_late) %>% 
+  autoplot()
+```
+
+```{r}
+flights_pred %>% 
+  roc_auc(truth = arr_delay, .pred_late)
+```
