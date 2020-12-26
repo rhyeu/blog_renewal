@@ -14,19 +14,22 @@ keywords:
 ---
 
 <!--more-->
+<<<<<<< HEAD
 - Reference : https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = T)
 ```
 
+=======
+>>>>>>> 38081259dd8d65bfaeff761b1a585e89b7565d12
 ### Example : iris
 
 ```{r}
-library(tidymodels)
+library(tidymodels, quietly = T)
 # install.packages(c("ranger", "randomForest"))
-library(ranger)
-library(randomForest)
+library(ranger, quietly = T)
+library(randomForest, quietly = T)
 ```
 
 #### Data Sampling
@@ -54,6 +57,15 @@ iris_split %>%
   - step_center()
   - step_scale()
   
+<<<<<<< HEAD
+=======
+
+```{r}
+iris_split %>%
+  training() %>%
+  print()
+```
+>>>>>>> 38081259dd8d65bfaeff761b1a585e89b7565d12
 
 ```{r}
 ### 질문
@@ -179,3 +191,6 @@ predict(iris_ranger, iris_testing, type = "prob") %>%
   bind_cols(select(iris_testing, Species)) %>% 
   metrics(Species, .pred_setosa:.pred_virginica, estimate = .pred_class)
 ```
+
+
+- Reference : https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/

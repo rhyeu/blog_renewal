@@ -6,11 +6,19 @@
     <description>Recent content in Categories on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+<<<<<<< HEAD
     <lastBuildDate>Fri, 25 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>R</title>
       <link>https://rhyeu.netlify.app/categories/r/</link>
       <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+=======
+    <lastBuildDate>Mon, 21 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R</title>
+      <link>https://rhyeu.netlify.app/categories/r/</link>
+      <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
+>>>>>>> 38081259dd8d65bfaeff761b1a585e89b7565d12
       
       <guid>https://rhyeu.netlify.app/categories/r/</guid>
       <description></description>

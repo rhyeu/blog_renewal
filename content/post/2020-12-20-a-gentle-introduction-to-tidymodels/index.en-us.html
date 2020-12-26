@@ -18,12 +18,12 @@ keywords:
 
 
 <!--more-->
-<ul>
-<li>Reference : <a href="https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/" class="uri">https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/</a></li>
-</ul>
-<div id="example-iris" class="section level3">
-<h3>Example : iris</h3>
-<pre class="r"><code>library(tidymodels)</code></pre>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+- Reference : <a href="https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/" class="uri">https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/</a></p>
+<p>=======
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 38081259dd8d65bfaeff761b1a585e89b7565d12
+### Example : iris</p>
+<pre class="r"><code>library(tidymodels, quietly = T)</code></pre>
 <pre><code>## -- Attaching packages --------------------- tidymodels 0.1.1 --</code></pre>
 <pre><code>## √ broom     0.7.0      √ recipes   0.1.13
 ## √ dials     0.0.8      √ rsample   0.0.7 
@@ -39,8 +39,8 @@ keywords:
 ## x dplyr::lag()     masks stats::lag()
 ## x recipes::step()  masks stats::step()</code></pre>
 <pre class="r"><code># install.packages(c(&quot;ranger&quot;, &quot;randomForest&quot;))
-library(ranger)
-library(randomForest)</code></pre>
+library(ranger, quietly = T)
+library(randomForest, quietly = T)</code></pre>
 <pre><code>## randomForest 4.6-14</code></pre>
 <pre><code>## Type rfNews() to see new features/changes/bug fixes.</code></pre>
 <pre><code>## 
@@ -67,10 +67,10 @@ iris_split # testing / training / total 을 출력함</code></pre>
   glimpse()</code></pre>
 <pre><code>## Rows: 90
 ## Columns: 5
-## $ Sepal.Length &lt;dbl&gt; 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.4, 5.4, 4.8, 4.8, 4.3,...
-## $ Sepal.Width  &lt;dbl&gt; 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 2.9, 3.7, 3.4, 3.0, 3.0,...
-## $ Petal.Length &lt;dbl&gt; 1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.6, 1.4, 1.1,...
-## $ Petal.Width  &lt;dbl&gt; 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.1, 0.1,...
+## $ Sepal.Length &lt;dbl&gt; 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.9, 4.8, 4.3, 5.8, 5.7,...
+## $ Sepal.Width  &lt;dbl&gt; 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 3.1, 3.4, 3.0, 4.0, 4.4,...
+## $ Petal.Length &lt;dbl&gt; 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.5, 1.6, 1.1, 1.2, 1.5,...
+## $ Petal.Width  &lt;dbl&gt; 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.1, 0.2, 0.1, 0.2, 0.4,...
 ## $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa...</code></pre>
 </div>
 <div id="pre-process-interface" class="section level4">
@@ -85,6 +85,118 @@ iris_split # testing / training / total 을 출력함</code></pre>
 <li>step_scale()</li>
 </ul></li>
 </ul>
+</div>
+<div id="head" class="section level1">
+<h1>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</h1>
+<pre class="r"><code>iris_split %&gt;%
+  training() %&gt;%
+  print()</code></pre>
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 3            4.7         3.2          1.3         0.2     setosa
+## 4            4.6         3.1          1.5         0.2     setosa
+## 5            5.0         3.6          1.4         0.2     setosa
+## 6            5.4         3.9          1.7         0.4     setosa
+## 7            4.6         3.4          1.4         0.3     setosa
+## 8            5.0         3.4          1.5         0.2     setosa
+## 10           4.9         3.1          1.5         0.1     setosa
+## 12           4.8         3.4          1.6         0.2     setosa
+## 14           4.3         3.0          1.1         0.1     setosa
+## 15           5.8         4.0          1.2         0.2     setosa
+## 16           5.7         4.4          1.5         0.4     setosa
+## 20           5.1         3.8          1.5         0.3     setosa
+## 23           4.6         3.6          1.0         0.2     setosa
+## 25           4.8         3.4          1.9         0.2     setosa
+## 28           5.2         3.5          1.5         0.2     setosa
+## 30           4.7         3.2          1.6         0.2     setosa
+## 31           4.8         3.1          1.6         0.2     setosa
+## 32           5.4         3.4          1.5         0.4     setosa
+## 36           5.0         3.2          1.2         0.2     setosa
+## 39           4.4         3.0          1.3         0.2     setosa
+## 40           5.1         3.4          1.5         0.2     setosa
+## 41           5.0         3.5          1.3         0.3     setosa
+## 42           4.5         2.3          1.3         0.3     setosa
+## 43           4.4         3.2          1.3         0.2     setosa
+## 44           5.0         3.5          1.6         0.6     setosa
+## 45           5.1         3.8          1.9         0.4     setosa
+## 46           4.8         3.0          1.4         0.3     setosa
+## 47           5.1         3.8          1.6         0.2     setosa
+## 48           4.6         3.2          1.4         0.2     setosa
+## 49           5.3         3.7          1.5         0.2     setosa
+## 50           5.0         3.3          1.4         0.2     setosa
+## 51           7.0         3.2          4.7         1.4 versicolor
+## 52           6.4         3.2          4.5         1.5 versicolor
+## 54           5.5         2.3          4.0         1.3 versicolor
+## 56           5.7         2.8          4.5         1.3 versicolor
+## 58           4.9         2.4          3.3         1.0 versicolor
+## 62           5.9         3.0          4.2         1.5 versicolor
+## 65           5.6         2.9          3.6         1.3 versicolor
+## 66           6.7         3.1          4.4         1.4 versicolor
+## 67           5.6         3.0          4.5         1.5 versicolor
+## 69           6.2         2.2          4.5         1.5 versicolor
+## 72           6.1         2.8          4.0         1.3 versicolor
+## 74           6.1         2.8          4.7         1.2 versicolor
+## 76           6.6         3.0          4.4         1.4 versicolor
+## 77           6.8         2.8          4.8         1.4 versicolor
+## 78           6.7         3.0          5.0         1.7 versicolor
+## 80           5.7         2.6          3.5         1.0 versicolor
+## 81           5.5         2.4          3.8         1.1 versicolor
+## 82           5.5         2.4          3.7         1.0 versicolor
+## 83           5.8         2.7          3.9         1.2 versicolor
+## 84           6.0         2.7          5.1         1.6 versicolor
+## 85           5.4         3.0          4.5         1.5 versicolor
+## 86           6.0         3.4          4.5         1.6 versicolor
+## 88           6.3         2.3          4.4         1.3 versicolor
+## 89           5.6         3.0          4.1         1.3 versicolor
+## 90           5.5         2.5          4.0         1.3 versicolor
+## 94           5.0         2.3          3.3         1.0 versicolor
+## 96           5.7         3.0          4.2         1.2 versicolor
+## 97           5.7         2.9          4.2         1.3 versicolor
+## 99           5.1         2.5          3.0         1.1 versicolor
+## 100          5.7         2.8          4.1         1.3 versicolor
+## 101          6.3         3.3          6.0         2.5  virginica
+## 103          7.1         3.0          5.9         2.1  virginica
+## 104          6.3         2.9          5.6         1.8  virginica
+## 106          7.6         3.0          6.6         2.1  virginica
+## 109          6.7         2.5          5.8         1.8  virginica
+## 111          6.5         3.2          5.1         2.0  virginica
+## 113          6.8         3.0          5.5         2.1  virginica
+## 115          5.8         2.8          5.1         2.4  virginica
+## 116          6.4         3.2          5.3         2.3  virginica
+## 117          6.5         3.0          5.5         1.8  virginica
+## 118          7.7         3.8          6.7         2.2  virginica
+## 119          7.7         2.6          6.9         2.3  virginica
+## 121          6.9         3.2          5.7         2.3  virginica
+## 122          5.6         2.8          4.9         2.0  virginica
+## 124          6.3         2.7          4.9         1.8  virginica
+## 125          6.7         3.3          5.7         2.1  virginica
+## 126          7.2         3.2          6.0         1.8  virginica
+## 129          6.4         2.8          5.6         2.1  virginica
+## 132          7.9         3.8          6.4         2.0  virginica
+## 133          6.4         2.8          5.6         2.2  virginica
+## 135          6.1         2.6          5.6         1.4  virginica
+## 136          7.7         3.0          6.1         2.3  virginica
+## 137          6.3         3.4          5.6         2.4  virginica
+## 138          6.4         3.1          5.5         1.8  virginica
+## 140          6.9         3.1          5.4         2.1  virginica
+## 143          5.8         2.7          5.1         1.9  virginica
+## 144          6.8         3.2          5.9         2.3  virginica
+## 147          6.3         2.5          5.0         1.9  virginica
+## 148          6.5         3.0          5.2         2.0  virginica</code></pre>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>38081259dd8d65bfaeff761b1a585e89b7565d12</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <pre class="r"><code>### 질문
 #### - all_outcomes의 의미는 무엇인가?
 #### step_center, step_scale는 왜 저렇게 쓰는가?
@@ -110,7 +222,6 @@ iris_recipe &lt;- training(iris_split) %&gt;%
 ## Correlation filter removed Petal.Length [trained]
 ## Centering for Sepal.Length, Sepal.Width, Petal.Width [trained]
 ## Scaling for Sepal.Length, Sepal.Width, Petal.Width [trained]</code></pre>
-</div>
 <div id="execute-the-pre-processing" class="section level4">
 <h4>Execute the pre-processing</h4>
 <ul>
@@ -122,20 +233,19 @@ iris_recipe &lt;- training(iris_split) %&gt;%
 iris_testing %&gt;% glimpse()</code></pre>
 <pre><code>## Rows: 60
 ## Columns: 4
-## $ Sepal.Length &lt;dbl&gt; -1.4083780, -0.9423706, -1.0588724, -0.4763631, -0.476...
-## $ Sepal.Width  &lt;dbl&gt; 0.68269114, 0.68269114, -0.03453301, 1.87806473, 0.682...
-## $ Petal.Width  &lt;dbl&gt; -1.1196425, -1.2467142, -1.3737859, -0.9925709, -1.246...
+## $ Sepal.Length &lt;dbl&gt; -0.8059921, -1.0341030, -1.6043804, -0.4638256, -1.148...
+## $ Sepal.Width  &lt;dbl&gt; 1.00767202, -0.15205281, -0.38399778, 1.47156195, -0.1...
+## $ Petal.Width  &lt;dbl&gt; -1.2808679, -1.2808679, -1.2808679, -1.2808679, -1.410...
 ## $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa...</code></pre>
 <pre class="r"><code>iris_training &lt;- juice(iris_recipe)
 
 glimpse(iris_training)</code></pre>
 <pre><code>## Rows: 90
 ## Columns: 4
-## $ Sepal.Length &lt;dbl&gt; -0.82586871, -1.05887243, -1.29187614, -1.40837799, -0...
-## $ Sepal.Width  &lt;dbl&gt; 0.92176586, -0.27360773, 0.20454170, -0.03453301, 1.16...
-## $ Petal.Width  &lt;dbl&gt; -1.2467142, -1.2467142, -1.2467142, -1.2467142, -1.246...
+## $ Sepal.Length &lt;dbl&gt; -1.262213999, -1.376269481, -0.920047554, -0.463825626...
+## $ Sepal.Width  &lt;dbl&gt; 0.31183712, 0.07989216, 1.23961699, 1.93545188, 0.7757...
+## $ Petal.Width  &lt;dbl&gt; -1.2808679, -1.2808679, -1.2808679, -1.0218160, -1.151...
 ## $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa...</code></pre>
-</div>
 </div>
 <div id="model-training" class="section level3">
 <h3>Model Training</h3>
@@ -173,9 +283,9 @@ glimpse(iris_training)</code></pre>
 <pre><code>## Rows: 60
 ## Columns: 5
 ## $ .pred_class  &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa...
-## $ Sepal.Length &lt;dbl&gt; -1.4083780, -0.9423706, -1.0588724, -0.4763631, -0.476...
-## $ Sepal.Width  &lt;dbl&gt; 0.68269114, 0.68269114, -0.03453301, 1.87806473, 0.682...
-## $ Petal.Width  &lt;dbl&gt; -1.1196425, -1.2467142, -1.3737859, -0.9925709, -1.246...
+## $ Sepal.Length &lt;dbl&gt; -0.8059921, -1.0341030, -1.6043804, -0.4638256, -1.148...
+## $ Sepal.Width  &lt;dbl&gt; 1.00767202, -0.15205281, -0.38399778, 1.47156195, -0.1...
+## $ Petal.Width  &lt;dbl&gt; -1.2808679, -1.2808679, -1.2808679, -1.2808679, -1.410...
 ## $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa...</code></pre>
 </div>
 <div id="model-validation" class="section level3">
@@ -187,8 +297,8 @@ glimpse(iris_training)</code></pre>
 <pre><code>## # A tibble: 2 x 3
 ##   .metric  .estimator .estimate
 ##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-## 1 accuracy multiclass     0.933
-## 2 kap      multiclass     0.899</code></pre>
+## 1 accuracy multiclass     0.917
+## 2 kap      multiclass     0.875</code></pre>
 <pre class="r"><code>iris_rf %&gt;% 
   predict(iris_testing) %&gt;% 
   bind_cols(iris_testing) %&gt;% 
@@ -196,8 +306,8 @@ glimpse(iris_training)</code></pre>
 <pre><code>## # A tibble: 2 x 3
 ##   .metric  .estimator .estimate
 ##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-## 1 accuracy multiclass     0.933
-## 2 kap      multiclass     0.899</code></pre>
+## 1 accuracy multiclass     0.917
+## 2 kap      multiclass     0.875</code></pre>
 </div>
 <div id="per-classifier-metric" class="section level3">
 <h3>Per classifier metric</h3>
@@ -209,9 +319,9 @@ glimpse(iris_training)</code></pre>
   glimpse()</code></pre>
 <pre><code>## Rows: 60
 ## Columns: 3
-## $ .pred_setosa     &lt;dbl&gt; 1.00000000, 0.99833333, 0.91544048, 0.97966667, 0....
-## $ .pred_versicolor &lt;dbl&gt; 0.000000000, 0.000000000, 0.065976190, 0.020333333...
-## $ .pred_virginica  &lt;dbl&gt; 0.000000000, 0.001666667, 0.018583333, 0.000000000...</code></pre>
+## $ .pred_setosa     &lt;dbl&gt; 0.991666667, 0.792484127, 0.904166667, 0.928000000...
+## $ .pred_versicolor &lt;dbl&gt; 0.008333333, 0.196134921, 0.084833333, 0.068666667...
+## $ .pred_virginica  &lt;dbl&gt; 0.000000000, 0.011380952, 0.011000000, 0.003333333...</code></pre>
 <pre class="r"><code>iris_probs &lt;- iris_ranger %&gt;% 
   predict(iris_testing, type = &quot;prob&quot;) %&gt;% 
   bind_cols(iris_testing)
@@ -219,12 +329,12 @@ glimpse(iris_training)</code></pre>
 glimpse(iris_probs)</code></pre>
 <pre><code>## Rows: 60
 ## Columns: 7
-## $ .pred_setosa     &lt;dbl&gt; 1.00000000, 0.99833333, 0.91544048, 0.97966667, 0....
-## $ .pred_versicolor &lt;dbl&gt; 0.000000000, 0.000000000, 0.065976190, 0.020333333...
-## $ .pred_virginica  &lt;dbl&gt; 0.000000000, 0.001666667, 0.018583333, 0.000000000...
-## $ Sepal.Length     &lt;dbl&gt; -1.4083780, -0.9423706, -1.0588724, -0.4763631, -0...
-## $ Sepal.Width      &lt;dbl&gt; 0.68269114, 0.68269114, -0.03453301, 1.87806473, 0...
-## $ Petal.Width      &lt;dbl&gt; -1.1196425, -1.2467142, -1.3737859, -0.9925709, -1...
+## $ .pred_setosa     &lt;dbl&gt; 0.991666667, 0.792484127, 0.904166667, 0.928000000...
+## $ .pred_versicolor &lt;dbl&gt; 0.008333333, 0.196134921, 0.084833333, 0.068666667...
+## $ .pred_virginica  &lt;dbl&gt; 0.000000000, 0.011380952, 0.011000000, 0.003333333...
+## $ Sepal.Length     &lt;dbl&gt; -0.8059921, -1.0341030, -1.6043804, -0.4638256, -1...
+## $ Sepal.Width      &lt;dbl&gt; 1.00767202, -0.15205281, -0.38399778, 1.47156195, ...
+## $ Petal.Width      &lt;dbl&gt; -1.2808679, -1.2808679, -1.2808679, -1.2808679, -1...
 ## $ Species          &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, se...</code></pre>
 <ul>
 <li>gain_curve : 해당 클래스로 분류할 확률을 내림차순으로 정렬해 누적 분위수와 실제 해당 클래스의 누적 비율과 비교해서 모델의 효율성을 평가.</li>
@@ -232,24 +342,24 @@ glimpse(iris_probs)</code></pre>
 <pre class="r"><code>iris_probs %&gt;% 
   gain_curve(Species, .pred_setosa:.pred_virginica) %&gt;% 
   glimpse()</code></pre>
-<pre><code>## Rows: 133
+<pre><code>## Rows: 147
 ## Columns: 5
 ## $ .level          &lt;chr&gt; &quot;setosa&quot;, &quot;setosa&quot;, &quot;setosa&quot;, &quot;setosa&quot;, &quot;setosa&quot;, &quot;...
-## $ .n              &lt;dbl&gt; 0, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 16, 17, 19...
-## $ .n_events       &lt;dbl&gt; 0, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 16, 17, 17...
-## $ .percent_tested &lt;dbl&gt; 0.000000, 5.000000, 6.666667, 8.333333, 10.000000, ...
-## $ .percent_found  &lt;dbl&gt; 0.00000, 17.64706, 23.52941, 29.41176, 35.29412, 41...</code></pre>
+## $ .n              &lt;dbl&gt; 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ...
+## $ .n_events       &lt;dbl&gt; 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ...
+## $ .percent_tested &lt;dbl&gt; 0.000000, 3.333333, 5.000000, 6.666667, 8.333333, 1...
+## $ .percent_found  &lt;dbl&gt; 0.00000, 10.52632, 15.78947, 21.05263, 26.31579, 31...</code></pre>
 <pre class="r"><code>iris_probs %&gt;% 
   gain_curve(Species, .pred_setosa:.pred_virginica) %&gt;% 
   autoplot()</code></pre>
-<p><img src="/post/2020-12-20-a-gentle-introduction-to-tidymodels/index.en-us_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="/post/2020-12-20-a-gentle-introduction-to-tidymodels/index.en-us_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <ul>
 <li>ROC curve</li>
 </ul>
 <pre class="r"><code>iris_probs %&gt;% 
   roc_curve(Species, .pred_setosa:.pred_virginica) %&gt;% 
   autoplot()</code></pre>
-<p><img src="/post/2020-12-20-a-gentle-introduction-to-tidymodels/index.en-us_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="/post/2020-12-20-a-gentle-introduction-to-tidymodels/index.en-us_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <ul>
 <li>각 클래스의 prob와 최종 예측 클래스를 모두 표현</li>
 </ul>
@@ -259,9 +369,9 @@ glimpse(iris_probs)</code></pre>
   glimpse()</code></pre>
 <pre><code>## Rows: 60
 ## Columns: 5
-## $ .pred_setosa     &lt;dbl&gt; 1.00000000, 0.99833333, 0.91544048, 0.97966667, 0....
-## $ .pred_versicolor &lt;dbl&gt; 0.000000000, 0.000000000, 0.065976190, 0.020333333...
-## $ .pred_virginica  &lt;dbl&gt; 0.000000000, 0.001666667, 0.018583333, 0.000000000...
+## $ .pred_setosa     &lt;dbl&gt; 0.991666667, 0.792484127, 0.904166667, 0.928000000...
+## $ .pred_versicolor &lt;dbl&gt; 0.008333333, 0.196134921, 0.084833333, 0.068666667...
+## $ .pred_virginica  &lt;dbl&gt; 0.000000000, 0.011380952, 0.011000000, 0.003333333...
 ## $ .pred_class      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, se...
 ## $ Species          &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, se...</code></pre>
 <ul>
@@ -274,8 +384,12 @@ glimpse(iris_probs)</code></pre>
 <pre><code>## # A tibble: 4 x 3
 ##   .metric     .estimator .estimate
 ##   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;
-## 1 accuracy    multiclass     0.933
-## 2 kap         multiclass     0.899
-## 3 mn_log_loss multiclass     0.215
-## 4 roc_auc     hand_till      0.982</code></pre>
+## 1 accuracy    multiclass     0.917
+## 2 kap         multiclass     0.875
+## 3 mn_log_loss multiclass     0.269
+## 4 roc_auc     hand_till      0.979</code></pre>
+<ul>
+<li>Reference : <a href="https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/" class="uri">https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/</a></li>
+</ul>
+</div>
 </div>
