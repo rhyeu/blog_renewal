@@ -78,36 +78,6 @@
   </url>
   
   <url>
-    <loc>https://rhyeu.netlify.app/tags/bayesian/</loc>
-    <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/tags/bayesian_computing/</loc>
-    <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/tags/bayesian_updating/</loc>
-    <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/tags/binomial-test/</loc>
-    <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/categories/essay/</loc>
-    <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/2020/11/index.en-us/</loc>
-    <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://rhyeu.netlify.app/tags/blogdown/</loc>
     <lastmod>2020-10-04T00:00:00+00:00</lastmod>
   </url>
@@ -309,6 +279,16 @@
   
   <url>
     <loc>https://rhyeu.netlify.app/2019/05/2019-kss-spring-review/</loc>
+    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/tags/bayesian/</loc>
+    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/tags/bayesian_computing/</loc>
     <lastmod>2019-05-27T00:00:00+00:00</lastmod>
   </url>
   

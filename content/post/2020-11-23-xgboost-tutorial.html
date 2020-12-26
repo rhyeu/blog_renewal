@@ -27,15 +27,14 @@ editor_options:
 <pre class="r"><code># install.packages(&quot;xgboost&quot;)
 # install.packages(&quot;DiagrammeR&quot;) # for tree visulization
 
-library(xgboost)</code></pre>
-<pre><code>## Warning: 패키지 &#39;xgboost&#39;는 R 버전 4.0.3에서 작성되었습니다</code></pre>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## -- Attaching packages ------------------------------------------------------- tidyverse 1.3.0 --</code></pre>
+library(xgboost)
+library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages ---------------------- tidyverse 1.3.0 --</code></pre>
 <pre><code>## √ ggplot2 3.3.2     √ purrr   0.3.4
 ## √ tibble  3.0.3     √ dplyr   1.0.2
 ## √ tidyr   1.1.2     √ stringr 1.4.0
 ## √ readr   1.3.1     √ forcats 0.5.0</code></pre>
-<pre><code>## -- Conflicts ---------------------------------------------------------- tidyverse_conflicts() --
+<pre><code>## -- Conflicts ------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ## x dplyr::slice()  masks xgboost::slice()</code></pre>
@@ -212,8 +211,8 @@ bst &lt;- xgb.train(data = dtrain,
                  eval.metric = &quot;logloss&quot;,
                  objective = &quot;binary:logistic&quot;
                  )</code></pre>
-<pre><code>## [1]  train-error:0.018118    train-logloss:0.194402  test-error:0.019863 test-logloss:0.199134 
-## [2]  train-error:0.003378    train-logloss:0.084331  test-error:0.004345 test-logloss:0.086923</code></pre>
+<pre><code>## [1]  train-error:0.018118    train-logloss:0.195446  test-error:0.018622 test-logloss:0.200063 
+## [2]  train-error:0.004453    train-logloss:0.085744  test-error:0.004966 test-logloss:0.088158</code></pre>
 </div>
 </div>
 <div id="manipulating-xgb.dmatrix" class="section level3">
@@ -223,7 +222,7 @@ bst &lt;- xgb.train(data = dtrain,
 <pre class="r"><code>xgb.DMatrix.save(dtrain, &quot;dtrain.buffer&quot;)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code>dtrain2 &lt;- xgb.DMatrix(&quot;dtrain.buffer&quot;)</code></pre>
-<pre><code>## [22:33:52] 6513x126 matrix with 143286 entries loaded from dtrain.buffer</code></pre>
+<pre><code>## [15:33:57] 6513x126 matrix with 143286 entries loaded from dtrain.buffer</code></pre>
 <pre class="r"><code>bst &lt;- xgb.train(data = dtrain2, 
                  max.depth = 2, 
                  eta = 1, 
@@ -254,7 +253,7 @@ print(importance_matrix)</code></pre>
 ## 3:      59 0.12317236 0.1638750       0.2
 ## 4:     108 0.02931918 0.1461960       0.2</code></pre>
 <pre class="r"><code>xgb.plot.importance(importance_matrix = importance_matrix)</code></pre>
-<p><img src="/post/2020-11-23-xgboost-tutorial/index.en-us_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="/post/2020-11-23-xgboost-tutorial_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <div id="view-the-trees-from-a-model" class="section level4">
 <h4>view the trees from a model</h4>
 <pre class="r"><code>xgb.dump(bst, with_stats = T) # </code></pre>
