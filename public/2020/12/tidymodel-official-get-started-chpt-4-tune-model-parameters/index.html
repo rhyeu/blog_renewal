@@ -366,11 +366,9 @@ cell_test &lt;- testing(cell_split)</code></pre>
 </div>
 <div id="tuning-hyperparameters" class="section level3">
 <h3>Tuning hyperparameters</h3>
-<pre class="r"><code>tune_spec &lt;-
-  decision_tree(
+<pre class="r"><code>tune_spec &lt;- decision_tree(
     cost_complexity = tune(),
-    tree_depth = tune()
-  ) %&gt;% 
+    tree_depth = tune()) %&gt;% 
   set_engine(&quot;rpart&quot;) %&gt;% 
   set_mode(&quot;classification&quot;)
 
@@ -502,8 +500,7 @@ best_tree</code></pre>
 </div>
 <div id="finalizing-our-model" class="section level3">
 <h3>Finalizing our model</h3>
-<pre class="r"><code>final_wf &lt;-
-  tree_wf %&gt;% 
+<pre class="r"><code>final_wf &lt;- tree_wf %&gt;% 
   finalize_workflow(best_tree)
 
 final_wf</code></pre>
@@ -525,8 +522,7 @@ final_wf</code></pre>
 </div>
 <div id="exploring-result" class="section level3">
 <h3>Exploring result</h3>
-<pre class="r"><code>final_tree &lt;-
-  final_wf %&gt;% 
+<pre class="r"><code>final_tree &lt;- final_wf %&gt;% 
   fit(data = cell_train)
 
 final_tree</code></pre>
@@ -570,8 +566,7 @@ final_tree</code></pre>
 <ul>
 <li>last_fit과 fit의 차이는 뭐지?</li>
 </ul>
-<pre class="r"><code>final_fit &lt;-
-  final_wf %&gt;% 
+<pre class="r"><code>final_fit &lt;- final_wf %&gt;% 
   last_fit(cell_split)
 
 final_fit %&gt;% 

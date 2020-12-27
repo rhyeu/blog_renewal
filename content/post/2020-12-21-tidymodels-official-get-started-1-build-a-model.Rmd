@@ -59,7 +59,7 @@ urchins %>% summary()
 
 - plot : 처리별로 성자의 기울기가 다른 걸 확인할 수 있음
 
-```{r, warning=False}
+```{r}
 ggplot(urchins, aes(x = initial_volume, y = width, col = food_regime)) +
   geom_point() +
   geom_smooth(method = lm, se = F) +
@@ -121,8 +121,7 @@ conf_int_pred
 ```
 
 ```{r}
-plot_data <- 
-  new_points %>% 
+plot_data <- new_points %>% 
   bind_cols(mean_pred, conf_int_pred)
 
 ggplot(plot_data, aes(x = food_regime)) +
@@ -146,15 +145,13 @@ set.seed(123)
 
 # make the parsnip model
 
-bayes_mod <-
-  linear_reg() %>% 
+bayes_mod <- linear_reg() %>% 
   set_engine("stan",
              prior_intercept = prior_dist,
              prior = prior_dist)
 
 # train the model
-bayes_fit <-
-  bayes_mod %>% 
+bayes_fit <- bayes_mod %>% 
   fit(width ~ initial_volume * food_regime, data = urchins)
 
 print(bayes_fit, digits = 5)
@@ -166,8 +163,7 @@ tidy(bayes_fit, conf.int = T)
 ```
 
 ```{r}
-bayes_plot_data <-
-  new_points %>% 
+bayes_plot_data <- new_points %>% 
   bind_cols(predict(bayes_fit, new_data = new_points)) %>% 
   bind_cols(predict(bayes_fit, new_data = new_points, type = "conf_int"))
 

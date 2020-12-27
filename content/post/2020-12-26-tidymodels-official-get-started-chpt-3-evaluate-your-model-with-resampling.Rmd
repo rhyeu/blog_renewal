@@ -77,8 +77,7 @@ cell_test %>%
 ```
 
 ```{r}
-rf_mod <-
-  rand_forest(trees = 1000) %>% 
+rf_mod <- rand_forest(trees = 1000) %>% 
   set_engine("ranger") %>% 
   set_mode("classification")
 ```
@@ -86,8 +85,7 @@ rf_mod <-
 ```{r}
 set.seed(234)
 
-rf_fit <-
-  rf_mod %>% 
+rf_fit <- rf_mod %>% 
   fit(class ~ . , data = cell_train)
 
 rf_fit
@@ -104,8 +102,7 @@ predict(rf_fit, cell_train) %>%
 ```
 
 ```{r}
-rf_training_pred <-
-  predict(rf_fit, cell_train) %>% 
+rf_training_pred <- predict(rf_fit, cell_train) %>% 
   bind_cols(predict(rf_fit, cell_train, type = "prob")) %>% 
   # Add the true outcome data back in
   bind_cols(cell_train %>% select(class))
@@ -120,8 +117,7 @@ rf_training_pred %>%
 ```
 
 ```{r}
-rf_testing_pred <-
-  predict(rf_fit, cell_test) %>% 
+rf_testing_pred <- predict(rf_fit, cell_test) %>% 
   bind_cols(predict(rf_fit, cell_test, type = "prob")) %>% 
   bind_cols(cell_test %>% select(class))
 ```
@@ -150,14 +146,12 @@ folds
 ```
 
 ```{r}
-rf_wf <-
-  workflow() %>% 
+rf_wf <- workflow() %>% 
   add_model(rf_mod) %>% 
   add_formula(class ~ .)
 
 set.seed(456) 
-rf_fit_rs <-
-  rf_wf %>% 
+rf_fit_rs <- rf_wf %>% 
   fit_resamples(folds) # fit 대신 resamples를 위해 사용
 ```
 

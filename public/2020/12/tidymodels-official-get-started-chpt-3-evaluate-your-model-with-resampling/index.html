@@ -407,20 +407,18 @@ nrow(cell_train) # 1515</code></pre>
 ##   &lt;fct&gt; &lt;int&gt; &lt;dbl&gt;
 ## 1 PS      325 0.645
 ## 2 WS      179 0.355</code></pre>
-<pre class="r"><code>rf_mod &lt;-
-  rand_forest(trees = 1000) %&gt;% 
+<pre class="r"><code>rf_mod &lt;- rand_forest(trees = 1000) %&gt;% 
   set_engine(&quot;ranger&quot;) %&gt;% 
   set_mode(&quot;classification&quot;)</code></pre>
 <pre class="r"><code>set.seed(234)
 
-rf_fit &lt;-
-  rf_mod %&gt;% 
+rf_fit &lt;- rf_mod %&gt;% 
   fit(class ~ . , data = cell_train)
 
 rf_fit</code></pre>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  4.1s 
+## Fit time:  3.2s 
 ## Ranger result
 ## 
 ## Call:
@@ -456,8 +454,7 @@ rf_fit</code></pre>
 ##  9 WS            0.288    0.712  WS   
 ## 10 WS            0.394    0.606  WS   
 ## # ... with 1,505 more rows</code></pre>
-<pre class="r"><code>rf_training_pred &lt;-
-  predict(rf_fit, cell_train) %&gt;% 
+<pre class="r"><code>rf_training_pred &lt;- predict(rf_fit, cell_train) %&gt;% 
   bind_cols(predict(rf_fit, cell_train, type = &quot;prob&quot;)) %&gt;% 
   # Add the true outcome data back in
   bind_cols(cell_train %&gt;% select(class))</code></pre>
@@ -473,8 +470,7 @@ rf_fit</code></pre>
 ##   .metric  .estimator .estimate
 ##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
 ## 1 accuracy binary         0.994</code></pre>
-<pre class="r"><code>rf_testing_pred &lt;-
-  predict(rf_fit, cell_test) %&gt;% 
+<pre class="r"><code>rf_testing_pred &lt;- predict(rf_fit, cell_test) %&gt;% 
   bind_cols(predict(rf_fit, cell_test, type = &quot;prob&quot;)) %&gt;% 
   bind_cols(cell_test %&gt;% select(class))</code></pre>
 <pre class="r"><code>rf_testing_pred %&gt;% 
@@ -515,14 +511,12 @@ folds</code></pre>
 ##  8 &lt;split [1.4K/151]&gt; Fold08
 ##  9 &lt;split [1.4K/151]&gt; Fold09
 ## 10 &lt;split [1.4K/151]&gt; Fold10</code></pre>
-<pre class="r"><code>rf_wf &lt;-
-  workflow() %&gt;% 
+<pre class="r"><code>rf_wf &lt;- workflow() %&gt;% 
   add_model(rf_mod) %&gt;% 
   add_formula(class ~ .)
 
 set.seed(456) 
-rf_fit_rs &lt;-
-  rf_wf %&gt;% 
+rf_fit_rs &lt;- rf_wf %&gt;% 
   fit_resamples(folds) # fit 대신 resamples를 위해 사용</code></pre>
 <pre class="r"><code>collect_metrics(rf_fit_rs)</code></pre>
 <pre><code>## # A tibble: 2 x 5

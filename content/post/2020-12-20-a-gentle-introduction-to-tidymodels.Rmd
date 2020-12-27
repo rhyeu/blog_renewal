@@ -21,8 +21,6 @@ keywords:
 knitr::opts_chunk$set(echo = T)
 ```
 
-=======
->>>>>>> 38081259dd8d65bfaeff761b1a585e89b7565d12
 ### Example : iris
 
 ```{r}
@@ -56,16 +54,13 @@ iris_split %>%
   - step_corr() : 다른 설명변수들과 상관관계가 높은 변수들을 제거
   - step_center()
   - step_scale()
-  
-<<<<<<< HEAD
-=======
+
 
 ```{r}
 iris_split %>%
   training() %>%
   print()
 ```
->>>>>>> 38081259dd8d65bfaeff761b1a585e89b7565d12
 
 ```{r}
 ### 질문

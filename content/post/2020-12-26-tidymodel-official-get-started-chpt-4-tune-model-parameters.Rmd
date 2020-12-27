@@ -47,11 +47,10 @@ cell_test <- testing(cell_split)
 
 ### Tuning hyperparameters
 ```{r}
-tune_spec <-
-  decision_tree(
+
+tune_spec <- decision_tree(
     cost_complexity = tune(),
-    tree_depth = tune()
-  ) %>% 
+    tree_depth = tune()) %>% 
   set_engine("rpart") %>% 
   set_mode("classification")
 
@@ -136,8 +135,7 @@ best_tree
 ### Finalizing our model
 
 ```{r}
-final_wf <-
-  tree_wf %>% 
+final_wf <- tree_wf %>% 
   finalize_workflow(best_tree)
 
 final_wf
@@ -145,8 +143,7 @@ final_wf
 
 ### Exploring result
 ```{r}
-final_tree <-
-  final_wf %>% 
+final_tree <- final_wf %>% 
   fit(data = cell_train)
 
 final_tree
@@ -163,8 +160,7 @@ final_tree %>%
 - last_fit과 fit의 차이는 뭐지?
 
 ```{r}
-final_fit <-
-  final_wf %>% 
+final_fit <- final_wf %>% 
   last_fit(cell_split)
 
 final_fit %>% 

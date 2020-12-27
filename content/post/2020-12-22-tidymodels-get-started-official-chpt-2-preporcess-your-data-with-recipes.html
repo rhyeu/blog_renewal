@@ -193,8 +193,7 @@ test_data &lt;- testing(data_split)</code></pre>
 <li>ID : 행마다 하나의 고유값을 가지는 변수의 경우 “ID” role로 선언하면 모형 적합에서 사용하지 않는다.</li>
 </ul></li>
 </ul>
-<pre class="r"><code>flights_rec &lt;- 
-  recipe(arr_delay ~ ., data = train_data) %&gt;% 
+<pre class="r"><code>flights_rec &lt;- recipe(arr_delay ~ ., data = train_data) %&gt;% 
   update_role(flight, time_hour, new_role = &quot;ID&quot;)
 
 flights_rec %&gt;% summary()</code></pre>
@@ -243,8 +242,7 @@ flights_rec %&gt;% summary()</code></pre>
 ##  9 2013-01-09        15714
 ## 10 2013-01-10        15715
 ## # ... with 354 more rows</code></pre>
-<pre class="r"><code>flights_rec &lt;-
-  recipe(arr_delay ~., data = train_data) %&gt;% 
+<pre class="r"><code>flights_rec &lt;- recipe(arr_delay ~., data = train_data) %&gt;% 
   update_role(flight, time_hour, new_role = &quot;ID&quot;) %&gt;% 
   step_date(date, features = c(&quot;dow&quot;, &quot;month&quot;)) %&gt;%  # date 에서 요일과 달을 추출 
   step_holiday(date, holidays = timeDate::listHolidays(&quot;US&quot;)) %&gt;%  # date에서 휴일을 추출
@@ -252,8 +250,7 @@ flights_rec %&gt;% summary()</code></pre>
 <ul>
 <li>dummy 변수화</li>
 </ul>
-<pre class="r"><code>flights_rec &lt;-
-  recipe(arr_delay ~., data = train_data) %&gt;% 
+<pre class="r"><code>flights_rec &lt;- recipe(arr_delay ~., data = train_data) %&gt;% 
   update_role(flight, time_hour, new_role = &quot;ID&quot;) %&gt;% 
   step_date(date, features = c(&quot;dow&quot;, &quot;month&quot;)) %&gt;%  # date 에서 요일과 달을 추출 
   step_holiday(date, holidays = timeDate::listHolidays(&quot;US&quot;)) %&gt;%  # date에서 휴일을 추출
@@ -262,8 +259,7 @@ flights_rec %&gt;% summary()</code></pre>
 <ul>
 <li>분산이 0인 설명변수는 제외</li>
 </ul>
-<pre class="r"><code>flights_rec &lt;-
-  recipe(arr_delay ~., data = train_data) %&gt;% 
+<pre class="r"><code>flights_rec &lt;- recipe(arr_delay ~., data = train_data) %&gt;% 
   update_role(flight, time_hour, new_role = &quot;ID&quot;) %&gt;% 
   step_date(date, features = c(&quot;dow&quot;, &quot;month&quot;)) %&gt;%  # date 에서 요일과 달을 추출 
   step_holiday(date, holidays = timeDate::listHolidays(&quot;US&quot;)) %&gt;%  # date에서 휴일을 추출
@@ -273,14 +269,12 @@ flights_rec %&gt;% summary()</code></pre>
 </div>
 <div id="fit-a-model-with-a-recipe" class="section level3">
 <h3>Fit a model with a recipe</h3>
-<pre class="r"><code>lr_mod &lt;-
-  logistic_reg() %&gt;% 
+<pre class="r"><code>lr_mod &lt;- logistic_reg() %&gt;% 
   set_engine(&quot;glm&quot;)</code></pre>
 <ul>
 <li><code>tidymodels</code> 에선 <code>workflow</code> 함수를 활용해서 <code>recipe</code>와 model을 묶어 여러 <code>recipe</code>와 model의 pair를 편리하게 시도하고 비교해볼 수 있도록 한다.</li>
 </ul>
-<pre class="r"><code>flights_wflow &lt;-
-  workflow() %&gt;% 
+<pre class="r"><code>flights_wflow &lt;- workflow() %&gt;% 
   add_model(lr_mod) %&gt;% 
   add_recipe(flights_rec)
 
@@ -302,8 +296,7 @@ flights_wflow</code></pre>
 ## Logistic Regression Model Specification (classification)
 ## 
 ## Computational engine: glm</code></pre>
-<pre class="r"><code>flights_fit &lt;-
-  flights_wflow %&gt;% 
+<pre class="r"><code>flights_fit &lt;- flights_wflow %&gt;% 
   fit(data = train_data)</code></pre>
 <ul>
 <li>workflow에서 recipe나 모델을 추출하기 위해서는 <code>pull_workflow_prepped_recipe</code>나 <code>pull_workflow_fit</code> 함수를 사용한다.</li>
@@ -343,13 +336,12 @@ flights_wflow</code></pre>
 ##  9 on_time    
 ## 10 on_time    
 ## # ... with 81,444 more rows</code></pre>
-<pre class="r"><code>flights_pred &lt;-
-  predict(flights_fit, test_data, type = &quot;prob&quot;) %&gt;% 
+<pre class="r"><code>flights_pred &lt;- predict(flights_fit, test_data, type = &quot;prob&quot;) %&gt;% 
   bind_cols(test_data %&gt;% select(arr_delay, time_hour, flight))</code></pre>
 <ul>
 <li>model 평가 : ROC curve &amp; AUC</li>
 </ul>
-<pre class="r"><code>flights_pred %&gt;% 
+<pre class="r"><code>flights_pred %&gt;%
   roc_curve(truth = arr_delay, .pred_late) %&gt;% 
   autoplot()</code></pre>
 <p><img src="/post/2020-12-22-tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>

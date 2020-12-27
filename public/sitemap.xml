@@ -58,12 +58,7 @@
   </url>
   
   <url>
-    <loc>https://rhyeu.netlify.app/tags/responsive/</loc>
-    <lastmod>2020-12-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/2020/12/index.en-us/</loc>
+    <loc>https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-1-build-a-model/</loc>
     <lastmod>2020-12-21T00:00:00+00:00</lastmod>
   </url>
   
@@ -359,6 +354,11 @@
   
   <url>
     <loc>https://rhyeu.netlify.app/categories/releases/</loc>
+    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/tags/responsive/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
   </url>
   

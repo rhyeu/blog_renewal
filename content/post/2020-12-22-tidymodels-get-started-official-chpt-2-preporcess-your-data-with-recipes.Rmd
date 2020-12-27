@@ -117,8 +117,7 @@ flights_rec <- recipe(arr_delay ~ ., data = train_data)
   - ID : 행마다 하나의 고유값을 가지는 변수의 경우 "ID" role로 선언하면 모형 적합에서 사용하지 않는다.
   
 ```{r}
-flights_rec <- 
-  recipe(arr_delay ~ ., data = train_data) %>% 
+flights_rec <- recipe(arr_delay ~ ., data = train_data) %>% 
   update_role(flight, time_hour, new_role = "ID")
 
 flights_rec %>% summary()
@@ -142,8 +141,7 @@ flight_data %>%
 ```
 
 ```{r}
-flights_rec <-
-  recipe(arr_delay ~., data = train_data) %>% 
+flights_rec <- recipe(arr_delay ~., data = train_data) %>% 
   update_role(flight, time_hour, new_role = "ID") %>% 
   step_date(date, features = c("dow", "month")) %>%  # date 에서 요일과 달을 추출 
   step_holiday(date, holidays = timeDate::listHolidays("US")) %>%  # date에서 휴일을 추출
@@ -153,8 +151,7 @@ flights_rec <-
 
 - dummy 변수화
 ```{r}
-flights_rec <-
-  recipe(arr_delay ~., data = train_data) %>% 
+flights_rec <- recipe(arr_delay ~., data = train_data) %>% 
   update_role(flight, time_hour, new_role = "ID") %>% 
   step_date(date, features = c("dow", "month")) %>%  # date 에서 요일과 달을 추출 
   step_holiday(date, holidays = timeDate::listHolidays("US")) %>%  # date에서 휴일을 추출
@@ -165,8 +162,7 @@ flights_rec <-
 - 분산이 0인 설명변수는 제외
 
 ```{r}
-flights_rec <-
-  recipe(arr_delay ~., data = train_data) %>% 
+flights_rec <- recipe(arr_delay ~., data = train_data) %>% 
   update_role(flight, time_hour, new_role = "ID") %>% 
   step_date(date, features = c("dow", "month")) %>%  # date 에서 요일과 달을 추출 
   step_holiday(date, holidays = timeDate::listHolidays("US")) %>%  # date에서 휴일을 추출
@@ -179,16 +175,14 @@ flights_rec <-
 ### Fit a model with a recipe
 
 ```{r}
-lr_mod <-
-  logistic_reg() %>% 
+lr_mod <- logistic_reg() %>% 
   set_engine("glm")
 ```
 
 - `tidymodels` 에선 `workflow` 함수를 활용해서 `recipe`와 model을 묶어 여러 `recipe`와 model의 pair를 편리하게 시도하고 비교해볼 수 있도록 한다.
 
 ```{r}
-flights_wflow <-
-  workflow() %>% 
+flights_wflow <- workflow() %>% 
   add_model(lr_mod) %>% 
   add_recipe(flights_rec)
 
@@ -196,8 +190,7 @@ flights_wflow
 ```
 
 ```{r}
-flights_fit <-
-  flights_wflow %>% 
+flights_fit <- flights_wflow %>% 
   fit(data = train_data)
 ```
 
@@ -216,8 +209,7 @@ predict(flights_fit, test_data)
 
 
 ```{r}
-flights_pred <-
-  predict(flights_fit, test_data, type = "prob") %>% 
+flights_pred <- predict(flights_fit, test_data, type = "prob") %>% 
   bind_cols(test_data %>% select(arr_delay, time_hour, flight))
 
 ```
@@ -225,7 +217,7 @@ flights_pred <-
 
 - model 평가 : ROC curve & AUC
 ```{r}
-flights_pred %>% 
+flights_pred %>%
   roc_curve(truth = arr_delay, .pred_late) %>% 
   autoplot()
 ```
