@@ -1,0 +1,456 @@
+---
+title: tidymodel official get started chpt 5 A predictive modeling case study
+author: 류성균
+date: '2020-12-27'
+slug: tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study
+categories:
+  - R
+tags:
+  - tidymodels
+  - tidyverse
+  - machine-learning
+keywords:
+  - tech
+---
+
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<!--more-->
+<ul>
+<li>reference : <a href="https://www.tidymodels.org/start/case-study/" class="uri">https://www.tidymodels.org/start/case-study/</a></li>
+</ul>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<pre class="r"><code>library(tidymodels)  </code></pre>
+<pre><code>## -- Attaching packages --------------------- tidymodels 0.1.1 --</code></pre>
+<pre><code>## √ broom     0.7.0      √ recipes   0.1.13
+## √ dials     0.0.8      √ rsample   0.0.7 
+## √ dplyr     1.0.2      √ tibble    3.0.3 
+## √ ggplot2   3.3.2      √ tidyr     1.1.2 
+## √ infer     0.5.3      √ tune      0.1.1 
+## √ modeldata 0.0.2      √ workflows 0.1.3 
+## √ parsnip   0.1.3      √ yardstick 0.0.7 
+## √ purrr     0.3.4</code></pre>
+<pre><code>## -- Conflicts ------------------------ tidymodels_conflicts() --
+## x purrr::discard() masks scales::discard()
+## x dplyr::filter()  masks stats::filter()
+## x dplyr::lag()     masks stats::lag()
+## x recipes::step()  masks stats::step()</code></pre>
+<pre class="r"><code># Helper packages
+library(readr)       # for importing data</code></pre>
+<pre><code>## 
+## 다음의 패키지를 부착합니다: &#39;readr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:yardstick&#39;:
+## 
+##     spec</code></pre>
+<pre><code>## The following object is masked from &#39;package:scales&#39;:
+## 
+##     col_factor</code></pre>
+<pre class="r"><code>library(vip)         # for variable importance plots</code></pre>
+<pre><code>## 
+## 다음의 패키지를 부착합니다: &#39;vip&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:utils&#39;:
+## 
+##     vi</code></pre>
+</div>
+<div id="hotel-bookings-data" class="section level3">
+<h3>Hotel Bookings data</h3>
+<ul>
+<li>reference : <a href="https://www.sciencedirect.com/science/article/pii/S2352340918315191?via%3Dihub">Antonio, Almeida, and Nunes (2019)</a></li>
+<li>data revised : <a href="https://gist.github.com/topepo/05a74916c343e57a71c51d6bc32a21ce" class="uri">https://gist.github.com/topepo/05a74916c343e57a71c51d6bc32a21ce</a></li>
+<li>data dictionary : <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-02-11#data-dictionary" class="uri">https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-02-11#data-dictionary</a></li>
+</ul>
+<pre class="r"><code>hotels &lt;-  read_csv(&#39;https://tidymodels.org/start/case-study/hotels.csv&#39;) %&gt;% 
+  mutate_if(is.character, as.factor) </code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   lead_time = col_double(),
+##   stays_in_weekend_nights = col_double(),
+##   stays_in_week_nights = col_double(),
+##   adults = col_double(),
+##   is_repeated_guest = col_double(),
+##   previous_cancellations = col_double(),
+##   previous_bookings_not_canceled = col_double(),
+##   booking_changes = col_double(),
+##   days_in_waiting_list = col_double(),
+##   average_daily_rate = col_double(),
+##   total_of_special_requests = col_double(),
+##   arrival_date = col_date(format = &quot;&quot;)
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre class="r"><code>dim(hotels)</code></pre>
+<pre><code>## [1] 50000    23</code></pre>
+<ul>
+<li>저자는 ’취소 고객’과 ’취소하지 않은 고객’간의 데이터 분포의 차이가 있다고 밝힘.
+<ul>
+<li>such as number of adults/children, room type, meals bought, country of origin of the guests, and so forth</li>
+</ul></li>
+<li>이에 이번 분석에서는 취소하지 않은 고객만 분석하기로 함</li>
+</ul>
+<pre class="r"><code>glimpse(hotels)</code></pre>
+<pre><code>## Rows: 50,000
+## Columns: 23
+## $ hotel                          &lt;fct&gt; City_Hotel, City_Hotel, Resort_Hotel...
+## $ lead_time                      &lt;dbl&gt; 217, 2, 95, 143, 136, 67, 47, 56, 80...
+## $ stays_in_weekend_nights        &lt;dbl&gt; 1, 0, 2, 2, 1, 2, 0, 0, 0, 2, 1, 0, ...
+## $ stays_in_week_nights           &lt;dbl&gt; 3, 1, 5, 6, 4, 2, 2, 3, 4, 2, 2, 1, ...
+## $ adults                         &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 1, ...
+## $ children                       &lt;fct&gt; none, none, none, none, none, none, ...
+## $ meal                           &lt;fct&gt; BB, BB, BB, HB, HB, SC, BB, BB, BB, ...
+## $ country                        &lt;fct&gt; DEU, PRT, GBR, ROU, PRT, GBR, ESP, E...
+## $ market_segment                 &lt;fct&gt; Offline_TA/TO, Direct, Online_TA, On...
+## $ distribution_channel           &lt;fct&gt; TA/TO, Direct, TA/TO, TA/TO, Direct,...
+## $ is_repeated_guest              &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+## $ previous_cancellations         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+## $ previous_bookings_not_canceled &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+## $ reserved_room_type             &lt;fct&gt; A, D, A, A, F, A, C, B, D, A, A, D, ...
+## $ assigned_room_type             &lt;fct&gt; A, K, A, A, F, A, C, A, D, A, D, D, ...
+## $ booking_changes                &lt;dbl&gt; 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+## $ deposit_type                   &lt;fct&gt; No_Deposit, No_Deposit, No_Deposit, ...
+## $ days_in_waiting_list           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+## $ customer_type                  &lt;fct&gt; Transient-Party, Transient, Transien...
+## $ average_daily_rate             &lt;dbl&gt; 80.75, 170.00, 8.00, 81.00, 157.60, ...
+## $ required_car_parking_spaces    &lt;fct&gt; none, none, none, none, none, none, ...
+## $ total_of_special_requests      &lt;dbl&gt; 1, 3, 2, 1, 4, 1, 1, 1, 1, 1, 0, 1, ...
+## $ arrival_date                   &lt;date&gt; 2016-09-01, 2017-08-25, 2016-11-19,...</code></pre>
+<ul>
+<li>’아이가 있는가?’는 불균형함
+<ul>
+<li><code>recipes</code>의 <code>upsample</code>, <code>downsample</code> 등이나 <code>themis</code> 등을 활용할 수 있음</li>
+</ul></li>
+</ul>
+<pre class="r"><code>hotels %&gt;% 
+  count(children) %&gt;% 
+  mutate(prop = n / sum(n))</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   children     n   prop
+##   &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;
+## 1 children  4038 0.0808
+## 2 none     45962 0.919</code></pre>
+</div>
+<div id="data-splitting-resampling" class="section level3">
+<h3>Data splitting &amp; resampling</h3>
+<pre class="r"><code>set.seed(123)
+splits &lt;- initial_split(hotels, strata = children)
+
+hotel_other &lt;- training(splits)
+hotel_test &lt;- testing(splits)
+
+# training set proportions by children
+hotel_other %&gt;% 
+  count(children) %&gt;% 
+  mutate(prop = n / sum(n))</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   children     n   prop
+##   &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;
+## 1 children  3048 0.0813
+## 2 none     34452 0.919</code></pre>
+<pre class="r"><code># test set proportions by children
+hotel_test %&gt;% 
+  count(children) %&gt;% 
+  mutate(prop = n / sum(n))</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   children     n   prop
+##   &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;
+## 1 children   990 0.0792
+## 2 none     11510 0.921</code></pre>
+<ul>
+<li><code>rsample</code> 함수에서는 10 fold Cross Validation 기능(<code>vfold_cv()</code>) 외에 hold-out 기능(<code>validation_split</code>)을 쓸 수도 있다.</li>
+</ul>
+<pre class="r"><code>set.seed(234)
+val_set &lt;- validation_split(hotel_other,
+                            strata = children,
+                            prop = 0.8)
+
+val_set</code></pre>
+<pre><code>## # Validation Set Split (0.8/0.2)  using stratification 
+## # A tibble: 1 x 2
+##   splits             id        
+##   &lt;list&gt;             &lt;chr&gt;     
+## 1 &lt;split [30K/7.5K]&gt; validation</code></pre>
+</div>
+<div id="a-first-model-penalized-logistic-regression" class="section level3">
+<h3>A First model : Penalized logistic regression</h3>
+<ul>
+<li>첫 stpe으로 일부 변수의 계수가 0으로 변하는 LASSO모형을 사용</li>
+</ul>
+<div id="build-the-model" class="section level4">
+<h4>Build the model</h4>
+<pre class="r"><code>### mixture를 상수로 두면 변수가 탈락함
+lr_mod &lt;- logistic_reg(penalty = tune(), mixture = 1 ) %&gt;% 
+  set_engine(&quot;glmnet&quot;)</code></pre>
+</div>
+<div id="create-the-recipe" class="section level4">
+<h4>Create the recipe</h4>
+<ul>
+<li>date 변수 관련 함수
+<ul>
+<li>step_date : 일, 월, 달, 요일 변수 추출</li>
+<li>step_holiday : 특정 휴일에 대한 dummy 변수 생성</li>
+<li>step_rm : 변수 제외</li>
+</ul></li>
+<li>카테고리 변수 관련
+<ul>
+<li>step_dummy : 문자변수나 factor 변수를 dummy 변수로 변환</li>
+<li>step_zv : 분산이 0인 변수를 제외함</li>
+<li>step_normalize : centering과 scaling을 시행</li>
+</ul></li>
+</ul>
+<pre class="r"><code>holidays &lt;- c(&quot;AllSouls&quot;, &quot;AshWednesday&quot;, &quot;ChristmasEve&quot;, &quot;Easter&quot;, 
+              &quot;ChristmasDay&quot;, &quot;GoodFriday&quot;, &quot;NewYearsDay&quot;, &quot;PalmSunday&quot;)
+
+lr_recipe &lt;-   recipe(children ~ ., data = hotel_other) %&gt;% 
+  step_date(arrival_date) %&gt;% 
+  step_holiday(arrival_date, holidays = holidays) %&gt;% 
+  step_rm(arrival_date) %&gt;% 
+  step_dummy(all_nominal(), -all_outcomes()) %&gt;% 
+  step_zv(all_predictors()) %&gt;% 
+  step_normalize(all_predictors())</code></pre>
+</div>
+<div id="create-the-workflow" class="section level4">
+<h4>Create the workflow</h4>
+<pre class="r"><code>lr_workflow &lt;- workflow() %&gt;% 
+  add_model(lr_mod) %&gt;% 
+  add_recipe(lr_recipe)</code></pre>
+</div>
+<div id="create-the-grid-for-tunning" class="section level4">
+<h4>Create the grid for tunning</h4>
+<pre class="r"><code>lr_reg_grid &lt;- tibble(penalty = 10^seq(-4, -1, length.out = 30))
+
+lr_reg_grid %&gt;% top_n(-5) # lowest penalty values</code></pre>
+<pre><code>## Selecting by penalty</code></pre>
+<pre><code>## # A tibble: 5 x 1
+##    penalty
+##      &lt;dbl&gt;
+## 1 0.0001  
+## 2 0.000127
+## 3 0.000161
+## 4 0.000204
+## 5 0.000259</code></pre>
+<pre class="r"><code>lr_reg_grid %&gt;% top_n(5) # highest penalty values</code></pre>
+<pre><code>## Selecting by penalty</code></pre>
+<pre><code>## # A tibble: 5 x 1
+##   penalty
+##     &lt;dbl&gt;
+## 1  0.0386
+## 2  0.0489
+## 3  0.0621
+## 4  0.0788
+## 5  0.1</code></pre>
+</div>
+<div id="train-and-tune-the-model" class="section level4">
+<h4>Train and tune the model</h4>
+<pre class="r"><code>lr_res &lt;- lr_workflow %&gt;% 
+  tune_grid(val_set,
+            grid = lr_reg_grid,
+            control = control_grid(save_pred = TRUE),
+            metrics = metric_set(roc_auc))</code></pre>
+<pre class="r"><code>lr_plot &lt;- lr_res %&gt;% 
+  collect_metrics() %&gt;% 
+  ggplot(aes(x = penalty, y = mean)) + 
+  geom_point() +
+  geom_line() +
+  ylab(&quot;Area under the ROC Curve&quot;) +
+  scale_x_log10(labels = scales::label_number())
+
+lr_plot</code></pre>
+<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+- AUC를 보면 8번째(penalty = 0.0005298317) 모델이 좋지만 비슷한 AUC라면 변수가 작은게 좋으므로 이를 고려</p>
+<pre class="r"><code>top_models &lt;- lr_res %&gt;% 
+  show_best(&quot;roc_auc&quot;, n = 15) %&gt;% 
+  arrange(penalty)
+
+top_models</code></pre>
+<pre><code>## # A tibble: 15 x 7
+##     penalty .metric .estimator  mean     n std_err .config
+##       &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
+##  1 0.0001   roc_auc binary     0.880     1      NA Model01
+##  2 0.000127 roc_auc binary     0.881     1      NA Model02
+##  3 0.000161 roc_auc binary     0.881     1      NA Model03
+##  4 0.000204 roc_auc binary     0.881     1      NA Model04
+##  5 0.000259 roc_auc binary     0.881     1      NA Model05
+##  6 0.000329 roc_auc binary     0.881     1      NA Model06
+##  7 0.000418 roc_auc binary     0.881     1      NA Model07
+##  8 0.000530 roc_auc binary     0.881     1      NA Model08
+##  9 0.000672 roc_auc binary     0.881     1      NA Model09
+## 10 0.000853 roc_auc binary     0.881     1      NA Model10
+## 11 0.00108  roc_auc binary     0.881     1      NA Model11
+## 12 0.00137  roc_auc binary     0.881     1      NA Model12
+## 13 0.00174  roc_auc binary     0.881     1      NA Model13
+## 14 0.00221  roc_auc binary     0.880     1      NA Model14
+## 15 0.00281  roc_auc binary     0.879     1      NA Model15</code></pre>
+<pre class="r"><code>lr_best &lt;- lr_res %&gt;% 
+  collect_metrics() %&gt;% 
+  arrange(penalty) %&gt;% 
+  slice(12) # 12번째 모델 고려
+
+lr_best</code></pre>
+<pre><code>## # A tibble: 1 x 7
+##   penalty .metric .estimator  mean     n std_err .config
+##     &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
+## 1 0.00137 roc_auc binary     0.881     1      NA Model12</code></pre>
+<pre class="r"><code>lr_auc &lt;- lr_res %&gt;% 
+  collect_predictions(parameters = lr_best) %&gt;% 
+  roc_curve(children, .pred_children) %&gt;% 
+  mutate(model = &quot;Logistic Regression&quot;)
+
+autoplot(lr_auc)</code></pre>
+<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+</div>
+</div>
+<div id="a-second-model-tree-based-ensemble" class="section level3">
+<h3>A Second Model : Tree-based ensemble</h3>
+<div id="build-the-model-and-improve-training-time---parallel-computing" class="section level4">
+<h4>BUILD THE MODEL AND IMPROVE TRAINING TIME - parallel computing</h4>
+<pre class="r"><code>cores &lt;- parallel::detectCores()
+cores</code></pre>
+<pre><code>## [1] 8</code></pre>
+<pre class="r"><code>rf_mod &lt;- rand_forest(mtry = tune(),
+                     min_n = tune(),
+                     trees = 1000) %&gt;% 
+  set_engine(&quot;ranger&quot;, num.threads = cores) %&gt;% 
+  set_mode(&quot;classification&quot;)</code></pre>
+</div>
+<div id="creating-the-recipe-and-workflow" class="section level4">
+<h4>Creating the recipe and workflow</h4>
+<ul>
+<li>random forest 모델에서는 dummy 변수화 등 feature engineering이 그렇게 중요하지는 않음</li>
+</ul>
+<pre class="r"><code>rf_recipe &lt;- recipe(children ~ ., data = hotel_other) %&gt;% 
+  step_date(arrival_date) %&gt;% 
+  step_holiday(arrival_date) %&gt;% 
+  step_rm(arrival_date)</code></pre>
+<pre class="r"><code>rf_workflow &lt;- workflow() %&gt;% 
+  add_model(rf_mod) %&gt;% 
+  add_recipe(rf_recipe)</code></pre>
+</div>
+<div id="train-and-tune-the-model-1" class="section level4">
+<h4>Train and tune the model</h4>
+<pre class="r"><code>rf_mod</code></pre>
+<pre><code>## Random Forest Model Specification (classification)
+## 
+## Main Arguments:
+##   mtry = tune()
+##   trees = 1000
+##   min_n = tune()
+## 
+## Engine-Specific Arguments:
+##   num.threads = cores
+## 
+## Computational engine: ranger</code></pre>
+<pre class="r"><code>rf_mod %&gt;% parameters()</code></pre>
+<pre><code>## Collection of 2 parameters for tuning
+## 
+##     id parameter type object class
+##   mtry           mtry    nparam[?]
+##  min_n          min_n    nparam[+]
+## 
+## Model parameters needing finalization:
+##    # Randomly Selected Predictors (&#39;mtry&#39;)
+## 
+## See `?dials::finalize` or `?dials::update.parameters` for more information.</code></pre>
+<pre class="r"><code>set.seed(345)
+rf_res &lt;- rf_workflow %&gt;% 
+  tune_grid(val_set,
+            grid = 25,
+            control = control_grid(save_pred = TRUE),
+            metrics = metric_set(roc_auc))</code></pre>
+<pre><code>## i Creating pre-processing data to finalize unknown parameter: mtry</code></pre>
+<pre class="r"><code>rf_res %&gt;% 
+  show_best(metric = &quot;roc_auc&quot;)</code></pre>
+<pre><code>## # A tibble: 5 x 8
+##    mtry min_n .metric .estimator  mean     n std_err .config
+##   &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
+## 1     3     3 roc_auc binary     0.933     1      NA Model21
+## 2     8     7 roc_auc binary     0.933     1      NA Model13
+## 3     6    18 roc_auc binary     0.933     1      NA Model24
+## 4     7    25 roc_auc binary     0.932     1      NA Model03
+## 5     9    12 roc_auc binary     0.932     1      NA Model19</code></pre>
+<pre class="r"><code>autoplot(rf_res)</code></pre>
+<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<pre class="r"><code>rf_best &lt;- rf_res %&gt;% 
+  select_best(metric = &quot;roc_auc&quot;)
+
+rf_best</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##    mtry min_n .config
+##   &lt;int&gt; &lt;int&gt; &lt;chr&gt;  
+## 1     3     3 Model21</code></pre>
+<pre class="r"><code>rf_res %&gt;% 
+  collect_predictions()</code></pre>
+<pre><code>## # A tibble: 187,475 x 8
+##    id         .pred_children .pred_none  .row  mtry min_n children .config
+##    &lt;chr&gt;               &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;    &lt;chr&gt;  
+##  1 validation       0.00207       0.998    11    12     7 none     Model01
+##  2 validation       0.00025       1.00     13    12     7 none     Model01
+##  3 validation       0.000333      1.00     31    12     7 none     Model01
+##  4 validation       0.000143      1.00     32    12     7 none     Model01
+##  5 validation       0             1        36    12     7 none     Model01
+##  6 validation       0.0888        0.911    43    12     7 none     Model01
+##  7 validation       0.123         0.877    45    12     7 none     Model01
+##  8 validation       0.0673        0.933    47    12     7 none     Model01
+##  9 validation       0.167         0.833    48    12     7 none     Model01
+## 10 validation       0.00424       0.996    53    12     7 none     Model01
+## # ... with 187,465 more rows</code></pre>
+<ul>
+<li>.config에서 best model만 뽑음</li>
+</ul>
+<pre class="r"><code>rf_auc &lt;- rf_res %&gt;% 
+  collect_predictions(parameters = rf_best) %&gt;% 
+  roc_curve(children, .pred_children) %&gt;% 
+  mutate(model = &quot;Random Forest&quot;)</code></pre>
+<pre class="r"><code>bind_rows(rf_auc, lr_auc) %&gt;% 
+  ggplot(aes(x = 1-specificity, y = sensitivity, col = model)) +
+  geom_path(lwd = 1.5, alpha = 0.8) + 
+  geom_abline(lty = 3) + 
+  coord_equal() +
+  scale_color_viridis_d(option = &quot;plasma&quot;, end = 0.6)</code></pre>
+<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+</div>
+</div>
+<div id="the-last-fit" class="section level3">
+<h3>The last fit</h3>
+<pre class="r"><code># the last model
+last_rf_mod &lt;-
+  rand_forest(mtry = 8, min_n = 7, trees = 1000) %&gt;% 
+  set_engine(&quot;ranger&quot;, num.threads = cores, importance = &quot;impurity&quot;) %&gt;% 
+  set_mode(&quot;classification&quot;)
+
+# the last workflow
+last_rf_workflow &lt;- rf_workflow %&gt;% 
+  update_model(last_rf_mod)
+
+# the last fit
+set.seed(345)
+last_rf_fit &lt;-
+  last_rf_workflow %&gt;% 
+  last_fit(splits)
+
+last_rf_fit</code></pre>
+<pre><code>## # Resampling results
+## # Monte Carlo cross-validation (0.75/0.25) with 1 resamples  
+## # A tibble: 1 x 6
+##   splits         id          .metrics     .notes      .predictions     .workflow
+##   &lt;list&gt;         &lt;chr&gt;       &lt;list&gt;       &lt;list&gt;      &lt;list&gt;           &lt;list&gt;   
+## 1 &lt;split [37.5K~ train/test~ &lt;tibble [2 ~ &lt;tibble [0~ &lt;tibble [12,500~ &lt;workflo~</code></pre>
+<pre class="r"><code>last_rf_fit %&gt;% 
+  collect_metrics()</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   .metric  .estimator .estimate
+##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+## 1 accuracy binary         0.948
+## 2 roc_auc  binary         0.922</code></pre>
+<pre class="r"><code>last_rf_fit %&gt;% 
+  pluck(&quot;.workflow&quot;, 1) %&gt;% 
+  pull_workflow_fit() %&gt;% 
+  vip(num_features = 20)</code></pre>
+<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<pre class="r"><code>last_rf_fit %&gt;%  
+  collect_predictions() %&gt;% 
+  roc_curve(children, .pred_children) %&gt;% 
+  autoplot()</code></pre>
+<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+</div>

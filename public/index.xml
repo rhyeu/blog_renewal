@@ -6,7 +6,21 @@
     <description>Recent content on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tidymodel official get started chpt 5 A predictive modeling case study</title>
+      <link>https://rhyeu.netlify.app/2020/12/tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study/</link>
+      <pubDate>Sun, 27 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/2020/12/tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study/</guid>
+      <description>
+&lt;link href=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+</description>
+    </item>
+    
     <item>
       <title>tidymodel official get started chpt 4 Tune model parameters</title>
       <link>https://rhyeu.netlify.app/2020/12/tidymodel-official-get-started-chpt-4-tune-model-parameters/</link>
