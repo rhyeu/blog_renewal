@@ -1,5 +1,5 @@
 ---
-title: Today I Learn - python tip
+title: Today I Learn / colab 파일 읽고 쓰기 tip
 author: 류성균
 date: '2020-12-29'
 slug: today-i-learn-python-tip
@@ -10,6 +10,11 @@ tags:
   - os
 keywords:
   - tech
+output:
+  blogdown::html_page:
+    toc: true
+    fig_width: 6
+    dev: "svg"
 ---
 
 <!--more-->

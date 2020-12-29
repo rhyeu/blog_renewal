@@ -1,5 +1,5 @@
 ---
-title: tidymodels official get started chpt 2 Preporcess your data with recipes
+title: tidymodels official get started / chpt 2 Preporcess your data with recipes
 author: 류성균
 date: '2020-12-22'
 slug: tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes
@@ -10,11 +10,27 @@ tags:
   - tidyverse
 keywords:
   - tech
+output:
+  blogdown::html_page:
+    toc: true
+    fig_width: 6
+    dev: "svg"
 ---
 
 <link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#the-new-york-city-flight-data">The New York city flight data</a></li>
+<li><a href="#data-splitting">Data splitting</a></li>
+<li><a href="#create-recipe-and-roles">Create recipe and roles</a></li>
+<li><a href="#create-features">Create features</a></li>
+<li><a href="#fit-a-model-with-a-recipe">Fit a model with a recipe</a></li>
+<li><a href="#use-a-trained-workflow-to-predict">Use a trained workflow to predict</a></li>
+</ul>
+</div>
 
 <!--more-->
 <ul>
@@ -344,7 +360,7 @@ flights_wflow</code></pre>
 <pre class="r"><code>flights_pred %&gt;%
   roc_curve(truth = arr_delay, .pred_late) %&gt;% 
   autoplot()</code></pre>
-<p><img src="/post/2020-12-22-tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="/post/2020-12-22-tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes_files/figure-html/unnamed-chunk-18-1.svg" width="576" /></p>
 <pre class="r"><code>flights_pred %&gt;% 
   roc_auc(truth = arr_delay, .pred_late)</code></pre>
 <pre><code>## # A tibble: 1 x 3

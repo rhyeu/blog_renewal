@@ -1,5 +1,5 @@
 ---
-title: tidymodel official get started chpt 4 Tune model parameters
+title: tidymodel official get started / chpt 4 Tune model parameters
 author: 류성균
 date: '2020-12-26'
 slug: tidymodel-official-get-started-chpt-4-tune-model-parameters
@@ -11,6 +11,11 @@ tags:
   - machine-learning
 keywords:
   - tech
+output:
+  blogdown::html_page:
+    toc: true
+    fig_width: 6
+    dev: "svg"
 ---
 
 <!--more-->

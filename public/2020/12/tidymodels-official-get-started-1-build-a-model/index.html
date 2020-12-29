@@ -13,6 +13,15 @@
 
 
 
+
+THE SEA URCHINS DATA
+Build and Fit a model
+Use a model to predict
+Model with a different engine
+Why does it work that way?
+
+
+
 ">
 
 
@@ -21,10 +30,19 @@
 
 
 
+
+THE SEA URCHINS DATA
+Build and Fit a model
+Use a model to predict
+Model with a different engine
+Why does it work that way?
+
+
+
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tidymodels official get started_1 build a model">
-<meta name="twitter:title" content="tidymodels official get started_1 build a model">
+<meta property="og:title" content="tidymodels official get started / 1 build a model">
+<meta name="twitter:title" content="tidymodels official get started / 1 build a model">
 <meta property="og:url" content="https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-1-build-a-model/">
 <meta property="twitter:url" content="https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-1-build-a-model/">
 <meta property="og:site_name" content="기억하기쉬운블로그">
@@ -33,9 +51,27 @@
 
 
 
+
+THE SEA URCHINS DATA
+Build and Fit a model
+Use a model to predict
+Model with a different engine
+Why does it work that way?
+
+
+
 ">
 <meta name="twitter:description" content="
 
+
+
+
+
+THE SEA URCHINS DATA
+Build and Fit a model
+Use a model to predict
+Model with a different engine
+Why does it work that way?
 
 
 
@@ -81,7 +117,7 @@
   <meta property="twitter:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
 
 
-    <title>tidymodels official get started_1 build a model</title>
+    <title>tidymodels official get started / 1 build a model</title>
 
     <link rel="icon" href="https://rhyeu.netlify.app/favicon.png">
     
@@ -236,7 +272,7 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      tidymodels official get started_1 build a model
+      tidymodels official get started / 1 build a model
     </h1>
   
   
@@ -346,7 +382,7 @@ read_csv(&quot;https://tidymodels.org/start/models/urchins.csv&quot;) %&gt;%
   geom_smooth(method = lm, se = F) +
   scale_color_viridis_d(option = &quot;plasma&quot;, end = 0.7)</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="https://rhyeu.netlify.app/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-4-1.svg" width="576" /></p>
 </div>
 <div id="build-and-fit-a-model" class="section level3">
 <h3>Build and Fit a model</h3>
@@ -383,7 +419,7 @@ tidy(lm_fit)</code></pre>
   dwplot(dot_args = list(size = 2, color = &quot;black&quot;),
          whisker_args = list(color = &quot;black&quot;),
          vline = geom_vline(xintercept = 0, colour = &quot;grey50&quot;, linetype = 2))</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="https://rhyeu.netlify.app/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-9-1.svg" width="576" /></p>
 </div>
 <div id="use-a-model-to-predict" class="section level3">
 <h3>Use a model to predict</h3>
@@ -421,7 +457,7 @@ ggplot(plot_data, aes(x = food_regime)) +
                     ymax = .pred_upper),
                 width = .2) +
   labs(y = &quot;urchin size&quot;)</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="https://rhyeu.netlify.app/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-13-1.svg" width="576" /></p>
 </div>
 <div id="model-with-a-different-engine" class="section level3">
 <h3>Model with a different engine</h3>
@@ -447,7 +483,7 @@ bayes_fit &lt;- bayes_mod %&gt;%
 print(bayes_fit, digits = 5)</code></pre>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  20.2s 
+## Fit time:  22.6s 
 ## stan_glm
 ##  family:       gaussian [identity]
 ##  formula:      width ~ initial_volume * food_regime
@@ -493,7 +529,7 @@ print(bayes_fit, digits = 5)</code></pre>
                 width = .2) +
   labs(y = &quot;urchin size&quot;) + 
   ggtitle(&quot;Bayesian model with t(1) prior distribution&quot;)</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="https://rhyeu.netlify.app/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-16-1.svg" width="576" /></p>
 </div>
 <div id="why-does-it-work-that-way" class="section level3">
 <h3>Why does it work that way?</h3>
@@ -530,7 +566,7 @@ print(bayes_fit, digits = 5)</code></pre>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes/" data-tooltip="tidymodels official get started chpt 2 Preporcess your data with recipes">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes/" data-tooltip="tidymodels official get started / chpt 2 Preporcess your data with recipes">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -604,7 +640,7 @@ print(bayes_fit, digits = 5)</code></pre>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes/" data-tooltip="tidymodels official get started chpt 2 Preporcess your data with recipes">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes/" data-tooltip="tidymodels official get started / chpt 2 Preporcess your data with recipes">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>

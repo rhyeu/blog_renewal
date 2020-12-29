@@ -8,7 +8,7 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 27 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>tidymodel official get started chpt 5 A predictive modeling case study</title>
+      <title>tidymodel official get started / chpt 5 A predictive modeling case study</title>
       <link>https://rhyeu.netlify.app/2020/12/tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study/</link>
       <pubDate>Sun, 27 Dec 2020 00:00:00 +0000</pubDate>
       
@@ -17,12 +17,22 @@
 &lt;link href=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
 &lt;script src=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#hotel-bookings-data&#34;&gt;Hotel Bookings data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-splitting-resampling&#34;&gt;Data splitting &amp;amp; resampling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#a-first-model-penalized-logistic-regression&#34;&gt;A First model : Penalized logistic regression&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#a-second-model-tree-based-ensemble&#34;&gt;A Second Model : Tree-based ensemble&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#the-last-fit&#34;&gt;The last fit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 
 </description>
     </item>
     
     <item>
-      <title>tidymodel official get started chpt 4 Tune model parameters</title>
+      <title>tidymodel official get started / chpt 4 Tune model parameters</title>
       <link>https://rhyeu.netlify.app/2020/12/tidymodel-official-get-started-chpt-4-tune-model-parameters/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
       
@@ -31,12 +41,23 @@
 &lt;link href=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
 &lt;script src=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#the-cell-image-data-revisited&#34;&gt;The cell image data, revisited&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#predicting-image-segmentation-but-better&#34;&gt;Predicting image segmentation, but better&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tuning-hyperparameters&#34;&gt;Tuning hyperparameters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#model-tunning-with-a-grid&#34;&gt;Model tunning with a grid&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#finalizing-our-model&#34;&gt;Finalizing our model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#exploring-result&#34;&gt;Exploring result&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#the-last-fit&#34;&gt;The last fit ?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 
 </description>
     </item>
     
     <item>
-      <title>tidymodels official get started chpt 3 Evaluate your model with resampling</title>
+      <title>tidymodels official get started / chpt 3 Evaluate your model with resampling</title>
       <link>https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-chpt-3-evaluate-your-model-with-resampling/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
       
@@ -45,12 +66,23 @@
 &lt;link href=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
 &lt;script src=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#the-cell-image-data&#34;&gt;The cell image data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#back-to-the-cells-data&#34;&gt;Back to the cells data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-splitting&#34;&gt;Data splitting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#estimating-performance&#34;&gt;Estimating performance&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#resampling-to-the-rescue&#34;&gt;Resampling to the rescue&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#fit-a-model-with-resampling&#34;&gt;Fit a model with resampling&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 
 </description>
     </item>
     
     <item>
-      <title>tidymodels official get started_1 build a model</title>
+      <title>tidymodels official get started / 1 build a model</title>
       <link>https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-1-build-a-model/</link>
       <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
       
@@ -59,6 +91,15 @@
 &lt;link href=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
 &lt;script src=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#the-sea-urchins-data&#34;&gt;THE SEA URCHINS DATA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#build-and-fit-a-model&#34;&gt;Build and Fit a model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#use-a-model-to-predict&#34;&gt;Use a model to predict&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#model-with-a-different-engine&#34;&gt;Model with a different engine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#why-does-it-work-that-way&#34;&gt;Why does it work that way?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 
 </description>
     </item>

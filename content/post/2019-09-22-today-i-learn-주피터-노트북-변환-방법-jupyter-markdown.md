@@ -1,15 +1,18 @@
 ---
-title: Today I Learn / 주피터 노트북 포스팅
+title: Today I Learn / 주피터 노트북 변환 방법(jupyter -> markdown)
 author: 류성균
 date: '2019-09-22'
-slug: today-i-learn
+slug: today-i-learn-주피터-노트북-변환-방법-jupyter-markdown
 categories:
   - Today I learn
-tags: 
+tags:
   - jupyter notebook
+keywords:
+  - tech
 ---
 
 <!--more-->
+
 
 - 출처 : https://www.timlrx.com/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/
 

@@ -6,7 +6,16 @@
     <description>Recent content in os on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/os/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/os/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Today I Learn / colab 파일 읽고 쓰기 tip</title>
+      <link>https://rhyeu.netlify.app/2020/12/today-i-learn-python-tip/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/2020/12/today-i-learn-python-tip/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>os.path.join in Python</title>
       <link>https://rhyeu.netlify.app/2020/06/os-path-join-in-python/</link>

@@ -4,7 +4,42 @@
   
   <url>
     <loc>https://rhyeu.netlify.app/categories/</loc>
-    <lastmod>2020-12-27T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/tags/os/</loc>
+    <lastmod>2020-12-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/post/</loc>
+    <lastmod>2020-12-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/tags/python/</loc>
+    <lastmod>2020-12-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/tags/</loc>
+    <lastmod>2020-12-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/categories/today-i-learn/</loc>
+    <lastmod>2020-12-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/2020/12/today-i-learn-python-tip/</loc>
+    <lastmod>2020-12-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/</loc>
+    <lastmod>2020-12-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -13,17 +48,7 @@
   </url>
   
   <url>
-    <loc>https://rhyeu.netlify.app/post/</loc>
-    <lastmod>2020-12-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://rhyeu.netlify.app/categories/r/</loc>
-    <lastmod>2020-12-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/tags/</loc>
     <lastmod>2020-12-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -39,11 +64,6 @@
   
   <url>
     <loc>https://rhyeu.netlify.app/tags/tidyverse/</loc>
-    <lastmod>2020-12-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/</loc>
     <lastmod>2020-12-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -74,11 +94,6 @@
   
   <url>
     <loc>https://rhyeu.netlify.app/tags/kaggle/</loc>
-    <lastmod>2020-11-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/categories/today-i-learn/</loc>
     <lastmod>2020-11-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -128,17 +143,7 @@
   </url>
   
   <url>
-    <loc>https://rhyeu.netlify.app/tags/os/</loc>
-    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://rhyeu.netlify.app/2020/06/os-path-join-in-python/</loc>
-    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rhyeu.netlify.app/tags/python/</loc>
     <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -188,22 +193,22 @@
   </url>
   
   <url>
-    <loc>https://rhyeu.netlify.app/2019/09/today-i-learn/</loc>
-    <lastmod>2019-09-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://rhyeu.netlify.app/tags/jupyter-notebook/</loc>
     <lastmod>2019-09-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rhyeu.netlify.app/2019/09/today-i-learn/</loc>
+    <loc>https://rhyeu.netlify.app/2019/09/today-i-learn-%EC%A3%BC%ED%94%BC%ED%84%B0-%EB%85%B8%ED%8A%B8%EB%B6%81-%EB%B3%80%ED%99%98-%EB%B0%A9%EB%B2%95-jupyter-markdown/</loc>
     <lastmod>2019-09-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rhyeu.netlify.app/2019/09/today-i-learn/</loc>
+    <loc>https://rhyeu.netlify.app/tags/computing/</loc>
+    <lastmod>2019-09-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rhyeu.netlify.app/2019/09/index.en-us/</loc>
     <lastmod>2019-09-19T00:00:00+00:00</lastmod>
   </url>
   

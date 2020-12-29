@@ -1,5 +1,5 @@
 ---
-title: tidymodel official get started chpt 5 A predictive modeling case study
+title: tidymodel official get started / chpt 5 A predictive modeling case study
 author: 류성균
 date: '2020-12-27'
 slug: tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study
@@ -11,11 +11,26 @@ tags:
   - machine-learning
 keywords:
   - tech
+output:
+  blogdown::html_page:
+    toc: true
+    fig_width: 6
+    dev: "svg"
 ---
 
 <link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#hotel-bookings-data">Hotel Bookings data</a></li>
+<li><a href="#data-splitting-resampling">Data splitting &amp; resampling</a></li>
+<li><a href="#a-first-model-penalized-logistic-regression">A First model : Penalized logistic regression</a></li>
+<li><a href="#a-second-model-tree-based-ensemble">A Second Model : Tree-based ensemble</a></li>
+<li><a href="#the-last-fit">The last fit</a></li>
+</ul>
+</div>
 
 <!--more-->
 <ul>
@@ -257,7 +272,7 @@ lr_reg_grid %&gt;% top_n(-5) # lowest penalty values</code></pre>
   scale_x_log10(labels = scales::label_number())
 
 lr_plot</code></pre>
-<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-14-1.svg" width="576" />
 - AUC를 보면 8번째(penalty = 0.0005298317) 모델이 좋지만 비슷한 AUC라면 변수가 작은게 좋으므로 이를 고려</p>
 <pre class="r"><code>top_models &lt;- lr_res %&gt;% 
   show_best(&quot;roc_auc&quot;, n = 15) %&gt;% 
@@ -298,7 +313,7 @@ lr_best</code></pre>
   mutate(model = &quot;Logistic Regression&quot;)
 
 autoplot(lr_auc)</code></pre>
-<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-17-1.svg" width="576" /></p>
 </div>
 </div>
 <div id="a-second-model-tree-based-ensemble" class="section level3">
@@ -370,7 +385,7 @@ rf_res &lt;- rf_workflow %&gt;%
 ## 4     7    25 roc_auc binary     0.932     1      NA Model03
 ## 5     9    12 roc_auc binary     0.932     1      NA Model19</code></pre>
 <pre class="r"><code>autoplot(rf_res)</code></pre>
-<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-26-1.svg" width="576" /></p>
 <pre class="r"><code>rf_best &lt;- rf_res %&gt;% 
   select_best(metric = &quot;roc_auc&quot;)
 
@@ -408,7 +423,7 @@ rf_best</code></pre>
   geom_abline(lty = 3) + 
   coord_equal() +
   scale_color_viridis_d(option = &quot;plasma&quot;, end = 0.6)</code></pre>
-<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-30-1.svg" width="576" /></p>
 </div>
 </div>
 <div id="the-last-fit" class="section level3">
@@ -447,10 +462,10 @@ last_rf_fit</code></pre>
   pluck(&quot;.workflow&quot;, 1) %&gt;% 
   pull_workflow_fit() %&gt;% 
   vip(num_features = 20)</code></pre>
-<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-33-1.svg" width="576" /></p>
 <pre class="r"><code>last_rf_fit %&gt;%  
   collect_predictions() %&gt;% 
   roc_curve(children, .pred_children) %&gt;% 
   autoplot()</code></pre>
-<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-34-1.svg" width="576" /></p>
 </div>

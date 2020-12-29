@@ -6,7 +6,16 @@
     <description>Recent content in Today I learn on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/categories/today-i-learn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/categories/today-i-learn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Today I Learn / colab 파일 읽고 쓰기 tip</title>
+      <link>https://rhyeu.netlify.app/2020/12/today-i-learn-python-tip/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/2020/12/today-i-learn-python-tip/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>xgboost tutorial</title>
       <link>https://rhyeu.netlify.app/2020/11/index.en-us/</link>
@@ -105,43 +114,21 @@
     </item>
     
     <item>
-      <title>Today I Learn / 파이썬 팁 - 리스트 출력, 연산자, range 함수</title>
-      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
-      <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
-      <description>
-&lt;link href=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
-
-
-</description>
-    </item>
-    
-    <item>
-      <title>Today I Learn / 주피터 노트북 포스팅</title>
-      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
+      <title>Today I Learn / 주피터 노트북 변환 방법(jupyter -&gt; markdown)</title>
+      <link>https://rhyeu.netlify.app/2019/09/today-i-learn-%EC%A3%BC%ED%94%BC%ED%84%B0-%EB%85%B8%ED%8A%B8%EB%B6%81-%EB%B3%80%ED%99%98-%EB%B0%A9%EB%B2%95-jupyter-markdown/</link>
       <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
-      <description>
-
-
-</description>
+      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn-%EC%A3%BC%ED%94%BC%ED%84%B0-%EB%85%B8%ED%8A%B8%EB%B6%81-%EB%B3%80%ED%99%98-%EB%B0%A9%EB%B2%95-jupyter-markdown/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Today I Learn / python tip (print, list, 진법, 몫, 나머지)</title>
-      <link>https://rhyeu.netlify.app/2019/09/today-i-learn/</link>
+      <title>Today I Learn / python tip (print, list, 계산)</title>
+      <link>https://rhyeu.netlify.app/2019/09/index.en-us/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://rhyeu.netlify.app/2019/09/today-i-learn/</guid>
-      <description>
-&lt;link href=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://rhyeu.netlify.app/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
-
-
-</description>
+      <guid>https://rhyeu.netlify.app/2019/09/index.en-us/</guid>
+      <description></description>
     </item>
     
     <item>

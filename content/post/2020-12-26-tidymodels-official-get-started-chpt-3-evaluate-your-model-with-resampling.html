@@ -1,5 +1,5 @@
 ---
-title: tidymodels official get started chpt 3 Evaluate your model with resampling
+title: tidymodels official get started / chpt 3 Evaluate your model with resampling
 author: 류성균
 date: '2020-12-26'
 slug: tidymodels-official-get-started-chpt-3-evaluate-your-model-with-resampling
@@ -11,11 +11,27 @@ tags:
   - machine-learning
 keywords:
   - tech
+output:
+  blogdown::html_page:
+    toc: true
+    fig_width: 6
+    dev: "svg"
 ---
 
 <link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#the-cell-image-data">The cell image data</a></li>
+<li><a href="#back-to-the-cells-data">Back to the cells data</a></li>
+<li><a href="#data-splitting">Data splitting</a></li>
+<li><a href="#estimating-performance">Estimating performance</a></li>
+<li><a href="#resampling-to-the-rescue">Resampling to the rescue</a></li>
+<li><a href="#fit-a-model-with-resampling">Fit a model with resampling</a></li>
+</ul>
+</div>
 
 <!--more-->
 <ul>
@@ -173,7 +189,7 @@ rf_fit &lt;- rf_mod %&gt;%
 rf_fit</code></pre>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  3.2s 
+## Fit time:  3.6s 
 ## Ranger result
 ## 
 ## Call:

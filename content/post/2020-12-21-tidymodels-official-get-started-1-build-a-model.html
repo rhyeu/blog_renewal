@@ -1,5 +1,5 @@
 ---
-title: tidymodels official get started_1 build a model
+title: tidymodels official get started / 1 build a model
 author: 류성균
 date: '2020-12-21'
 slug: tidymodels-official-get-started-1-build-a-model
@@ -11,11 +11,25 @@ tags:
   - machine-learning
 keywords:
   - tech
+output:
+  blogdown::html_page:
+    toc: true
+    fig_width: 6
+    dev: "svg"
 ---
 
 <link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#the-sea-urchins-data">THE SEA URCHINS DATA</a></li>
+<li><a href="#build-and-fit-a-model">Build and Fit a model</a></li>
+<li><a href="#use-a-model-to-predict">Use a model to predict</a></li>
+<li><a href="#model-with-a-different-engine">Model with a different engine</a></li>
+<li><a href="#why-does-it-work-that-way">Why does it work that way?</a></li>
+</ul>
+</div>
 
 <!--more-->
 <ul>
@@ -101,7 +115,7 @@ read_csv(&quot;https://tidymodels.org/start/models/urchins.csv&quot;) %&gt;%
   geom_smooth(method = lm, se = F) +
   scale_color_viridis_d(option = &quot;plasma&quot;, end = 0.7)</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-4-1.svg" width="576" /></p>
 </div>
 <div id="build-and-fit-a-model" class="section level3">
 <h3>Build and Fit a model</h3>
@@ -138,7 +152,7 @@ tidy(lm_fit)</code></pre>
   dwplot(dot_args = list(size = 2, color = &quot;black&quot;),
          whisker_args = list(color = &quot;black&quot;),
          vline = geom_vline(xintercept = 0, colour = &quot;grey50&quot;, linetype = 2))</code></pre>
-<p><img src="/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-9-1.svg" width="576" /></p>
 </div>
 <div id="use-a-model-to-predict" class="section level3">
 <h3>Use a model to predict</h3>
@@ -176,7 +190,7 @@ ggplot(plot_data, aes(x = food_regime)) +
                     ymax = .pred_upper),
                 width = .2) +
   labs(y = &quot;urchin size&quot;)</code></pre>
-<p><img src="/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-13-1.svg" width="576" /></p>
 </div>
 <div id="model-with-a-different-engine" class="section level3">
 <h3>Model with a different engine</h3>
@@ -202,7 +216,7 @@ bayes_fit &lt;- bayes_mod %&gt;%
 print(bayes_fit, digits = 5)</code></pre>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  20.2s 
+## Fit time:  22.6s 
 ## stan_glm
 ##  family:       gaussian [identity]
 ##  formula:      width ~ initial_volume * food_regime
@@ -248,7 +262,7 @@ print(bayes_fit, digits = 5)</code></pre>
                 width = .2) +
   labs(y = &quot;urchin size&quot;) + 
   ggtitle(&quot;Bayesian model with t(1) prior distribution&quot;)</code></pre>
-<p><img src="/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="/post/2020-12-21-tidymodels-official-get-started-1-build-a-model_files/figure-html/unnamed-chunk-16-1.svg" width="576" /></p>
 </div>
 <div id="why-does-it-work-that-way" class="section level3">
 <h3>Why does it work that way?</h3>

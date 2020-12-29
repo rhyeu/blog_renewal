@@ -6,7 +6,25 @@
     <description>Recent content in Tags on 기억하기쉬운블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rhyeu.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>os</title>
+      <link>https://rhyeu.netlify.app/tags/os/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/tags/os/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://rhyeu.netlify.app/tags/python/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/tags/python/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>machine-learning</title>
       <link>https://rhyeu.netlify.app/tags/machine-learning/</link>
@@ -89,24 +107,6 @@
     </item>
     
     <item>
-      <title>os</title>
-      <link>https://rhyeu.netlify.app/tags/os/</link>
-      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://rhyeu.netlify.app/tags/os/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://rhyeu.netlify.app/tags/python/</link>
-      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://rhyeu.netlify.app/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>estimate error</title>
       <link>https://rhyeu.netlify.app/tags/estimate-error/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
@@ -157,6 +157,15 @@
       <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rhyeu.netlify.app/tags/jupyter-notebook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>computing</title>
+      <link>https://rhyeu.netlify.app/tags/computing/</link>
+      <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://rhyeu.netlify.app/tags/computing/</guid>
       <description></description>
     </item>
     

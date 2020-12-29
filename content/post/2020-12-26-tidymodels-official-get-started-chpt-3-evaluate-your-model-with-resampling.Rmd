@@ -1,5 +1,5 @@
 ---
-title: tidymodels official get started chpt 3 Evaluate your model with resampling
+title: tidymodels official get started / chpt 3 Evaluate your model with resampling
 author: 류성균
 date: '2020-12-26'
 slug: tidymodels-official-get-started-chpt-3-evaluate-your-model-with-resampling
@@ -11,6 +11,11 @@ tags:
   - machine-learning
 keywords:
   - tech
+output:
+  blogdown::html_page:
+    toc: true
+    fig_width: 6
+    dev: "svg"
 ---
 
 <!--more-->

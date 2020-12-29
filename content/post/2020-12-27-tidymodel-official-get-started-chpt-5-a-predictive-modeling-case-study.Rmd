@@ -1,5 +1,5 @@
 ---
-title: tidymodel official get started chpt 5 A predictive modeling case study
+title: tidymodel official get started / chpt 5 A predictive modeling case study
 author: 류성균
 date: '2020-12-27'
 slug: tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study
@@ -11,6 +11,11 @@ tags:
   - machine-learning
 keywords:
   - tech
+output:
+  blogdown::html_page:
+    toc: true
+    fig_width: 6
+    dev: "svg"
 ---
 
 <!--more-->

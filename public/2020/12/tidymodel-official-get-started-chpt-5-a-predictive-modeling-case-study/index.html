@@ -13,6 +13,16 @@
 
 
 
+
+Introduction
+Hotel Bookings data
+Data splitting &amp; resampling
+A First model : Penalized logistic regression
+A Second Model : Tree-based ensemble
+The last fit
+
+
+
 ">
 
 
@@ -21,10 +31,20 @@
 
 
 
+
+Introduction
+Hotel Bookings data
+Data splitting &amp; resampling
+A First model : Penalized logistic regression
+A Second Model : Tree-based ensemble
+The last fit
+
+
+
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tidymodel official get started chpt 5 A predictive modeling case study">
-<meta name="twitter:title" content="tidymodel official get started chpt 5 A predictive modeling case study">
+<meta property="og:title" content="tidymodel official get started / chpt 5 A predictive modeling case study">
+<meta name="twitter:title" content="tidymodel official get started / chpt 5 A predictive modeling case study">
 <meta property="og:url" content="https://rhyeu.netlify.app/2020/12/tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study/">
 <meta property="twitter:url" content="https://rhyeu.netlify.app/2020/12/tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study/">
 <meta property="og:site_name" content="기억하기쉬운블로그">
@@ -33,9 +53,29 @@
 
 
 
+
+Introduction
+Hotel Bookings data
+Data splitting &amp; resampling
+A First model : Penalized logistic regression
+A Second Model : Tree-based ensemble
+The last fit
+
+
+
 ">
 <meta name="twitter:description" content="
 
+
+
+
+
+Introduction
+Hotel Bookings data
+Data splitting &amp; resampling
+A First model : Penalized logistic regression
+A Second Model : Tree-based ensemble
+The last fit
 
 
 
@@ -81,7 +121,7 @@
   <meta property="twitter:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
 
 
-    <title>tidymodel official get started chpt 5 A predictive modeling case study</title>
+    <title>tidymodel official get started / chpt 5 A predictive modeling case study</title>
 
     <link rel="icon" href="https://rhyeu.netlify.app/favicon.png">
     
@@ -236,7 +276,7 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      tidymodel official get started chpt 5 A predictive modeling case study
+      tidymodel official get started / chpt 5 A predictive modeling case study
     </h1>
   
   
@@ -502,7 +542,7 @@ lr_reg_grid %&gt;% top_n(-5) # lowest penalty values</code></pre>
   scale_x_log10(labels = scales::label_number())
 
 lr_plot</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<p><img src="https://rhyeu.netlify.app/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-14-1.svg" width="576" />
 - AUC를 보면 8번째(penalty = 0.0005298317) 모델이 좋지만 비슷한 AUC라면 변수가 작은게 좋으므로 이를 고려</p>
 <pre class="r"><code>top_models &lt;- lr_res %&gt;% 
   show_best(&quot;roc_auc&quot;, n = 15) %&gt;% 
@@ -543,7 +583,7 @@ lr_best</code></pre>
   mutate(model = &quot;Logistic Regression&quot;)
 
 autoplot(lr_auc)</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="https://rhyeu.netlify.app/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-17-1.svg" width="576" /></p>
 </div>
 </div>
 <div id="a-second-model-tree-based-ensemble" class="section level3">
@@ -615,7 +655,7 @@ rf_res &lt;- rf_workflow %&gt;%
 ## 4     7    25 roc_auc binary     0.932     1      NA Model03
 ## 5     9    12 roc_auc binary     0.932     1      NA Model19</code></pre>
 <pre class="r"><code>autoplot(rf_res)</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="https://rhyeu.netlify.app/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-26-1.svg" width="576" /></p>
 <pre class="r"><code>rf_best &lt;- rf_res %&gt;% 
   select_best(metric = &quot;roc_auc&quot;)
 
@@ -653,7 +693,7 @@ rf_best</code></pre>
   geom_abline(lty = 3) + 
   coord_equal() +
   scale_color_viridis_d(option = &quot;plasma&quot;, end = 0.6)</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="https://rhyeu.netlify.app/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-30-1.svg" width="576" /></p>
 </div>
 </div>
 <div id="the-last-fit" class="section level3">
@@ -692,12 +732,12 @@ last_rf_fit</code></pre>
   pluck(&quot;.workflow&quot;, 1) %&gt;% 
   pull_workflow_fit() %&gt;% 
   vip(num_features = 20)</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="https://rhyeu.netlify.app/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-33-1.svg" width="576" /></p>
 <pre class="r"><code>last_rf_fit %&gt;%  
   collect_predictions() %&gt;% 
   roc_curve(children, .pred_children) %&gt;% 
   autoplot()</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="https://rhyeu.netlify.app/post/2020-12-27-tidymodel-official-get-started-chpt-5-a-predictive-modeling-case-study_files/figure-html/unnamed-chunk-34-1.svg" width="576" /></p>
 </div>
 
               
@@ -728,7 +768,7 @@ last_rf_fit</code></pre>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/today-i-learn-python-tip/" data-tooltip="Today I Learn / colab 파일 읽고 쓰기 tip">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -736,7 +776,7 @@ last_rf_fit</code></pre>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodel-official-get-started-chpt-4-tune-model-parameters/" data-tooltip="tidymodel official get started chpt 4 Tune model parameters">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodel-official-get-started-chpt-4-tune-model-parameters/" data-tooltip="tidymodel official get started / chpt 4 Tune model parameters">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -802,7 +842,7 @@ last_rf_fit</code></pre>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/today-i-learn-python-tip/" data-tooltip="Today I Learn / colab 파일 읽고 쓰기 tip">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -810,7 +850,7 @@ last_rf_fit</code></pre>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodel-official-get-started-chpt-4-tune-model-parameters/" data-tooltip="tidymodel official get started chpt 4 Tune model parameters">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodel-official-get-started-chpt-4-tune-model-parameters/" data-tooltip="tidymodel official get started / chpt 4 Tune model parameters">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>

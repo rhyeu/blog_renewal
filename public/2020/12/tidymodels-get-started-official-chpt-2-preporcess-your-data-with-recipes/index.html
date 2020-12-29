@@ -13,6 +13,17 @@
 
 
 
+
+Introduction
+The New York city flight data
+Data splitting
+Create recipe and roles
+Create features
+Fit a model with a recipe
+Use a trained workflow to predict
+
+
+
 ">
 
 
@@ -21,10 +32,21 @@
 
 
 
+
+Introduction
+The New York city flight data
+Data splitting
+Create recipe and roles
+Create features
+Fit a model with a recipe
+Use a trained workflow to predict
+
+
+
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tidymodels official get started chpt 2 Preporcess your data with recipes">
-<meta name="twitter:title" content="tidymodels official get started chpt 2 Preporcess your data with recipes">
+<meta property="og:title" content="tidymodels official get started / chpt 2 Preporcess your data with recipes">
+<meta name="twitter:title" content="tidymodels official get started / chpt 2 Preporcess your data with recipes">
 <meta property="og:url" content="https://rhyeu.netlify.app/2020/12/tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes/">
 <meta property="twitter:url" content="https://rhyeu.netlify.app/2020/12/tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes/">
 <meta property="og:site_name" content="기억하기쉬운블로그">
@@ -33,9 +55,31 @@
 
 
 
+
+Introduction
+The New York city flight data
+Data splitting
+Create recipe and roles
+Create features
+Fit a model with a recipe
+Use a trained workflow to predict
+
+
+
 ">
 <meta name="twitter:description" content="
 
+
+
+
+
+Introduction
+The New York city flight data
+Data splitting
+Create recipe and roles
+Create features
+Fit a model with a recipe
+Use a trained workflow to predict
 
 
 
@@ -79,7 +123,7 @@
   <meta property="twitter:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
 
 
-    <title>tidymodels official get started chpt 2 Preporcess your data with recipes</title>
+    <title>tidymodels official get started / chpt 2 Preporcess your data with recipes</title>
 
     <link rel="icon" href="https://rhyeu.netlify.app/favicon.png">
     
@@ -234,7 +278,7 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      tidymodels official get started chpt 2 Preporcess your data with recipes
+      tidymodels official get started / chpt 2 Preporcess your data with recipes
     </h1>
   
   
@@ -588,7 +632,7 @@ flights_wflow</code></pre>
 <pre class="r"><code>flights_pred %&gt;%
   roc_curve(truth = arr_delay, .pred_late) %&gt;% 
   autoplot()</code></pre>
-<p><img src="https://rhyeu.netlify.app/post/2020-12-22-tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="https://rhyeu.netlify.app/post/2020-12-22-tidymodels-get-started-official-chpt-2-preporcess-your-data-with-recipes_files/figure-html/unnamed-chunk-18-1.svg" width="576" /></p>
 <pre class="r"><code>flights_pred %&gt;% 
   roc_auc(truth = arr_delay, .pred_late)</code></pre>
 <pre><code>## # A tibble: 1 x 3
@@ -623,7 +667,7 @@ flights_wflow</code></pre>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-chpt-3-evaluate-your-model-with-resampling/" data-tooltip="tidymodels official get started chpt 3 Evaluate your model with resampling">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-chpt-3-evaluate-your-model-with-resampling/" data-tooltip="tidymodels official get started / chpt 3 Evaluate your model with resampling">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -631,7 +675,7 @@ flights_wflow</code></pre>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-1-build-a-model/" data-tooltip="tidymodels official get started_1 build a model">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-1-build-a-model/" data-tooltip="tidymodels official get started / 1 build a model">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -697,7 +741,7 @@ flights_wflow</code></pre>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-chpt-3-evaluate-your-model-with-resampling/" data-tooltip="tidymodels official get started chpt 3 Evaluate your model with resampling">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-chpt-3-evaluate-your-model-with-resampling/" data-tooltip="tidymodels official get started / chpt 3 Evaluate your model with resampling">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -705,7 +749,7 @@ flights_wflow</code></pre>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-1-build-a-model/" data-tooltip="tidymodels official get started_1 build a model">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://rhyeu.netlify.app/2020/12/tidymodels-official-get-started-1-build-a-model/" data-tooltip="tidymodels official get started / 1 build a model">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
