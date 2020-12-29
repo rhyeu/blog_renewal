@@ -9,6 +9,8 @@ tags:
   - python
 ---
 
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 
 <!--more-->
@@ -18,16 +20,16 @@ Sys.setlocale(&#39;LC_ALL&#39;,&#39;C&#39;)</code></pre>
 <ul>
 <li>요새 코드업 기초 100제를 풀어보고 있는데 헷갈리는 것들을 정리!</li>
 </ul>
-<div id="sep-옵션-in-python" class="section level3">
-<h3>1. sep 옵션 in python</h3>
+<div id="sep-옵션-in-python" class="section level1">
+<h1>1. sep 옵션 in python</h1>
 <p>파이썬에서 여러 개를 출력할 때 sep 옵션을 걸 수 있음</p>
 <pre class="python"><code>print(1920, 1080, sep = &#39;x&#39;)</code></pre>
 <pre><code>## 1920x1080</code></pre>
 <pre class="python"><code>print(&#39;Hello&#39;, &#39;Python&#39;, sep = &#39;-&#39;)</code></pre>
 <pre><code>## Hello-Python</code></pre>
 </div>
-<div id="리스트-원소-합치기" class="section level3">
-<h3>리스트 원소 합치기</h3>
+<div id="리스트-원소-합치기" class="section level1">
+<h1>리스트 원소 합치기</h1>
 <ul>
 <li>출처 : <a href="http://mwultong.blogspot.com/2006/12/python-list-merge.html" class="uri">http://mwultong.blogspot.com/2006/12/python-list-merge.html</a></li>
 </ul>
@@ -43,8 +45,8 @@ print(value)
 print(value2)</code></pre>
 <pre><code>## pine, apple</code></pre>
 </div>
-<div id="진법-변환" class="section level3">
-<h3>진법 변환</h3>
+<div id="진법-변환" class="section level1">
+<h1>진법 변환</h1>
 <ul>
 <li>출처 : <a href="https://www.daleseo.com/python-int-bases/" class="uri">https://www.daleseo.com/python-int-bases/</a></li>
 </ul>
@@ -70,8 +72,8 @@ format(int(&#39;2A&#39;, 16), &#39;o&#39;)</code></pre>
 <pre class="python"><code>format(int(&#39;62&#39;, 8), &#39;X&#39;)</code></pre>
 <pre><code>## &#39;32&#39;</code></pre>
 </div>
-<div id="항상-헷갈리는-몫과-나머지" class="section level3">
-<h3>항상 헷갈리는 몫과 나머지</h3>
+<div id="항상-헷갈리는-몫과-나머지" class="section level1">
+<h1>항상 헷갈리는 몫과 나머지</h1>
 <ul>
 <li>참조 : <a href="https://programmers.co.kr/learn/courses/4008/lessons/12732" class="uri">https://programmers.co.kr/learn/courses/4008/lessons/12732</a></li>
 </ul>
@@ -82,15 +84,15 @@ print(a//b) # 몫</code></pre>
 <pre class="python"><code>print(a%b) # 나머지</code></pre>
 <pre><code>## 4</code></pre>
 </div>
-<div id="아스키-코드---문자열" class="section level3">
-<h3>아스키 코드 &lt;-&gt; 문자열</h3>
+<div id="아스키-코드---문자열" class="section level1">
+<h1>아스키 코드 &lt;-&gt; 문자열</h1>
 <pre class="python"><code>print(ord(&#39;B&#39;)) # 문자를 아스키 코드로 변환</code></pre>
 <pre><code>## 66</code></pre>
 <pre class="python"><code>print(chr(102)) # 아스키코드를 문자로 변환</code></pre>
 <pre><code>## f</code></pre>
 </div>
-<div id="리스트의-문자열을-int-형태로-변환" class="section level3">
-<h3>리스트의 문자열을 int 형태로 변환</h3>
+<div id="리스트의-문자열을-int-형태로-변환" class="section level1">
+<h1>리스트의 문자열을 int 형태로 변환</h1>
 <pre class="python"><code>a = [&#39;13&#39;, &#39;4&#39;, &#39;68&#39;]
 
 a1 = list(map(int, a)) # 맵핑을 이용한 방법
